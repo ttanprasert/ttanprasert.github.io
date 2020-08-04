@@ -10,11 +10,29 @@
 .wrapper {
     position:relative;
     width:100%;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
 }
 
 .box {
     position:absolute;
+    z-index:605;
+    border-bottom-color:black;
+    border-bottom-width: 0px;
+}
+
+.vl {
+  position: absolute;
+  border-left: 2px solid red;
+  height: 52px;
+  z-index: 610;
+}
+
+.dot {
+  height: 5px;
+  width: 5px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
 }
 
 /* Sections
