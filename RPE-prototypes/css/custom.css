@@ -63,10 +63,11 @@
 /* Values
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .values {
-  background-image: url('../images/values-bg-2.jpg');
+  background-image: url('../images/values-bg.jpg');
   background-size: cover;
+  height: 100%; 
   color: #fff;
-  padding-bottom: 5rem;
+  /*padding-bottom: 5rem;*/
 }
 .value-multiplier {
   margin-bottom: .5rem;
