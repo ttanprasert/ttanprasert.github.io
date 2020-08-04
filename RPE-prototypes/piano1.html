@@ -101,6 +101,31 @@
             <div class="box" id="area43" style="top:185px; left:100px; width:7px; height:52px; background-color: transparent"></div>
             <div class="box" id="area44" style="top:185px; left:107px; width:8px; height:52px; background-color: transparent"></div>
             <div class="box" id="area45" style="top:185px; left:115px; width:12px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area50" style="top:185px; left:127px; width:16px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area51" style="top:185px; left:143px; width:9px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area52" style="top:185px; left:152px; width:7px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area53" style="top:185px; left:159px; width:8px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area54" style="top:185px; left:167px; width:7px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area55" style="top:185px; left:174px; width:12px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area60" style="top:185px; left:186px; width:8px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area61" style="top:185px; left:194px; width:8px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area62" style="top:185px; left:202px; width:11px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area63" style="top:185px; left:213px; width:7px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area64" style="top:185px; left:220px; width:7px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area65" style="top:185px; left:227px; width:7px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area66" style="top:185px; left:234px; width:12px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area70" style="top:185px; left:246px; width:6px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area71" style="top:185px; left:262px; width:7px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area72" style="top:185px; left:269px; width:7px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area73" style="top:185px; left:276px; width:9px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area74" style="top:185px; left:285px; width:6px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area75" style="top:185px; left:291px; width:11px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area80" style="top:185px; left:302px; width:12px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area81" style="top:185px; left:314px; width:12px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area82" style="top:185px; left:326px; width:7px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area83" style="top:185px; left:333px; width:9px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area84" style="top:185px; left:342px; width:4px; height:52px; background-color: transparent"></div>
+            <div class="box" id="area85" style="top:185px; left:346px; width:9px; height:52px; background-color: transparent"></div>
           </div>
           <div class="wrapper">
             <input class="button-primary" type="button" id="selectButton" value="Select regions" onclick="changeSelect()">
@@ -123,7 +148,9 @@
             var endSeconds = 119;
             var areaMap = ["area00", "area01", "area02", "area10", "area11", "area12", "area13", "area14", "area15", "area20", "area21", "area22",
                             "area23", "area24", "area25", "area30", "area31", "area32", "area33", "area34", "area35", "area40", "area41", "area42",
-                            "area43", "area44", "area45"];
+                            "area43", "area44", "area45", "area50", "area51", "area52", "area53", "area54", "area55", "area60", "area61", "area62",
+                            "area63", "area64", "area65", "area66", "area70", "area71", "area72", "area73", "area74", "area75", "area80", "area81",
+                            "area82", "area83", "area84", "area85"];
 
             var selected;
             var start_ind, end_ind;
@@ -192,6 +219,7 @@
               jcrop_api.release();
 
               player.seekTo(startSeconds);
+              getCurrentFrame(startSeconds);
               repeatVar = setInterval(repeatFunc,500);
             }
 
@@ -310,7 +338,7 @@
 
             function getCurrentFrame(t){
               for (var i = 0; i < areaListLen; i++) {
-                if (t > getArea(i).startTime && t < getArea(i).endTime) {
+                if (t >= getArea(i).startTime && t < getArea(i).endTime) {
                   document.getElementById("cursor-line").style.left = getArea(i).x1 + "px";
                   document.getElementById("cursor-line").style.top = getHeight(i) + "px";
                   break;
