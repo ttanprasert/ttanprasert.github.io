@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PROTOTYPE 2</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 10px -16px;
+}
+
+.area {
+  display: none;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: right;
+  display: none; /* Hide all elements by default */
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: transparent;
+  padding: 10px;
+  position: relative;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+  display: block;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+.box {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  font-size: 11px;
+  display: inline-block;
+  margin-top:10px;
+}
+
+p.normal {
+  font-weight: normal;
+}
+
+p.thick {
+  font-weight: bold;
+}
+
+.collapsible {
+  margin-top:5px;
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.collapsible:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 10px;
+  color: white;
+  float: right;
+  margin-left: 5px;
+}
+
+.expand:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.expand, .collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.menu {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+/* Popup container */
+.popup {
+  position: relative;
+  /*display: inline-block;*/
+  cursor: pointer;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #555;
+  color: #fff;
+  text-align: left;
+  font-size:11px;
+  border-radius: 6px;
+  padding: 10px 10px;
+  position:fixed;
+  left: 90%;
+  top: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -moz-transform:translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  z-index: 1;
+  /*bottom: -100%;
+  left: 150%;
+  margin-left: -80px;*/
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: -5px;
+  transform: rotate(90deg);
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+</style>
+</head>
+<body>
+
+<!-- MAIN (Center website) -->
+<div class="main">
+
+<h1>IDEA 2 PROTOTYPE</h1>
+<h4>Tagging and evaluating videos based on instructional quality criteria</h4>
+<p>After the learner finishes watching a video, they would be asked to select tags that apply to the videos. 
+    These tags would be based on the criteria of good videos for instructional purposes e.g. 
+    "Show hands clearly" or "Provide annotations" or "Error-free performance." 
+    The learners could also choose the tags they would like to include with their search query to 
+    filter their search results.
+</p>
+<hr>
+
+<p class="normal" style="display:inline">Search results for </p>
+<p class="thick" style="display:inline">"jesu joy of man's desiring guitar tutorial"</p>
+
+<div id="myBtnContainer" style="width:20%; float:left">
+  <p>FILTERS</p>
+  <button id="allButton" class="btn active" onclick="filterSelection('all')"> Show all</button>
+  <button type="button" class="collapsible">Include</button>
+  <div class="menu">
+    <button id="handButton" class="btn" onclick="filterSelection('hand')"> Show hands clearly</button>
+    <button id="tipsButton" class="btn" onclick="filterSelection('tips')"> Give practice tips</button>
+    <button id="perfButton" class="btn" onclick="filterSelection('perf')"> Error-free performance</button>
+    <button id="scoreButton" class="btn" onclick="filterSelection('score')"> Provide annotations</button>
+    <button id="easyButton" class="btn" onclick="filterSelection('easy')"> Good for beginners</button>
+  </div>
+</div>
+
+<!-- Portfolio Gallery Grid -->
+
+  <div class="column hand-tips-perf" style="width:80%">
+    <div class="content">
+       <img src="images/thumbnail1.jpg" alt="" style="width:100%" href="#" usemap="#workmap">
+       <map name="workmap">
+        <area shape="rect" coords="0,0,750,110" alt="Video" href="guitar2-1.html">
+        <div class="popup" onclick="showPopup()">
+          <area shape="rect" coords="750,0,820,110" alt="Comment" href="#">
+          <span class="popuptext" id="myPopup">
+            <p class="thick"> Comments from learners: </p>
+            <ul>
+              <li>"It only teaches chorus part.”</li>
+              <li>“Very nice and clear explanation”</li>
+              <li>“Doesn’t really explain how to do the difficult version”</li>
+            </ul>
+          </span>
+        </div>
+      </map>
+       <div id="myTagContainer1">
+        <div class="box hand" style="background-color: lightgray"> Show hands clearly</div>
+        <div class="box tips" style="background-color: lightgray"> Give practice tips</div>
+        <div class="box perf" style="background-color: lightgray"> Error-free performance</div>
+       </div>
+    </div>
+  </div>
+  <div class="column hand-perf" style="width:80%">
+    <div class="content">
+       <img src="images/thumbnail2.jpg" alt="" style="width:100%" href="#">
+       <div id="myTagContainer2">
+        <div class="box hand" style="background-color: lightgray"> Show hands clearly</div>
+        <div class="box perf" style="background-color: lightgray"> Error-free performance</div>
+       </div>
+    </div>
+  </div>
+  <div class="column perf-score" style="width:80%">
+    <div class="content">
+       <img src="images/thumbnail3.jpg" alt="" style="width:100%" href="#">
+       <div id="myTagContainer3">
+        <div class="box perf" style="background-color: lightgray"> Error-free performance</div>
+        <div class="box score" style="background-color: lightgray"> Provide annotations</div>
+       </div>
+    </div>
+  </div>
+  <div class="column hand-score" style="width:80%">
+    <div class="content">
+       <img src="images/thumbnail4.jpg" alt="" style="width:100%" href="#">
+       <div id="myTagContainer4">
+        <div class="box hand" style="background-color: lightgray"> Show hands clearly</div>
+        <div class="box score" style="background-color: lightgray"> Provide annotations</div>
+       </div>
+    </div>
+  </div>
+  <div class="column easy" style="width:80%">
+    <div class="content">
+       <img src="images/thumbnail5.jpg" alt="" style="width:100%" href="#">
+       <div id="myTagContainer5">
+        <div class="box easy" style="background-color: lightgray"> Good for beginners</div>
+       </div>
+    </div>
+  </div>
+
+<!-- END GRID -->
+
+
+<!-- END MAIN -->
+</div>
+
+<script>
+
+var coll = document.getElementsByClassName("collapsible");
+var included = [];
+
+for ( var i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("expand");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+
+filterSelection("all")
+function filterSelection(c) {
+  var x, y, i, j, ind, countmatch, tags;
+  x = document.getElementsByClassName("column");
+  y = document.getElementsByClassName("box");
+
+  if (c == "all") {
+      c = "";
+      included = [];
+      for (i = 0; i < x.length; i++) {
+          w3RemoveClass(x[i], "show");
+          if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+      }
+      for (i = 0; i < y.length; i++) {
+        y[i].style.backgroundColor = "lightgray";
+      }
+  }
+
+  else {
+      ind = included.indexOf(c);
+      if (ind > -1) { // deselect element
+          included.splice(ind, 1);
+      }
+      else { // select element
+          included.push(c);
+      }
+
+      for (i = 0; i < y.length; i++) {
+        y[i].style.backgroundColor = "lightgray";
+        for (j = 0; j < included.length; j++) {
+            if (y[i].className.indexOf(included[j]) > -1) {
+                y[i].style.backgroundColor = "palegreen";
+            }
+        }
+      }
+
+      for (i = 0; i < x.length; i++) { 
+          w3RemoveClass(x[i], "show");
+          countmatch = 0;
+          for (j = 0; j < included.length; j++) {
+            if (x[i].className.indexOf(included[j]) > -1) {
+                countmatch += 1;
+            }
+          }
+          if (countmatch == included.length) w3AddClass(x[i], "show");
+      }
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+var currents;
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    if (this.id == "allButton") { // If choose Show All, deselect every tag.
+        if (this.className.indexOf("active") == -1) {
+            for (var j = 0; j < btns.length; j++) {
+                if (btns[j].className.indexOf("active") > -1) btns[j].className = btns[j].className.replace(" active", "");
+            }
+            this.className += " active";
+        }
+    }
+    else {
+        var allButton = document.getElementById("allButton"); // If Show All was chosen, deselect it first.
+        if (allButton.className.indexOf("active") > -1) {
+            allButton.className = allButton.className.replace(" active", "");
+        }
+
+        if (this.className.indexOf("active") == -1) {this.className += " active";}
+        else {this.className = this.className.replace(" active", "");}
+    }
+  });
+}
+
+// When the user clicks on div, open the popup
+function showPopup() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+
+</script>
+
+</body>
+</html>
