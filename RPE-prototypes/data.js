@@ -60,6 +60,15 @@ function getArea(i) {
     return areaList[i];
 };
 
+function getHeight(i) {
+    if (i < 21) {
+        return 80;
+    }
+    else if (i < 52) {
+        return 185;
+    }
+};
+
 function changeAreaColor(i, c) {
     areaList[i].color = c;
 };

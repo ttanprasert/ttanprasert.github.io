@@ -312,6 +312,7 @@
               for (var i = 0; i < areaListLen; i++) {
                 if (t > getArea(i).startTime && t < getArea(i).endTime) {
                   document.getElementById("cursor-line").style.left = getArea(i).x1 + "px";
+                  document.getElementById("cursor-line").style.top = getHeight(i) + "px";
                   break;
                 }
               }
