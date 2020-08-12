@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>YouTube</title>
+<link rel="icon" type="image/png" href="images/youtube-icon.png">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="jquery.rwdImageMaps.min.js"></script>
+
+<style>
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.map {
+    border: 2px black;
+    outline: 0;
+}
+
+input[type=text] {
+  position:absolute;
+  top: 1.75%;
+  left: 27.9%;
+  width: 37.3%;
+  height: 4.15%;
+  padding: 4px 10px;
+  font-size: 15px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  -webkit-transition: 0s;
+  transition: 0s;
+  outline: none;
+}
+
+input[type=text]:focus {
+  border: 2px solid lightgray;
+}
+</style>
+
+</head>
+<body>
+
+<div class="row">
+    <img name="menu_img" src="images/home.png" style="width:100%" usemap="#searchMap">
+    <map name="searchMap">
+        <area id="searchBtn" class="map" shape="rect" coords="1200,16,1320,55" alt="Search" href="guitar2-search.html">
+    </map>
+    <input type="text" id="search" name="search" placeholder="Search" autocomplete="off">
+</div>
+
+<script>
+    // Get the input field
+    var input = document.getElementById("search");
+
+    // Execute a function when the user releases a key on the keyboard
+    input.addEventListener("keyup", function(event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        document.getElementById("searchBtn").click();
+    }
+    });
+</script>
+<script>$('img[usemap]').rwdImageMaps();</script>
+</body>

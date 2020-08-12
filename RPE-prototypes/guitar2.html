@@ -68,9 +68,10 @@ h1 {
 .btn {
   border: none;
   outline: none;
-  width: 100%;
+  width: 90%;
   text-align: center;
   padding: 12px 0px;
+  margin-bottom: 5px;
   background-color: white;
   cursor: pointer;
   display: block;
@@ -225,14 +226,14 @@ p.thick {
 <div id="myBtnContainer" style="width:20%; float:left">
   <p>FILTERS</p>
   <button id="allButton" class="btn active" onclick="filterSelection('all')"> Show all</button>
-  <button type="button" class="collapsible">Include</button>
-  <div class="menu">
+  <!--button type="button" class="collapsible">Include</button-->
+
     <button id="handButton" class="btn" onclick="filterSelection('hand')"> Show hands clearly</button>
     <button id="tipsButton" class="btn" onclick="filterSelection('tips')"> Give practice tips</button>
     <button id="perfButton" class="btn" onclick="filterSelection('perf')"> Error-free performance</button>
     <button id="scoreButton" class="btn" onclick="filterSelection('score')"> Provide annotations</button>
     <button id="easyButton" class="btn" onclick="filterSelection('easy')"> Good for beginners</button>
-  </div>
+
 </div>
 
 <!-- Portfolio Gallery Grid -->

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>YouTube</title>
+
+<!-- Add icon library -->
+<link rel="icon" type="image/png" href="images/youtube-icon.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="jquery.rwdImageMaps.min.js"></script>
+<style>
+
+/* Base Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* NOTE
+html is set to 62.5% so that all the REM measurements throughout Skeleton
+are based on 10px sizing. So basically 1.5rem = 15px :) */
+html {
+  font-size: 62.5%; }
+body {
+  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222; }
+
+
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.column {
+  float: left;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.map {
+outline: 0;
+}
+
+.start-button {
+  background-color: dodgerblue;
+  color: white;
+  padding: 30px 16px;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: absolute;
+  width: 120px;
+  height: 100px;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 30px;
+}
+
+.container {
+  border: 2px solid #dedede;
+  background-color: white;
+  padding: 20px;
+  margin: 10px 0;
+  height: 300px;
+  overflow: auto;
+}
+
+.diary-entry {
+  border: 2px solid #dedede;
+  background-color: white;
+  padding: 20px;
+  margin: 10px 0;
+  height: auto;
+}
+
+.smallbtn {
+  background-color: lightcoral; 
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 6px 8px; /* Some padding */
+  font-size: 8px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+.smallbtn:hover {
+  background-color: red;
+}
+
+p {
+    display: inline;
+}
+
+textarea {
+    font-size: 16px;
+    letter-spacing: 1px;
+    padding: 15px;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="row">
+    <div class="column" id="sidemenu" style="width:15%">
+        <img name="menu_img" src="images/youtubemenu.png" style="position:fixed; top:0; left:0; width:15%" usemap="#buttonMap">
+        <map name="buttonMap">
+            <area class="map" shape="rect" coords="0,0,300,100" alt="Home" href="guitar3-home.html?d=0">
+            <area class="map" shape="rect" coords="0,600,300,700" alt="startSession" href="guitar3-start.html">
+        </map>
+    </div>
+
+    <div class="column" id="mainview" style="margin-left:15%; width:85%;">
+        <img src="images/searchbar.png" style="position:fixed; top:0; left:15%; width:85%">
+        <div class="row" style="background-color:#e8e8e8; margin-top:50px; padding: 20px 25px">
+            <h1 style="text-align: center">MUSIC LEARNING COMPANION</h1>
+
+            <h2>Set a goal</h2>
+            <textarea id="goaltext" rows="3" cols="100" placeholder="What is your goal for this practice session?"></textarea>
+            <button class="start-button" id="startSession" onclick="location.href='guitar3-home.html?d=1'" type="button">START</button>
+
+            <h4 style="margin-top:30px">Summary of progress so far</h4>
+
+            <p style="text-align:left; color:gray; font-style: italic;">
+                In the last session, you achieved 80% of your goal “finish learning the right hand of the whole song.” 
+                You were “struggling with catching up with the original speed.”
+            </p>
+
+            <h4 style="margin-top:30px">Progress diaries</h4>
+            <div class="container">
+                <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Achievement</th>
+                    <th>Efficiency</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>August 08, 2020</td>
+                    <td>06:45PM - 07:27PM</td>
+                    <td>&#11088;&#11088;&#11088;&#11088;</td>
+                    <td>&#11088;&#11088;&#11088;&#11088;</td>
+                    <td><a href="javascript:showDiary('diary1');">&#128196;</a></td>
+                </tr>
+                <tr>
+                    <td>August 07, 2020</td>
+                    <td>03:10PM - 05:12PM</td>
+                    <td>&#11088;&#11088;&#11088;&#11088;&#11088;</td>
+                    <td>&#11088;&#11088;&#11088;&#11088;</td>
+                    <td><a href="javascript:showDiary('diary2');">&#128196;</a></td>
+                </tr>
+                <tr>
+                    <td>August 03, 2020</td>
+                    <td>05:35PM - 06:05PM</td>
+                    <td>&#11088;&#11088;&#11088;&#11088;</td>
+                    <td>&#11088;&#11088;&#11088;</td>
+                    <td>&#128196;</td>
+                </tr>
+                <tr>
+                    <td>August 01, 2020</td>
+                    <td>07:02PM - 08:15PM</td>
+                    <td>&#11088;&#11088;&#11088;&#11088;&#11088;</td>
+                    <td>&#11088;&#11088;&#11088;&#11088;</td>
+                    <td>&#128196;</td>
+                </tr>
+                <tr>
+                    <td>July 31, 2020</td>
+                    <td>07:31PM - 08:10PM</td>
+                    <td>&#11088;&#11088;&#11088;&#11088;</td>
+                    <td>&#11088;&#11088;&#11088;&#11088;&#11088;</td>
+                    <td>&#128196;</td>
+                </tr>
+                </table>
+            </div>
+
+            <div class="diary-entry" id="diary1" style="display:none">
+                <button class="smallbtn" style="top:5; float: right" onclick="closeDiary('diary1');"><i class="fa fa-close"></i></button> 
+                <h3>August 08, 2020 (06:45PM - 07:27PM)</h3>
+                <p style="font-weight:bold">Song: </p>
+                <p>Danny Boy</p><br>
+                <p style="font-weight:bold">Artist: </p>
+                <p>Traditional Irish</p><br>
+                <p style="font-weight:bold">Your goal: </p>
+                <p>“Finish learning the right hand of the whole song.” </p><br>
+                <p style="font-weight:bold">Achievement rating: </p>
+                <p>&#11088;&#11088;&#11088;&#11088;</p><br>
+                <p style="font-weight:bold">Efficiency rating: </p>
+                <p>&#11088;&#11088;&#11088;&#11088;</p><br>
+                <p style="font-weight:bold">Your comment: </p>
+                <p>"I was struggling with catching up with the original speed. Will have to just practice more."</p><br>
+            </div>
+
+            <div class="diary-entry" id="diary2" style="display:none">
+                <button class="smallbtn" style="top:5; float: right" onclick="closeDiary('diary2');"><i class="fa fa-close"></i></button> 
+                <h3>August 07, 2020 (03:10PM - 05:12PM)</h3>
+                <p style="font-weight:bold">Song: </p>
+                <p>Jesu Joy of Man's Desiring</p><br>
+                <p style="font-weight:bold">Artist: </p>
+                <p>Johann Sebastian Bach</p><br>
+                <p style="font-weight:bold">Your goal: </p>
+                <p>“Play the whole song more smoothly without looking at sheet music.” </p><br>
+                <p style="font-weight:bold">Achievement rating: </p>
+                <p>&#11088;&#11088;&#11088;&#11088;&#11088;</p><br>
+                <p style="font-weight:bold">Efficiency rating: </p>
+                <p>&#11088;&#11088;&#11088;&#11088;</p><br>
+                <p style="font-weight:bold">Your comment: </p>
+                <p>"I am very happy with my progress today. I think I can move on and learn a new song in the next session.'"</p><br>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    function showDiary(name) {
+        document.getElementById(name).style.display = "block";
+    }
+
+    function closeDiary(name) {
+        document.getElementById(name).style.display = "none";
+    }
+</script>
+<script>$('img[usemap]').rwdImageMaps();</script>
+</body>

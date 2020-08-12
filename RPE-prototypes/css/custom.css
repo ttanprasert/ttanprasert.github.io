@@ -13,17 +13,22 @@
     /*border: 2px solid black;*/
 }
 
+.map {
+  outline: 0;
+}
+
 .box {
     position:absolute;
     z-index:605;
     border-bottom-color:black;
     border-bottom-width: 0px;
+    cursor: pointer;
 }
 
 .vl {
   position: absolute;
   border-left: 2px solid red;
-  height: 52px;
+  height: 16px;
   z-index: 610;
 }
 

@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="utf-8">
+<title>Danny Boy (Traditional) Strum Guitar Cover Lesson in G with Chords/Lyrics - Munson</title>
 
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <title>Jesu Joy of Man's Desiring / Johann Sebastian Bach (Guitar)</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+<!-- Add icon library -->
+<link rel="icon" type="image/png" href="images/youtube-icon.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css" >
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css" >
-  <style>
-  body, html {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    }
+<style>
 
-    .bg {
-    /* The image used */
-    background-image: url(images/ytbackground.png);
+ body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-    /* Full height */
-    height: 100%; 
+.column {
+  float: left;
+}
 
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    }
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
-    .video {  
-    position: fixed;
-    margin-left: 4.5%;
-    margin-top: 5%;
+.map {
+outline: 0;
+}
+
+.video {  
+    position: absolute;
+    margin-left: 16%;
+    margin-top: 6%;
   }
 
-  /* The popup form - hidden by default */
+/* The popup form - hidden by default */
 .form-popup {
   display: none;
   position: fixed;
@@ -96,24 +96,15 @@
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
-  </style>
-
-  <!-- Scripts
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script async src="https://www.youtube.com/iframe_api"></script>
-
+</style>
 </head>
 <body>
 
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-  <div class="bg">
+<div class="row">
     <iframe name="frame" style="display:none;"></iframe>
     <div class="form-popup" id="feedbackForm">
         <form target="frame" class="form-container">
-            <h4> Please review this video: </h4>
+            <h4> Please rate the instructional quality of this video: </h4>
 
             <div id="handBox" class="pretty p-default p-curve">
                 <input type="checkbox" />
@@ -151,16 +142,24 @@
         </form>
     </div>
 
+    <div class="column" id="sidemenu" style="width:15%">
+        <img name="menu_img" src="images/simplemenu.png" style="position:fixed; top:0; left:0; width:15%">
+    </div>
+
+    <div class="column" id="mainview" style="margin-left:15%; width:85%;">
+        <img src="images/searchbar.png" style="position:fixed; top:0; left:15%; width:85%">
+        <img src="images/ytbackground-2.png" style="position:absolute; top:9%; left:15%; width:85%;">
+    </div>
+
     <iframe class="video" id="existing-iframe-example"
-    width="62.55%" height="72.4%"
-    src="https://www.youtube.com/embed/KSILj9EfIlM?autoplay=1&mute=1&enablejsapi=1"
+    width="56.4%" height="65.2%"
+    src="https://www.youtube.com/embed/-aSjYYn86ZY?autoplay=1&mute=1&enablejsapi=1"
     frameborder="0"
     name="lesson-video"
     ></iframe>
+</div>
 
-    <!-- button onclick="openForm()"> OPEN FORM </button -->
-
-    <script type="text/javascript">
+<script type="text/javascript">
     var tag = document.createElement('script');
     tag.id = 'iframe-demo';
     tag.src = 'https://www.youtube.com/iframe_api';
@@ -191,14 +190,7 @@
     function closeForm() {
         document.getElementById("feedbackForm").style.display = "none";
     }
-    </script>
-   </div>
-
-
-
-
-
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</script>
+<script>$('img[usemap]').rwdImageMaps();</script>
 </body>
 </html>

@@ -1,0 +1,87 @@
+.open-button {
+  background-color: dodgerblue;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 1.0;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+  font-weight: bold;
+}
+
+.container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  height: 300px;
+  overflow: auto;
+}
+
+.chat-item{
+  background-color: #ffe1e1;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 30px;
+  padding: 10px 20px;
+  float:right;
+  display: none;
+}
+
+.bot-item{
+  background-color: #f1fff1;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 30px;
+  padding: 10px 20px;
+  float:left;
+  display: none;
+}
+
+.chat-footer{
+  background-color: #dfeeff;
+  padding: 10px;
+}
+
+.column {
+  float: left;
+}
+
+.chat {
+  position:fixed;
+  bottom:10px;
+  right:10px;
+}
+
+/* Style buttons */
+.btn {
+  background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+  margin-left:10px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+.smallbtn {
+  background-color: lightgrey; 
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 6px 8px; /* Some padding */
+  font-size: 8px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+.smallbtn:hover {
+  background-color: grey;
+}

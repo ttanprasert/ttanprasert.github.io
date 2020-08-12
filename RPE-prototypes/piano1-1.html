@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>PROTOTYPE 1</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/jquery.Jcrop.css">
+
+  <!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="./jquery.Jcrop.js"></script>
+  <script async src="https://www.youtube.com/iframe_api"></script>
+  <script src="./data.js"></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <div class="section categories">
+    <div class="container">
+      <h2 class="section-heading">IDEA 1 PROTOTYPE</h2>
+      <h5 class="section-heading">Score-based navigation and progress tracking </h5>
+      <p class="section-description">
+        The system presents the printout of annotation to navigate videos. 
+        The learner can highlight a segment of the score and go to explanation or demonstration of that part in the video directly. 
+        Moreover, the learner could color-code the part of the score that they have finished learning, playing the part at slow speed, 
+        or playing at original speed. This will allow users to see annotation as references in their practices, monitor their progress, 
+        and allow for a more effective semantic-based navigation. 
+      </p><br>
+
+      <div class="row">
+
+        <!-- Sheet music panel -->
+        <div class="five columns">
+          <div class="wrapper">
+            <img class="u max full width" id="target" src="images/dannyboy-piano-1.png" width=100% alt="" usemap="#workmap">
+            <div class="vl" id="cursor-line" style="left: 128px; top: 80px"></div>
+            <div class="box" id="area00" style="top:80px; left:130px; width:11px; height:52px; background-color: transparent" onclick="javascript:goto(16)"></div>
+            <div class="box" id="area01" style="top:80px; left:141px; width:7px; height:52px; background-color: transparent" onclick="javascript:goto(17)"></div>
+            <div class="box" id="area02" style="top:80px; left:148px; width:13px; height:52px; background-color: transparent" onclick="javascript:goto(17)"></div>
+            <div class="box" id="area10" style="top:80px; left:161px; width:19px; height:52px; background-color: transparent" onclick="javascript:goto(18)"></div>
+            <div class="box" id="area11" style="top:80px; left:180px; width:7px; height:52px; background-color: transparent" onclick="javascript:goto(20)"></div>
+            <div class="box" id="area12" style="top:80px; left:187px; width:11px; height:52px; background-color: transparent" onclick="javascript:goto(20)"></div>
+            <div class="box" id="area13" style="top:80px; left:198px; width:8px; height:52px; background-color: transparent" onclick="javascript:goto(22)"></div>
+            <div class="box" id="area14" style="top:80px; left:206px; width:8px; height:52px; background-color: transparent" onclick="javascript:goto(22)"></div>
+            <div class="box" id="area15" style="top:80px; left:214px; width:15px; height:52px; background-color: transparent" onclick="javascript:goto(23)"></div>
+            <div class="box" id="area20" style="top:80px; left:229px; width:7px; height:52px; background-color: transparent" onclick="javascript:goto(24)"></div>
+            <div class="box" id="area21" style="top:80px; left:236px; width:9px; height:52px; background-color: transparent" onclick="javascript:goto(24)"></div>
+            <div class="box" id="area22" style="top:80px; left:245px; width:23px; height:52px; background-color: transparent" onclick="javascript:goto(25)"></div>
+            <div class="box" id="area23" style="top:80px; left:268px; width:7px; height:52px; background-color: transparent" onclick="javascript:goto(28)"></div>
+            <div class="box" id="area24" style="top:80px; left:275px; width:9px; height:52px; background-color: transparent" onclick="javascript:goto(29)"></div>
+            <div class="box" id="area25" style="top:80px; left:284px; width:13px; height:52px; background-color: transparent" onclick="javascript:goto(29)"></div>
+            <div class="box" id="area30" style="top:80px; left:297px; width:17px; height:52px; background-color: transparent" onclick="javascript:goto(30)"></div>
+            <div class="box" id="area31" style="top:80px; left:314px; width:7px; height:52px; background-color: transparent" onclick="javascript:goto(32)"></div>
+            <div class="box" id="area32" style="top:80px; left:321px; width:11px; height:52px; background-color: transparent" onclick="javascript:goto(33)"></div>
+            <div class="box" id="area33" style="top:80px; left:332px; width:8px; height:52px; background-color: transparent" onclick="javascript:goto(34)"></div>
+            <div class="box" id="area34" style="top:80px; left:340px; width:9px; height:52px; background-color: transparent" onclick="javascript:goto(35)"></div>
+            <div class="box" id="area35" style="top:80px; left:349px; width:5px; height:52px; background-color: transparent" onclick="javascript:goto(35)"></div>
+            <div class="box" id="area40" style="top:185px; left:69px; width:12px; height:52px; background-color: transparent" onclick="javascript:goto(36)"></div>
+            <div class="box" id="area41" style="top:185px; left:81px; width:12px; height:52px; background-color: transparent" onclick="javascript:goto(38)"></div>
+            <div class="box" id="area42" style="top:185px; left:93px; width:7px; height:52px; background-color: transparent" onclick="javascript:goto(39)"></div>
+            <div class="box" id="area43" style="top:185px; left:100px; width:7px; height:52px; background-color: transparent" onclick="javascript:goto(40)"></div>
+            <div class="box" id="area44" style="top:185px; left:107px; width:8px; height:52px; background-color: transparent" onclick="javascript:goto(40)"></div>
+            <div class="box" id="area45" style="top:185px; left:115px; width:12px; height:52px; background-color: transparent" onclick="javascript:goto(41)"></div>
+            <div class="box" id="area50" style="top:185px; left:127px; width:16px; height:52px; background-color: transparent" onclick="javascript:goto(42)"></div>
+            <div class="box" id="area51" style="top:185px; left:143px; width:9px; height:52px; background-color: transparent" onclick="javascript:goto(44)"></div>
+            <div class="box" id="area52" style="top:185px; left:152px; width:7px; height:52px; background-color: transparent" onclick="javascript:goto(45)"></div>
+            <div class="box" id="area53" style="top:185px; left:159px; width:8px; height:52px; background-color: transparent" onclick="javascript:goto(46)"></div>
+            <div class="box" id="area54" style="top:185px; left:167px; width:7px; height:52px; background-color: transparent" onclick="javascript:goto(47)"></div>
+            <div class="box" id="area55" style="top:185px; left:174px; width:12px; height:52px; background-color: transparent" onclick="javascript:goto(47)"></div>
+            <div class="box" id="area60" style="top:185px; left:186px; width:8px; height:52px; background-color: transparent" onclick="javascript:goto(48)"></div>
+            <div class="box" id="area61" style="top:185px; left:194px; width:8px; height:52px; background-color: transparent" onclick="javascript:goto(49)"></div>
+            <div class="box" id="area62" style="top:185px; left:202px; width:11px; height:52px; background-color: transparent" onclick="javascript:goto(50)"></div>
+            <div class="box" id="area63" style="top:185px; left:213px; width:7px; height:52px; background-color: transparent" onclick="javascript:goto(51)"></div>
+            <div class="box" id="area64" style="top:185px; left:220px; width:7px; height:52px; background-color: transparent" onclick="javascript:goto(52)"></div>
+            <div class="box" id="area65" style="top:185px; left:227px; width:7px; height:52px; background-color: transparent" onclick="javascript:goto(53)"></div>
+            <div class="box" id="area66" style="top:185px; left:234px; width:12px; height:52px; background-color: transparent" onclick="javascript:goto(53)"></div>
+            <div class="box" id="area70" style="top:185px; left:246px; width:16px; height:52px; background-color: transparent" onclick="javascript:goto(54)"></div>
+            <div class="box" id="area71" style="top:185px; left:262px; width:7px; height:52px; background-color: transparent" onclick="javascript:goto(56)"></div>
+            <div class="box" id="area72" style="top:185px; left:269px; width:7px; height:52px; background-color: transparent" onclick="javascript:goto(57)"></div>
+            <div class="box" id="area73" style="top:185px; left:276px; width:9px; height:52px; background-color: transparent" onclick="javascript:goto(58)"></div>
+            <div class="box" id="area74" style="top:185px; left:285px; width:6px; height:52px; background-color: transparent" onclick="javascript:goto(59)"></div>
+            <div class="box" id="area75" style="top:185px; left:291px; width:11px; height:52px; background-color: transparent" onclick="javascript:goto(59)"></div>
+            <div class="box" id="area80" style="top:185px; left:302px; width:12px; height:52px; background-color: transparent" onclick="javascript:goto(60)"></div>
+            <div class="box" id="area81" style="top:185px; left:314px; width:12px; height:52px; background-color: transparent" onclick="javascript:goto(62)"></div>
+            <div class="box" id="area82" style="top:185px; left:326px; width:7px; height:52px; background-color: transparent" onclick="javascript:goto(63)"></div>
+            <div class="box" id="area83" style="top:185px; left:333px; width:9px; height:52px; background-color: transparent" onclick="javascript:goto(64)"></div>
+            <div class="box" id="area84" style="top:185px; left:342px; width:4px; height:52px; background-color: transparent" onclick="javascript:goto(65)"></div>
+            <div class="box" id="area85" style="top:185px; left:346px; width:9px; height:52px; background-color: transparent" onclick="javascript:goto(65)"></div>
+          </div>
+
+          <script>
+
+            var jcrop_api
+            $(window).load(function(){
+                jcrop_api = $.Jcrop('#target',{
+                    onSelect: getOverlap,
+                    onRelease: stopRepeat
+                })
+            })
+
+            var startSeconds = 0;
+            var endSeconds = 119;
+            var areaMap = ["area00", "area01", "area02", "area10", "area11", "area12", "area13", "area14", "area15", "area20", "area21", "area22",
+                            "area23", "area24", "area25", "area30", "area31", "area32", "area33", "area34", "area35", "area40", "area41", "area42",
+                            "area43", "area44", "area45", "area50", "area51", "area52", "area53", "area54", "area55", "area60", "area61", "area62",
+                            "area63", "area64", "area65", "area66", "area70", "area71", "area72", "area73", "area74", "area75", "area80", "area81",
+                            "area82", "area83", "area84", "area85"];
+
+            var selected;
+            var start_ind, end_ind;
+            var areaListLen = getNumArea();
+
+            function goto(t) {
+                startSeconds = t;
+                endSeconds = 119;
+                player.seekTo(startSeconds);
+            }
+
+            function stopRepeat(){
+              endSeconds = 119;
+            }
+
+            function getOverlap(c) {
+              var x1 = c.x;
+              var y1 = c.y;
+              var x2 = c.x+c.w;
+              var y2 = c.y+c.h;
+
+              for (var i = 0; i < areaListLen; i++) {
+                area = getArea(i);
+                if (x1 < area.x1 && y1 < area.y1) {
+                  start_ind = i;
+                  break;
+                }
+              }
+              
+              for (var i = areaListLen-1; i >= 0; i--) {
+                area = getArea(i);
+                if (x2 > area.x2 && y2 > area.y2) {
+                  end_ind = i;
+                  break;
+                }
+              }
+              startSeconds = getArea(start_ind).startTime;
+              endSeconds = getArea(end_ind).endTime;
+
+              player.seekTo(startSeconds);
+              getCurrentFrame(startSeconds);
+              repeatVar = setInterval(repeatFunc,500);
+            }
+          </script>
+        </div>
+
+        <!-- Video panel -->
+        <div class="seven columns">
+
+          <iframe id="existing-iframe-example"
+            width="640" height="360"
+            src="https://www.youtube.com/embed/ferai1AuiOo?enablejsapi=1"
+            frameborder="0"
+            style="border: solid 4px #37474F"
+            name="lesson-video"
+          ></iframe>
+
+          <script type="text/javascript">
+            var tag = document.createElement('script');
+            tag.id = 'iframe-demo';
+            tag.src = 'https://www.youtube.com/iframe_api';
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+            var player;
+            var repeatVar;
+            function onYouTubeIframeAPIReady() {
+              player = new YT.Player('existing-iframe-example', {
+                  events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                  }
+              });
+            }
+
+            function onPlayerReady(event) {
+            }
+
+            function onPlayerStateChange(event) {
+              if (event.data == 1) {
+                repeatVar = setInterval(repeatFunc,500);
+              }
+            }
+
+            function repeatFunc(){
+              t = player.getCurrentTime();
+              getCurrentFrame(t);
+              if (t >= endSeconds) {
+                  player.seekTo(startSeconds);
+                }
+            }
+
+            function getCurrentFrame(t){
+              for (var i = 0; i < areaListLen; i++) {
+                if (t >= getArea(i).startTime && t < getArea(i).endTime) {
+                  document.getElementById("cursor-line").style.left = getArea(i).x1 + "px";
+                  document.getElementById("cursor-line").style.top = getHeight(i) + "px";
+                  break;
+                }
+              }
+            }
+
+            focus();
+            var listener = window.addEventListener('blur', function() {
+                if (document.activeElement === document.getElementById('existing-iframe-example')) {
+                    jcrop_api.release();
+                }
+                window.removeEventListener('blur', listener);
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
