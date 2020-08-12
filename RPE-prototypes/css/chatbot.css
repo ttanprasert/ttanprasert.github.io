@@ -28,6 +28,7 @@
   margin-bottom: 10px;
   border-radius: 30px;
   padding: 10px 20px;
+  max-width:80%;
   float:right;
   display: none;
 }
@@ -38,6 +39,7 @@
   margin-bottom: 10px;
   border-radius: 30px;
   padding: 10px 20px;
+  max-width: 80%;
   float:left;
   display: none;
 }
@@ -62,8 +64,8 @@
   background-color: DodgerBlue; /* Blue background */
   border: none; /* Remove borders */
   color: white; /* White text */
-  padding: 12px 16px; /* Some padding */
-  font-size: 16px; /* Set a font size */
+  padding: 12px 14px; /* Some padding */
+  font-size: 14px; /* Set a font size */
   cursor: pointer; /* Mouse pointer on hover */
   margin-left:10px;
 }
