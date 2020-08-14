@@ -6,7 +6,7 @@
 
 <link rel="icon" type="image/png" href="images/youtube-icon.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="css/chatbot.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="jquery.rwdImageMaps.min.js"></script>
 
@@ -26,7 +26,8 @@ body {
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  font-family: "Roboto", sans-serif;
   color: #222; }
 
 .column {
@@ -40,8 +41,12 @@ body {
 }
 
 .item {
-  float: right;
+  float: left;
   display: none; /* Hide all elements by default */
+  padding: 5px 0px 5px 10px; 
+  width: 100%; 
+  position: relative;
+  overflow: overlay;
 }
 
 /* Clear floats after the columns */
@@ -76,34 +81,46 @@ outline: 0;
   border: none;
   outline: none;
   text-align: center;
-  width: 180px;
-  height: 50px;
-  padding: 12px 5px;
-  font-size: 14px;
-  background-color: lightgrey;
-  cursor: pointer;
+  margin-left: 10px;
+  width: 170px;
+  height: 40px;
+  padding: 10px 5px;
+  font-size: 13px;
+  border-radius: 10px;
+  background-color: white;
+  vertical-align: middle;
   display: inline-block;
-  color: black;
+  color: #444;
+  background-color:#a9ecf9;
 }
 
-.btn:hover {
+label {
+    font-family: "Roboto", sans-serif;
+}
+
+/*.btn:hover {
   background-color: #ddd;
 }
 
 .btn.active {
   background-color: green;
   color: white;
-  font-weight:bold;
-}
+  font-weight:300;
+
+}*/
 
 .box {
   border: none;
   outline: none;
-  padding: 12px 16px;
-  font-size: 11px;
-  border-radius: 20px;
+  text-align: center;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  width: 150px;
+  height: 40px;
+  padding: 12px 5px;
+  font-size: 13px;
+  border-radius: 10px;
   display: inline-block;
-  background-color: white;
   color: #444;
 }
 
@@ -116,14 +133,34 @@ outline: 0;
   display: block;
   background-color: transparent;
   padding: 0px;
-  font-size: 12px;
-  width: 300px;
+  font-size: 13px;
+  width: auto;
 }
 
 img {
   width: 100%;
   height: auto;
-  /*display: inline;*/
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #aaa; 
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #888; 
 }
 
 </style>
@@ -138,30 +175,46 @@ img {
     </div>
 
     <div class="column" id="mainview" style="position:relative; margin-left:15%; width:85%;">
-        <img src="images/searchbar.png" style="position:fixed; top:0; left:15%; width:85%">
+        <img src="images/searchbar.png" style="position:fixed; top:0; left:15%; width:85%; z-index:600;">
         <map name="buttonMap">
             <area class="map" shape="rect" coords="970,16,1050,55" alt="Search" href="guitar2-search.html">
         </map>
         
         <div class="row" style="background-color:#f9f9f9; position:absolute; margin-top:50px; padding: 0px">
-            <div id="myBtnContainer" style="float:left; margin-top:20px; margin-left:20px; margin-bottom:40px">
-                <button id="allButton" class="btn active" onclick="filterSelection('all')"> Show all</button>
-                <button id="handButton" class="btn" onclick="filterSelection('hand')"> Show hands clearly</button>
-                <button id="tipsButton" class="btn" onclick="filterSelection('tips')"> Give practice tips</button>
-                <button id="perfButton" class="btn" onclick="filterSelection('perf')"> Error-free performance</button>
-                <button id="scoreButton" class="btn" onclick="filterSelection('score')"> Provide annotations</button>
-                <button id="easyButton" class="btn" onclick="filterSelection('easy')"> Good for beginners</button>
+            <p style="margin-top:20px; margin-left: 30px; margin-bottom:1px; color:#666; font-weight: 550;">FILTERS</p>
+            <div id="myBtnContainer" style="float: left; margin-top:0px; margin-left:30px; margin-bottom:40px; border:3px solid #aaa; padding: 20px 20px 20px 10px;">
+                <button id="allButton" class="btn">
+		            <input class="check active" id="allCheck" type="checkbox" onclick="filterSelection('all')" checked="checked"/><label for="allCheck"> CLEAR FILTER</label>
+	            </button>
+                <button id="handButton" class="btn" > 
+                    <input class="check" id="handCheck" type="checkbox" onclick="filterSelection('hand')"/><label for="handCheck"/> Show hands clearly</label>
+                </button>
+                <button id="tipsButton" class="btn">
+                    <input class="check" id="tipsCheck" type="checkbox"  onclick="filterSelection('tips')"/><label for="tipsCheck"/> Give practice tips</label>
+                </button>
+                <button id="perfButton" class="btn">
+                    <input class="check" id="perfCheck" type="checkbox" onclick="filterSelection('perf')"/><label for="perfCheck"/> Error-free performance</label>
+                </button>
+                <button id="scoreButton" class="btn">
+                    <input class="check" id="scoreCheck" type="checkbox" onclick="filterSelection('score')"/><label for="scoreCheck"/> Provide annotations</label>
+                </button>
+                <button id="easyButton" class="btn">
+                     <input class="check" id="easyCheck" type="checkbox" onclick="filterSelection('easy')"/><label for="easyCheck"/> Good for beginners</label>
+                </button>
             </div>
 
-            <div class="item hand-tips" style="padding:5px 10px; width:100%; position: relative;">
-                <a href="./guitar2-results5.html">
-                <img name="search_img_1" src="images/search-results-1.png" style="width:65%;">
-                <img class="gif" style="position: absolute; left:2.5%; top:7px; width:17.7%" 
+            <div class="item hand-tips-perf-score-easy">
+                <a href="./guitar2-results1.html">
+                <img name="search_img_1" src="images/search-results-1.png" style="width:60%;">
+                <img class="gif" style="position: absolute; left:2.5%; top:7px; width:16.4%" 
                     src="images/search-results-1.webp">
                 </a>
-                <div class="tag-container" id="myTagContainer1" style="position: absolute; top:0px;">
+                <div class="tag-container" id="myTagContainer1" style="position: absolute; top:0px">
                     <div class="box hand"> Show hands clearly</div>
                     <div class="box tips"> Give practice tips</div>
+                    <div class="box perf"> Error-free performance</div>
+                    <div class="box score"> Provide annotations</div>
+                    <div class="box easy"> Good for beginners</div>
                     <div class="text-block">
                         <ul>
                             <li style="color:crimson">“It only teaches chorus part.”</li>
@@ -172,13 +225,14 @@ img {
                 </div>
             </div>
             
-            <div class="item perf-score" style="padding:5px 10px; width:100%; position: relative;">
-                <a href="./guitar2-results5.html">
-                <img name="search_img_2" src="images/search-results-2.png" style="width:65%;">
-                <img class="gif" style="position: absolute; left:2.5%; top:7px; width:17.7%" 
+            <div class="item hand-perf-score">
+                <a href="./guitar2-results2.html">
+                <img name="search_img_2" src="images/search-results-2.png" style="width:60%;">
+                <img class="gif" style="position: absolute; left:2.5%; top:7px; width:16.4%" 
                     src="images/search-results-2.webp">
                 </a>
                 <div class="tag-container" id="myTagContainer2" style="position: absolute; top:0px;">
+                    <div class="box hand"> Show hands clearly</div>
                     <div class="box perf"> Error-free performance</div>
                     <div class="box score"> Provide annotations</div>
                     <div class="text-block">
@@ -191,13 +245,14 @@ img {
                 </div>
             </div>
 
-            <div class="item pref-tips" style="padding:5px 10px; width:100%; position: relative;">
-                <a href="./guitar2-results5.html">
-                <img name="search_img_3" src="images/search-results-3.png" style="width:65%;">
-                <img class="gif" style="position: absolute; left:2.5%; top:7px; width:17.7%" 
+            <div class="item hand-perf-tips">
+                <a href="./guitar2-results3.html">
+                <img name="search_img_3" src="images/search-results-3.png" style="width:60%;">
+                <img class="gif" style="position: absolute; left:2.5%; top:7px; width:16.4%" 
                     src="images/search-results-3.webp">
                 </a>
                 <div class="tag-container" id="myTagContainer3" style="position: absolute; top:0px;">
+                    <div class="box hand"> Show hands clearly</div>
                     <div class="box perf"> Error-free performance</div>
                     <div class="box tips"> Give practice tips</div>
                     <div class="text-block">
@@ -210,10 +265,10 @@ img {
                 </div>
             </div>
 
-            <div class="item tips-easy" style="padding:5px 10px; width:100%; position: relative;">
-                <a href="./guitar2-results5.html">
-                <img name="search_img_4" src="images/search-results-4.png" style="width:65%;">
-                <img class="gif" style="position: absolute; left:2.5%; top:7px; width:17.7%" 
+            <div class="item tips-easy">
+                <a href="./guitar2-results4.html">
+                <img name="search_img_4" src="images/search-results-4.png" style="width:60%;">
+                <img class="gif" style="position: absolute; left:2.5%; top:7px; width:16.4%" 
                     src="images/search-results-4.webp">
                 </a>
                 <div class="tag-container" id="myTagContainer4" style="position: absolute; top:0px;">
@@ -229,14 +284,13 @@ img {
                 </div>
             </div>
 
-            <div class="item perf-score" style="padding:5px 10px; width:100%; position: relative;">
+            <div class="item score">
                 <a href="./guitar2-results5.html">
-                <img name="search_img_5" src="images/search-results-5.png" style="width:65%;">
-                <img class="gif" style="position: absolute; left:2.5%; top:7px; width:17.7%" 
+                <img name="search_img_5" src="images/search-results-5.png" style="width:60%;">
+                <img class="gif" style="position: absolute; left:2.5%; top:7px; width:16.4%" 
                     src="images/search-results-5.webp">
                 </a>
                 <div class="tag-container" id="myTagContainer5" style="position: absolute; top:0px;">
-                    <div class="box perf"> Error-free performance</div>
                     <div class="box score"> Provide annotations</div>
                     <div class="text-block">
                         <ul>
@@ -257,6 +311,7 @@ img {
 var included = [];
 
 filterSelection("all")
+
 function filterSelection(c) {
   var x, y, i, j, ind, countmatch, tags;
   x = document.getElementsByClassName("item");
@@ -270,7 +325,7 @@ function filterSelection(c) {
           if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
       }
       for (i = 0; i < y.length; i++) {
-        y[i].style.backgroundColor = "white";
+        y[i].style.backgroundColor = "#a9ecf9";
       }
   }
 
@@ -284,10 +339,10 @@ function filterSelection(c) {
       }
 
       for (i = 0; i < y.length; i++) {
-        y[i].style.backgroundColor = "white";
+        y[i].style.backgroundColor = "#a9ecf9";
         for (j = 0; j < included.length; j++) {
             if (y[i].className.indexOf(included[j]) > -1) {
-                y[i].style.backgroundColor = "palegreen";
+                y[i].style.backgroundColor = "#70a7f5";
             }
         }
       }
@@ -329,31 +384,45 @@ function w3RemoveClass(element, name) {
 
 // Add active class to the current button (highlight it)
 var btnContainer = document.getElementById("myBtnContainer");
-var btns = btnContainer.getElementsByClassName("btn");
+var btns = btnContainer.getElementsByClassName("check");
 var activebtns;
 var currents;
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function(){
-    if (this.id == "allButton") { // If choose Show All, deselect every tag.
+    if (this.id == "allCheck") { // If choose Show All, deselect every tag.
         if (this.className.indexOf("active") == -1) {
             for (var j = 0; j < btns.length; j++) {
-                if (btns[j].className.indexOf("active") > -1) btns[j].className = btns[j].className.replace(" active", "");
+                if (btns[j].className.indexOf("active") > -1) {
+                    btns[j].className = btns[j].className.replace(" active", "");
+                }
             }
             this.className += " active";
         }
     }
     else {
-        var allButton = document.getElementById("allButton"); // If Show All was chosen, deselect it first.
+        var allButton = document.getElementById("allCheck"); // If Show All was chosen, deselect it first.
         if (allButton.className.indexOf("active") > -1) {
             allButton.className = allButton.className.replace(" active", "");
         }
 
-        if (this.className.indexOf("active") == -1) {this.className += " active";}
-        else {this.className = this.className.replace(" active", "");}
+        if (this.className.indexOf("active") == -1) {
+            this.className += " active";
+        }
+        else {
+            this.className = this.className.replace(" active", "");
+        }
 
         activebtns = btnContainer.getElementsByClassName("active");
         if (activebtns.length == 0) {
             allButton.className += " active";
+        }
+    }
+    for (var j = 0; j < btns.length; j++) {
+        if (btns[j].className.indexOf("active") > -1) {
+            btns[j].checked = "checked";
+        }
+        else {
+            btns[j].checked = "";
         }
     }
   });

@@ -8,6 +8,7 @@
 <link rel="icon" type="image/png" href="images/youtube-icon.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/chatbot.css">
+<link rel="stylesheet" href="css/star-rating.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="jquery.rwdImageMaps.min.js"></script>
 
@@ -24,8 +25,14 @@ body {
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #222; }
+
+input[type="text"]
+{
+    font-family: "Roboto", sans-serif;
+    font-size:13px;
+}
 
 .column {
   float: left;
@@ -46,7 +53,7 @@ outline: 0;
     position: absolute;
     margin-left: 15.5%;
     margin-top: 5.4%;
-  }
+}
 
 
 </style>
@@ -68,61 +75,177 @@ outline: 0;
 
     <iframe class="video" id="existing-iframe-example"
     width="56.4%" height="65.2%"
-    src="https://www.youtube.com/embed/-aSjYYn86ZY?autoplay=1&mute=1&enablejsapi=1"
+    src="https://www.youtube.com/embed/-aSjYYn86ZY?&enablejsapi=1"
     frameborder="0"
     name="lesson-video"
     ></iframe>
 
-    <button class="open-button" id="openchat" onclick="openForm()">ASK COMPANION</button>
-    <div class="chat" id="chatbot" style="width:20%; display:none">
+    <button class="open-button" id="openchat" onclick="openForm(); display:none;">Talk to companion</button>
+    <div class="chat" id="chatbot" style="width:20%; display:block">
         <div id="chatwindow" class="container">
-            <button class="smallbtn" style="position:absolute; top:5; float: right" onclick="closeForm();"><i class="fa fa-window-minimize"></i></button> 
+            <button class="smallbtn" style="top:5; float: right;" onclick="closeForm();"><i class="fa fa-window-minimize"></i></button> 
 
             <div class="row">
+                <div id="greeting1" class="col-md-12 bot-item" style="display:block;">
+                    Welcome back! Your goal today is "finish learning the chords for both the verse and the chorus" I think this video will be helpful for you.
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="greeting2" class="col-md-12 bot-item" style="display:block;">
+                    It will require that you can play the following chords: C, F, G, G7, Am, and Dm7. Can you do all of that?
+                </div>
+            </div>
+            
+            <div class="row">
                 <div id="query1" class="col-md-12 chat-item">
-                    Test Message 1
+                    I can't play the F chord.
                 </div>
             </div>
                 
             <div class="row">
                 <div id="reply1" class="col-md-12 bot-item">
-                    Bot reply 1
+                    Since your goal is to learn all the chords, it is important that you can play it. I recommend that you watch this 
+                    <a href='https://www.youtube.com/watch?v=ecPzu9sTKbo'>video</a> or read this <a href='https://guitardomination.net/8-ways-play-feared-f-chord-guitar-super-easy-advanced/'>article</a>  
+                    before you start watching this video.
                 </div>
             </div>
 
             <div class="row">
                 <div id="query2" class="col-md-12 chat-item">
-                    Test Message 2
+                    Okay, I'm done learning. But I'm still slow.
                 </div>
             </div>
                 
             <div class="row">
                 <div id="reply2" class="col-md-12 bot-item">
-                    Bot reply 2
+                    Since your goal is only to learn the chords, I think you do not have to worry about the speed for now. Would you like to change the goal or not?
                 </div>
             </div>
 
             <div class="row">
                 <div id="query3" class="col-md-12 chat-item">
-                    Test Message 3
+                    No. Let's keep it the same.
                 </div>
             </div>
                 
             <div class="row">
                 <div id="reply3" class="col-md-12 bot-item">
-                    Bot reply 3
+                    Alright. Then, you can start learning with this video. I've skipped the introduction for you. 
+                    In the introduction, the instructor talks about why he chose to teach this song and the song's history and genre.
+                    Would you like to watch the introduction?
                 </div>
             </div>
 
             <div class="row">
                 <div id="query4" class="col-md-12 chat-item">
-                    Test Message 4
+                    I don't need that. Let's just skip it.
                 </div>
             </div>
                 
             <div class="row">
                 <div id="reply4" class="col-md-12 bot-item">
-                    Bot reply 4
+                    Got it. I will keep in mind to skip these contents for you in the future as well.
+                    If you have problems or want advice, don't hesitate to ask me. And please let me know when you would like to end this session.
+                    Enjoy learning!
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="query5" class="col-md-12 chat-item">
+                    I'd like to have separate chord sheet to look at while learning.
+                </div>
+            </div>
+                
+            <div class="row">
+                <div id="reply5" class="col-md-12 bot-item">
+                    It seems that the instructor doesn't provide any annotations for this. You could consider writing down the chords on paper - 
+                    this would likely help you memorize the chords and achieve the goal for this session more quickly.
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="query6" class="col-md-12 chat-item">
+                    I don't have paper here. Is there chord sheeet for a similar arrangement elsewhere?
+                </div>
+            </div>
+                
+            <div class="row">
+                <div id="reply6" class="col-md-12 bot-item">
+                    You could check out this  <a href='https://tabs.ultimate-guitar.com/tab/misc-traditional/danny-boy-chords-1170325'>chord sheet</a>. 
+                    It's in the same key, but will also require that you can play the Cmaj7 and G11 chord. 
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="query7" class="col-md-12 chat-item">
+                    I'll take a look at it. Thanks!
+                </div>
+            </div>
+                
+            <div class="row">
+                <div id="reply7" class="col-md-12 bot-item">
+                    You're welcome.
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="query8" class="col-md-12 chat-item">
+                     I'm done learning for today.
+                </div>
+            </div>
+                
+            <div class="row">
+                <div id="reply8" class="col-md-12 bot-item">
+                    Okay. How much of the goal "finish learning the chords for both the verse and the chorus" did you achieve in this session?
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="query9" class="col-md-12 chat-item">
+                    <fieldset class="rating">
+                        <input type="radio" id="star5-1" name="rating-1" value="5" onclick="nextQuestion()"/><label for="star5-1" title="All of the goal">5 stars</label>
+                        <input type="radio" id="star4-1" name="rating-1" value="4" onclick="nextQuestion()"/><label for="star4-1" title="Most of the goal">4 stars</label>
+                        <input type="radio" id="star3-1" name="rating-1" value="3" onclick="nextQuestion()"/><label for="star3-1" title="half the goal">3 stars</label>
+                        <input type="radio" id="star2-1" name="rating-1" value="2" onclick="nextQuestion()"/><label for="star2-1" title="Less than half the goal">2 stars</label>
+                        <input type="radio" id="star1-1" name="rating-1" value="1" onclick="nextQuestion()"/><label for="star1-1" title="Nothing">1 star</label>
+                    </fieldset>
+                </div>
+            </div>
+                
+            <div class="row">
+                <div id="reply9" class="col-md-12 bot-item">
+                    And how efficient were you in this session?
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="query10" class="col-md-12 chat-item">
+                    <fieldset class="rating">
+                        <input type="radio" id="star5-2" name="rating-2" value="5" onclick="getComment()"/><label for="star5-2" title="Super efficient">5 stars</label>
+                        <input type="radio" id="star4-2" name="rating-2" value="4" onclick="getComment()"/><label for="star4-2" title="Pretty efficient">4 stars</label>
+                        <input type="radio" id="star3-2" name="rating-2" value="3" onclick="getComment()"/><label for="star3-2" title="Neither efficient nor inefficient">3 stars</label>
+                        <input type="radio" id="star2-2" name="rating-2" value="2" onclick="getComment()"/><label for="star2-2" title="Quite inefficient">2 stars</label>
+                        <input type="radio" id="star1-2" name="rating-2" value="1" onclick="getComment()"/><label for="star1-2" title="Very inefficient">1 star</label>
+                    </fieldset>
+                </div>
+            </div>
+                
+            <div class="row">
+                <div id="reply10" class="col-md-12 bot-item">
+                    What did you think about this practice session? (Think about what you did well or not well, and What you want to do for the next session)
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="query11" class="col-md-12 chat-item">
+                   I finished learning all the chords but can't transition between them well. I want to learn some hand movement techniques and practice more in the next session.
+                </div>
+            </div>
+    
+            <div class="row">
+                <div id="reply11" class="col-md-12 bot-item">
+                    Sounds good. I'll see you next time, then. Bye!
                 </div>
             </div>
         </div>

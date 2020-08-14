@@ -22,16 +22,17 @@ body {
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222; }
+  font-family: "Roboto", sans-serif;
+  color: #444; }
 
 
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
-  margin-bottom: 2rem;
-  font-weight: bold;
+  margin-bottom: 0;
+  font-weight: 600;
+  font-family: "Roboto Mono", sans-serif;
 }
 
 .column {
@@ -54,15 +55,14 @@ outline: 0;
   color: white;
   padding: 30px 16px;
   border: none;
-  border-radius: 50%;
+  border-radius: 10%;
   outline: none;
   cursor: pointer;
   opacity: 0.8;
   position: absolute;
-  width: 120px;
-  height: 100px;
-  font-weight: bold;
-  font-size: 20px;
+  width: 125px;
+  height: 125px;
+  font-size: 18px;
   margin-left: 30px;
 }
 
@@ -96,6 +96,12 @@ outline: 0;
   background-color: red;
 }
 
+textarea  
+{  
+   font-family: "Roboto", sans-serif;  
+   font-size: 14px;   
+}
+
 p {
     display: inline;
 }
@@ -113,6 +119,11 @@ textarea {
 table {
   border-collapse: collapse;
   width: 100%;
+}
+
+label {
+    font-family: "Roboto", sans-serif;
+    cursor: pointer;
 }
 
 td, th {
@@ -140,22 +151,24 @@ tr:nth-child(even) {
     </div>
 
     <div class="column" id="mainview" style="margin-left:15%; width:85%;">
-        <img src="images/searchbar.png" style="position:fixed; top:0; left:15%; width:85%">
+        <img src="images/searchbar.png" style="position:fixed; top:0; left:15%; width:85%; z-index: 1">
         <div class="row" style="background-color:#e8e8e8; margin-top:50px; padding: 20px 25px">
             <h1 style="text-align: center">MUSIC LEARNING COMPANION</h1>
 
-            <h2>Set a goal</h2>
+            <h2  style="margin-top:30px">Set a goal</h2>
             <textarea id="goaltext" rows="4" cols="75" placeholder="What is your goal for this practice session?"></textarea>
-            <button class="start-button" id="startSession" onclick="location.href='guitar3-home.html?d=1'" type="button">START</button>
+            <button class="start-button" id="startSession" onclick="location.href='guitar3-main.html'" type="button">
+                <label for="startSession">Launch companion chatbot</label>
+            </button>
 
-            <h4 style="margin-top:30px">Summary of progress so far</h4>
+            <h2 style="margin-top:30px">Summary of progress so far</h2>
 
-            <p style="text-align:left; color:gray; font-style: italic;">
-                In the last session, you achieved 80% of your goal “finish learning the right hand of the whole song.” 
+            <p style="text-align:left;">
+                In the last session, you achieved 80% of your goal “finish learning the chords for the whole song.” 
                 You were “struggling with catching up with the original speed.”
             </p>
 
-            <h4 style="margin-top:30px">Progress diaries</h4>
+            <h2 style="margin-top:30px">Progress diaries</h2>
             <div class="container">
                 <table>
                 <tr>
@@ -163,7 +176,7 @@ tr:nth-child(even) {
                     <th>Time</th>
                     <th>Achievement</th>
                     <th>Efficiency</th>
-                    <th></th>
+                    <th>See details</th>
                 </tr>
                 <tr>
                     <td>August 08, 2020</td>

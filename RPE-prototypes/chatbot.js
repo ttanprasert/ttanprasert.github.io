@@ -14,6 +14,23 @@ input.addEventListener("keyup", function(event) {
     }
 });
 
+function nextQuestion(){
+    var botbubble = document.getElementById("reply9");
+    setTimeout(function () {
+        botbubble.style.display = "block";
+        updateScroll();
+    }, 1000); // wait 1 second
+    document.getElementById("query10").style.display = "block";
+}
+
+function getComment(){
+    setTimeout(function () {
+        document.getElementById("reply10").style.display = "block";
+        updateScroll();
+    }, 1000); // wait 1 second
+    msg_ind = 11;
+}
+
 function getInputValue(){
     var textinput = document.getElementById("myInput");
     var chatbubble = document.getElementById("query"+msg_ind);
@@ -22,15 +39,19 @@ function getInputValue(){
     chatbubble.innerHTML = textinput.value;
     chatbubble.style.display = "block";
     updateScroll();
-    botbubble.innerHTML = getAnswer(textinput.value); // Preset response
+    //botbubble.innerHTML = getAnswer(textinput.value); // Preset response
     textinput.value = "";
 
     setTimeout(function () {
         botbubble.style.display = "block";
         updateScroll();
-    }, 1000); // wait 1 second before showing answer
-    
+    }, 1000); // wait 1 second
     msg_ind += 1;
+
+    if (msg_ind == 9) {
+        document.getElementById("query9").style.display = "block";
+    }
+    
 }
 
 function updateScroll(){

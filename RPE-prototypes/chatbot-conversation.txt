@@ -1,0 +1,33 @@
+Bot: Welcome back! Your goal today is "finish learning the chords for both the verse and the chorus" I think this video will be helpful for you. 
+Bot: It will require that you can play the following chords: C, F, G, G7, Am, and Dm7. Can you do all of that?
+Learner: I can't play the F chord.
+Bot: Since your goal is to learn all the chords, it is important that you can play it. I recommend that you watch this <video> or read this <article> before you start watching this video. 
+
+- Learners learn materials for F chord
+
+Learner: Okay, I'm done learning. But I'm still slow.
+Bot: Since your goal is only to learn the chords, I think you do not have to worry about the speed for now. Would you like to change the goal or not?
+Learner: No, let's keep it the same.
+Bot: Alright. Then, you can start learning with this video. I've skipped the introduction for you. In the introduction, the instructor talks about why he chose to teach this song and the song's history and genre. Would you like to watch the introduction?
+Learner: I don't need that. Let's just skip it.
+Bot: Got it. I will keep in mind to skip these contents for you in the future as well. If you have problems or want advice, don't hesitate to ask me. And please let me know when you would like to end this session. Enjoy learning!
+
+- Learner starts watching video
+
+Learner: I'd like to have separate chord sheet to look at while learning.
+Bot: It seems that the instructor doesn't provide any annotations for this. You could consider writing down the chords on paper - this would likely help you memorize the chords and achieve the goal for this session more quickly.
+Learner: I don't have paper here. Is there chord sheeet for a similar arrangement elsewhere?
+Bot: You could check out this <chord sheet>. It's in the same key, but will also require that you can play the Am chord.
+Learner: I'll take a look at it. Thanks!
+Bot: You're welcome!
+
+- Learner resumes watching video
+
+Learner: I'm done learning for today.
+Bot: Okay. How much of the goal "finish learning the chords for both the verse and the chorus" did you achieve in this session?
+Learner: *Give a star-rating*
+Bot: How efficient were you in this session?
+Learner: *Give a star-rating*
+Bot: What did you think about this practice session? (Think about what you did well or not well, and What you want to do for the next session)
+Learner: I finished learning all the chords but can't transition between them well. I want to learn some hand movement techniques and practice more in the next session.
+Bot: Sounds good. I'll see you next time, then. Bye!

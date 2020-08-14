@@ -20,9 +20,13 @@
 .box {
     position:absolute;
     z-index:605;
-    border-bottom-color:black;
-    border-bottom-width: 0px;
     cursor: pointer;
+    background-color:skyblue;
+    opacity: 0.4;
+}
+
+.box:hover {
+  opacity:0.8;
 }
 
 .vl {
