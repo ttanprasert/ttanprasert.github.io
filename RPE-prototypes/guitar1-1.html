@@ -45,20 +45,13 @@
     <div class="container">
       <h2 class="section-heading">IDEA 1 PROTOTYPE</h2>
       <h5 class="section-heading">Score-based navigation and progress tracking </h5>
-      <p class="section-description">
-        The system presents the printout of annotation to navigate videos. 
-        The learner can highlight a segment of the score and go to explanation or demonstration of that part in the video directly. 
-        Moreover, the learner could color-code the part of the score that they have finished learning, playing the part at slow speed, 
-        or playing at original speed. This will allow users to see annotation as references in their practices, monitor their progress, 
-        and allow for a more effective semantic-based navigation. 
-      </p><br>
-
+      <br><br>
       <div class="row">
 
         <!-- Sheet music panel -->
         <div class="five columns">
           <div class="wrapper">
-            <img class="u max full width" id="target" src="images/dannyboy-guitar-1.png" width=100% alt="">
+            <img class="u max full width" id="target" src="images/dannyboy-guitar-1.png" width=100% style="box-shadow: 10px 10px 5px #aaaaaa;">
             <div class="vl" id="cursor-line" style="left: 45px; top: 114px"></div>
             <div class="box" id="area00" style="top:114px; left:50px; width:15px; height:14px;" onclick="javascript:goto(505)"></div>
             <div class="box" id="area01" style="top:114px; left:65px; width:15px; height:14px;" onclick="javascript:goto(507)"></div>
@@ -70,17 +63,17 @@
             <div class="box" id="area11" style="top:190px; left:74px; width:50px; height:14px;" onclick="javascript:goto(522)"></div>
             <div class="box" id="area12" style="top:190px; left:124px; width:100px; height:14px;" onclick="javascript:goto(524)"></div>
             <div class="box" id="area13" style="top:190px; left:224px; width:60px; height:14px;" onclick="javascript:goto(526)"></div>
-            <div class="box" id="area20" style="top:230px; left:14px; width:69px; height:14px;" onclick="javascript:goto(529)"></div>
+            <div class="box" id="area20" style="top:230px; left:14px; width:71px; height:14px;" onclick="javascript:goto(529)"></div>
             <div class="box" id="area21" style="top:230px; left:85px; width:49px; height:14px;" onclick="javascript:goto(531)"></div>
             <div class="box" id="area22" style="top:230px; left:134px; width:54px; height:14px;" onclick="javascript:goto(533)"></div>
             <div class="box" id="area23" style="top:230px; left:188px; width:54px; height:14px;" onclick="javascript:goto(535)"></div>
-            <div class="box" id="area24" style="top:230px; left:242px; width:38px; height:14px;" onclick="javascript:goto(537)"></div>
+            <div class="box" id="area24" style="top:230px; left:242px; width:45px; height:14px;" onclick="javascript:goto(537)"></div>
             <div class="box" id="area30" style="top:270px; left:14px; width:79px; height:14px;" onclick="javascript:goto(545)"></div>
             <div class="box" id="area31" style="top:270px; left:94px; width:65px; height:14px;" onclick="javascript:goto(547)"></div>
             <div class="box" id="area32" style="top:270px; left:159px; width:55px; height:14px;" onclick="javascript:goto(550)"></div>
             <div class="box" id="area50" style="top:370px; left:14px; width:130px; height:14px;" onclick="javascript:goto(838)"></div>
             <div class="box" id="area51" style="top:370px; left:146px; width:80px; height:14px;" onclick="javascript:goto(843)"></div>
-            <div class="box" id="area52" style="top:370px; left:226px; width:60px; height:14px;" onclick="javascript:goto(846)"></div>
+            <div class="box" id="area52" style="top:370px; left:226px; width:80px; height:14px;" onclick="javascript:goto(846)"></div>
             <div class="box" id="area60" style="top:410px; left:12px; width:117px; height:14px;" onclick="javascript:goto(849)"></div>
             <div class="box" id="area61" style="top:410px; left:129px; width:110px; height:14px;" onclick="javascript:goto(852)"></div>
             <div class="box" id="area62" style="top:410px; left:239px; width:37px; height:14px;" onclick="javascript:goto(854)"></div>
@@ -93,31 +86,31 @@
             <div class="box" id="area81" style="top:488px; left:93px; width:81px; height:14px;" onclick="javascript:goto(875)"></div>
             <div class="box" id="area82" style="top:488px; left:174px; width:78px; height:14px;" onclick="javascript:goto(876)"></div>
             <div class="box" id="area83" style="top:488px; left:252px; width:20px; height:14px;" onclick="javascript:goto(882)"></div>
-            <div class="box" id="areaC0" style="top:165px; left:70px; width:12px; height:20px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(88, 100)"></div>
-            <div class="box" id="areaC1" style="top:206px; left:82px; width:12px; height:14px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(88, 100)"></div>
-            <div class="box" id="areaC2" style="top:245px; left:90px; width:12px; height:20px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(88, 100)"></div>
-            <div class="box" id="areaC3" style="top:285px; left:72px; width:12px; height:20px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(88, 100)"></div>
-            <div class="box" id="areaC4" style="top:285px; left:204px; width:12px; height:20px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(88, 100)"></div>
-            <div class="box" id="areaC5" style="top:345px; left:80px; width:15px; height:14px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(88, 100)"></div>
-            <div class="box" id="areaC6" style="top:345px; left:228px; width:15px; height:14px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(88, 100)"></div>
-            <div class="box" id="areaC7" style="top:387px; left:76px; width:12px; height:14px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(88, 100)"></div>
-            <div class="box" id="areaC8" style="top:426px; left:76px; width:12px; height:14px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(88, 100)"></div>
-            <div class="box" id="areaC9" style="top:426px; left:190px; width:15px; height:14px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(88, 100)"></div>
-            <div class="box" id="areaC10" style="top:467px; left:73px; width:15px; height:14px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(88, 100)"></div>
-            <div class="box" id="areaC11" style="top:467px; left:238px; width:15px; height:14px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(88, 100)"></div>
-            <div class="box" id="areaF0" style="top:165px; left:224px; width:12px; height:20px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(100, 111)"></div>
-            <div class="box" id="areaF1" style="top:245px; left:206px; width:12px; height:20px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(100, 111)"></div>
-            <div class="box" id="areaF2" style="top:342px; left:144px; width:12px; height:20px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(100, 111)"></div>
-            <div class="box" id="areaF3" style="top:426px; left:112px; width:12px; height:20px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(100, 111)"></div>
-            <div class="box" id="areaG0" style="top:206px; left:228px; width:15px; height:20px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(114, 121)"></div>
-            <div class="box" id="areaG1" style="top:285px; left:128px; width:15px; height:20px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(114, 121)"></div>
-            <div class="box" id="areaG2" style="top:387px; left:245px; width:15px; height:20px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(114, 121)"></div>
-            <div class="box" id="areaG3" style="top:467px; left:159px; width:15px; height:15px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(114, 121)"></div>
-            <div class="box" id="areaDm70" style="top:245px; left:260px; width:30px; height:20px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(151, 194)"></div>
-            <div class="box" id="areaG70" style="top:206px; left:255px; width:20px; height:20px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(123, 127)"></div>
-            <div class="box" id="areaG71" style="top:387px; left:272px; width:20px; height:20px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(123, 127)"></div>
-            <div class="box" id="areaAm0" style="top:426px; left:218px; width:23px; height:20px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(864, 873)"></div>
-            <div class="box" id="strumming" style="top:64px; left:180px; width:175px; height:30px; background-color:transparent; border: 2px solid orange" onclick="javascript:repeatAt(347, 503)"></div>
+            <div class="clickbox" id="areaC0" style="top:165px; left:70px; width:12px; height:20px;" onclick="javascript:repeatAt(88, 100)"></div>
+            <div class="clickbox" id="areaC1" style="top:206px; left:82px; width:12px; height:14px;" onclick="javascript:repeatAt(88, 100)"></div>
+            <div class="clickbox" id="areaC2" style="top:245px; left:90px; width:12px; height:20px;" onclick="javascript:repeatAt(88, 100)"></div>
+            <div class="clickbox" id="areaC3" style="top:285px; left:72px; width:12px; height:20px;" onclick="javascript:repeatAt(88, 100)"></div>
+            <div class="clickbox" id="areaC4" style="top:285px; left:204px; width:12px; height:20px;" onclick="javascript:repeatAt(88, 100)"></div>
+            <div class="clickbox" id="areaC5" style="top:345px; left:80px; width:15px; height:14px;" onclick="javascript:repeatAt(88, 100)"></div>
+            <div class="clickbox" id="areaC6" style="top:345px; left:228px; width:15px; height:14px;" onclick="javascript:repeatAt(88, 100)"></div>
+            <div class="clickbox" id="areaC7" style="top:387px; left:76px; width:12px; height:14px;" onclick="javascript:repeatAt(88, 100)"></div>
+            <div class="clickbox" id="areaC8" style="top:426px; left:76px; width:12px; height:14px;" onclick="javascript:repeatAt(88, 100)"></div>
+            <div class="clickbox" id="areaC9" style="top:426px; left:190px; width:15px; height:14px;" onclick="javascript:repeatAt(88, 100)"></div>
+            <div class="clickbox" id="areaC10" style="top:467px; left:73px; width:15px; height:14px;" onclick="javascript:repeatAt(88, 100)"></div>
+            <div class="clickbox" id="areaC11" style="top:467px; left:238px; width:15px; height:14px;" onclick="javascript:repeatAt(88, 100)"></div>
+            <div class="clickbox" id="areaF0" style="top:165px; left:224px; width:12px; height:20px;" onclick="javascript:repeatAt(100, 111)"></div>
+            <div class="clickbox" id="areaF1" style="top:245px; left:206px; width:12px; height:20px;" onclick="javascript:repeatAt(100, 111)"></div>
+            <div class="clickbox" id="areaF2" style="top:342px; left:144px; width:12px; height:20px;" onclick="javascript:repeatAt(100, 111)"></div>
+            <div class="clickbox" id="areaF3" style="top:426px; left:112px; width:12px; height:20px;" onclick="javascript:repeatAt(100, 111)"></div>
+            <div class="clickbox" id="areaG0" style="top:206px; left:228px; width:15px; height:20px;" onclick="javascript:repeatAt(114, 121)"></div>
+            <div class="clickbox" id="areaG1" style="top:285px; left:128px; width:15px; height:20px;" onclick="javascript:repeatAt(114, 121)"></div>
+            <div class="clickbox" id="areaG2" style="top:387px; left:245px; width:15px; height:20px;" onclick="javascript:repeatAt(114, 121)"></div>
+            <div class="clickbox" id="areaG3" style="top:467px; left:159px; width:15px; height:15px;" onclick="javascript:repeatAt(114, 121)"></div>
+            <div class="clickbox" id="areaDm70" style="top:245px; left:260px; width:30px; height:20px;" onclick="javascript:repeatAt(151, 194)"></div>
+            <div class="clickbox" id="areaG70" style="top:206px; left:255px; width:20px; height:20px;" onclick="javascript:repeatAt(123, 127)"></div>
+            <div class="clickbox" id="areaG71" style="top:387px; left:272px; width:20px; height:20px;" onclick="javascript:repeatAt(123, 127)"></div>
+            <div class="clickbox" id="areaAm0" style="top:426px; left:218px; width:23px; height:20px;" onclick="javascript:repeatAt(864, 873)"></div>
+            <div class="clickbox" id="strumming" style="top:64px; left:180px; width:175px; height:30px;" onclick="javascript:repeatAt(347, 503)"></div>
           </div>
 
           <script>
