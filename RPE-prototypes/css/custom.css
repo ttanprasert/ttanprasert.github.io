@@ -1,11 +1,6 @@
 /* Shared
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.button {
-  border-radius: 100px;
-}
-.area {
-  border: 2px solid blue;
-}
+
 
 .wrapper {
     position:relative;
@@ -13,33 +8,33 @@
     /*border: 2px solid black;*/
 }
 
-.map {
-  outline: 0;
-}
 
-.box {
-    position:absolute;
-    z-index:605;
-    cursor: pointer;
-    background-color:skyblue;
-    opacity: 0.4;
-}
-
-.box:hover {
-  opacity:0.7;
-}
-
-.clickbox {
-  position:absolute;
-    z-index:605;
-    cursor: pointer;
-    background-color:transparent;
+.chord {
     border: 2px solid skyblue;
-    opacity: 0.5;
+    text-decoration:none;
+    line-height: 1.1;
+    padding: 0 2px;
+    cursor: pointer;
 }
 
-.clickbox:hover {
-  opacity:0.9;
+.triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 8px solid aqua;
+  z-index: 610;
+  display: none;
+}
+
+.triangle-up {
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 8px solid aqua;
+  z-index: 610;
+  display: none;
 }
 
 .vl {
@@ -55,6 +50,22 @@
   background-color: red;
   border-radius: 50%;
   position: absolute;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+mark {
+  background-color: rgba(169, 236, 249, 0.7);
+  cursor: text;
+  user-select: text;
 }
 
 /* Sections
@@ -185,7 +196,7 @@
 /* Bigger than 1000 */
 @media (min-width: 1000px) {
   .section {
-    padding: 10rem 0 10rem;
+    padding: 4rem 0 4rem;
   }
   .hero {
     padding: 22rem 0;
