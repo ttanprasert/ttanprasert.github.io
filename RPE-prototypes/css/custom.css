@@ -1,6 +1,9 @@
 /* Shared
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
+::selection {
+  color: black;
+  background-color: lightgray;
+}
 
 .wrapper {
     position:relative;
