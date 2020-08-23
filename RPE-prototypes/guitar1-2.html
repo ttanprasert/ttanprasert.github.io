@@ -159,9 +159,10 @@ Chorus:
     document.onmouseup = function() {
         var text = getSelectionText();
         if(!arrayEquals(prevText, text) && text[2]!="") {
-            repeatAt(tlist[text[0]], tlist[text[1]+1]);
+            repeatAt(tlist[text[0]], tlist[text[1]+1], true);
         }
         else {
+            clearSelection();
             stopRepeat();
         }
         prevText = text;
@@ -173,23 +174,23 @@ Chorus:
         player.seekTo(startSeconds);
     }
 
-    function getOffset( el ) {
-        var _x = 0;
-        var _y = 0;
-        while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
-            _x += el.offsetLeft - el.scrollLeft;
-            _y += el.offsetTop - el.scrollTop;
-            el = el.offsetParent;
-        }
-        return { top: _y, left: _x };
+    function clearSelection()
+    {
+        if (window.getSelection) {window.getSelection().removeAllRanges();}
+        else if (document.selection) {document.selection.empty();}
     }
 
-    function repeatAt(t1, t2) {
+    function repeatAt(t1, t2, lyric=false) {
         if (t2 == 838) {
             t2 = 568;
         }
         startSeconds = t1;
         endSeconds = t2;
+        if (!lyric) {
+            for(var i=0; i < 66; i++) {
+                document.getElementById(String(i)).style.backgroundColor = "rgba(169, 236, 249, 0.7)";
+            }
+        }
         
         mark1.style.left = (t1*620/1102)+550 + "px";
         mark2.style.left = (t2*620/1102)+550 + "px";
@@ -197,7 +198,6 @@ Chorus:
         mark2.style.display = "block";
 
         player.seekTo(startSeconds);
-        getCurrentFrame(startSeconds);
         clearInterval(repeatVar);
         
         repeatVar = setInterval(repeatFunc,500);
@@ -211,6 +211,10 @@ Chorus:
 
     function onPlayerReady(event) {
         event.target.setVolume(8);
+        $('#progressBar').on('click', function (e) {
+            clearSelection();
+            stopRepeat();
+        });
     }
 
     function onPlayerStateChange(event) {
@@ -224,7 +228,10 @@ Chorus:
 
     function repeatFunc(){
         t = player.getCurrentTime();
-        getCurrentFrame(t);
+        console.log(t);
+        if (t >= 505 && t <= 881) {
+            getCurrentFrame(t);
+        }
         if (t >= endSeconds) {
             player.seekTo(startSeconds);
         }
@@ -241,7 +248,7 @@ Chorus:
             else if (i >= 64 && t >= 879) {
                 document.getElementById(String(i)).style.backgroundColor = "rgba(220, 80, 101, 0.6)";
             }
-            else if(t >= 505 && t <= 1102) {
+            else {
                 document.getElementById(String(i)).style.backgroundColor = "rgba(169, 236, 249, 0.7)";
             }
         }
