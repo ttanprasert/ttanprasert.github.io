@@ -83,12 +83,12 @@ function getResponse(){
         setTimeout(function () {
             document.getElementById("msg11").style.display = "block";
             updateScroll();
-        }, 2000); // wait 1 second
+        }, 3000); // wait 1 second
         setTimeout(function () {
             document.getElementById("msg12").style.display = "block";
             document.getElementById("msg13").style.display = "block";
             updateScroll();
-        }, 4000); // wait 1 second
+        }, 5000); // wait 1 second
     }
 }
 
