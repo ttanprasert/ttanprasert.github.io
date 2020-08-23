@@ -1,7 +1,27 @@
-var msg_ind = 1;
+var msg_ind = 0;
 
 // Get the input field
 var input = document.getElementById("myInput");
+
+
+var tag = document.createElement('script');
+tag.id = 'iframe-demo';
+tag.src = 'https://www.youtube.com/iframe_api';
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+var repeatVar;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('existing-iframe-example', {
+        events: {
+        'onReady': onPlayerReady
+        }
+    });
+}
+
+function onPlayerReady(event) {
+}
 
 // Execute a function when the user releases a key on the keyboard
 input.addEventListener("keyup", function(event) {
@@ -15,43 +35,61 @@ input.addEventListener("keyup", function(event) {
 });
 
 function nextQuestion(){
-    var botbubble = document.getElementById("reply9");
+    var botbubble = document.getElementById("msg14");
     setTimeout(function () {
         botbubble.style.display = "block";
         updateScroll();
     }, 1000); // wait 1 second
-    document.getElementById("query10").style.display = "block";
+    document.getElementById("msg15").style.display = "block";
 }
 
 function getComment(){
     setTimeout(function () {
-        document.getElementById("reply10").style.display = "block";
+        document.getElementById("msg16").style.display = "block";
         updateScroll();
     }, 1000); // wait 1 second
-    msg_ind = 11;
+    msg_ind = 17;
 }
 
-function getInputValue(){
+function getResponse(){
     var textinput = document.getElementById("myInput");
-    var chatbubble = document.getElementById("query"+msg_ind);
-    var botbubble = document.getElementById("reply"+msg_ind);
+    var chatbubble = document.getElementById("msg"+msg_ind);
+    var botbubble = document.getElementById("msg"+(msg_ind+1));
 
     chatbubble.innerHTML = textinput.value;
     chatbubble.style.display = "block";
     updateScroll();
-    //botbubble.innerHTML = getAnswer(textinput.value); // Preset response
     textinput.value = "";
+    msg_ind += 2;
 
     setTimeout(function () {
         botbubble.style.display = "block";
         updateScroll();
     }, 1000); // wait 1 second
-    msg_ind += 1;
 
-    if (msg_ind == 9) {
-        document.getElementById("query9").style.display = "block";
+    if (msg_ind == 6) {
+        player.seekTo(420);
     }
     
+    if (msg_ind == 8) {
+        setTimeout(function () {
+            document.getElementById("msg8").style.display = "block";
+            updateScroll();
+            msg_ind += 1
+        }, 2000);
+    }
+
+    if (msg_ind == 11) {
+        setTimeout(function () {
+            document.getElementById("msg11").style.display = "block";
+            updateScroll();
+        }, 2000); // wait 1 second
+        setTimeout(function () {
+            document.getElementById("msg12").style.display = "block";
+            document.getElementById("msg13").style.display = "block";
+            updateScroll();
+        }, 4000); // wait 1 second
+    }
 }
 
 function updateScroll(){
