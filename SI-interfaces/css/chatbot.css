@@ -29,7 +29,7 @@
 }
 
 .stname{
-  font-size: 13px;
+  font-size: 16px;
   color: gray;
   display: none;
   margin-bottom: 0px;
@@ -47,7 +47,7 @@
   max-width: 65%;
   /*float:left;*/
   display: none;
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .bubble {
@@ -65,7 +65,7 @@
   border-radius: 15px;
   font-size: 16px;
   display: none;
-  padding: 20px 15px;
+  padding: 10px 15px;
   box-shadow:2px 5px 10px #333;
   font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
 }
@@ -85,13 +85,33 @@
   background-color: white;
 }
 
-.triangle-up {
+.triangle-down {
 	width: 0;
 	height: 0;
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-  border-bottom: 18px solid gray;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+  border-top: 16px solid yellow;
   cursor: pointer;
+  pointer-events: all;
+  z-index: 1;
+}
+
+.dot {
+  display: none;
+  left:30%;
+  top:30%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: black;
+  opacity: 1;
+  z-index: 1;
+  /*box-shadow: 0px 0px 10px 10px #fff;
+  -webkit-animation: glowing 1.5s  linear infinite;
+  -moz-animation: glowing 1.5s  linear infinite alternate;
+  -ms-animation: glowing 1.5s  linear infinite alternate;
+  -o-animation: glowing 1.5s  linear infinite alternate;
+  animation: glowing 1.5s linear infinite alternate;*/
 }
 
 /* Style buttons */
@@ -154,8 +174,122 @@
 
 .wrapper{
   position: absolute;
-  bottom: 0%;
+  bottom: 0;
   left: 4%;
   height: 80%;
   aspect-ratio: 16 / 9;
+}
+
+.intprogress {
+  height: 12px;
+  /*width: 100px;*/
+  width: auto;
+  padding: 0px 5px 10px 5px;
+  background-color: dodgerblue;
+  display: none;
+  z-index: 1;s
+}
+
+/*====================*/
+/* BUZZ OUT
+/*====================*/
+
+@-webkit-keyframes buzz-out-on-hover {
+  10% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  20% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  30% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  40% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  50% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  60% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  70% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  80% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  90% {
+    -webkit-transform: translateX(1px) rotate(0);
+    transform: translateX(1px) rotate(0);
+  }
+  100% {
+    -webkit-transform: translateX(-1px) rotate(0);
+    transform: translateX(-1px) rotate(0);
+  }
+}
+@keyframes buzz-out-on-hover {
+  10% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  20% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  30% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  40% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  50% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  60% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  70% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  80% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  90% {
+    -webkit-transform: translateX(1px) rotate(0);
+    transform: translateX(1px) rotate(0);
+  }
+  100% {
+    -webkit-transform: translateX(-1px) rotate(0);
+    transform: translateX(-1px) rotate(0);
+  }
+}
+.buzz-out {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  /*box-shadow: 0 0 1px rgba(0, 0, 0, 0);*/
+  -webkit-animation-name: buzz-out-on-hover;
+  animation-name: buzz-out-on-hover;
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 0.75s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
 }
