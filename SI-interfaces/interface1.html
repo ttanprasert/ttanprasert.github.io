@@ -69,13 +69,47 @@ outline: 0;
 
         <img id="participants" src="./messages/all-silent.png" height="17%" style="position:relative; top:1%; left:16%;">
         <div class="wrapper">
-        <video id="video" height=100% style="position:absolute;bottom:0%;left:0%;z-index:0;border: 2px solid #dedede;" controls>
+            <video id="video" height=100% style="position:absolute;bottom:0%;left:0%;z-index:0;border: 2px solid #dedede;" controls>
                 <source src="https://drive.google.com/uc?export=view&id=17L5hHdblroyR4y_GcpDg_TTofHaChFW-" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div id="int1" class="triangle-up" style="position:absolute; bottom:0.5%; left:calc(19.5% + 9px);" onclick="getInteraction(1)"></div>
-            <div id="int2" class="triangle-up" style="position:absolute; bottom:0.5%; left:calc(63.7% + 9px)" onclick="getInteraction(2)"></div>
-            <div id="int3" class="triangle-up" style="position:absolute; bottom:0.5%; left:calc(93% + 9px)" onclick="getInteraction(3)"></div>
+            <div style="position:absolute; bottom:0%; left:16px; width: calc(100% - 32px); height: 50%; pointer-events: none;">
+                <div id="int1" class="triangle-down" style="position:absolute; bottom: 25px; left: calc(19.85% - 4px);" onclick="getInteraction(1)"></div>
+                <div id="bar1" class="intprogress" style="position:absolute; bottom:38px; left: calc(19.85% - 35px);">
+                    <span class="dot" id="i1"></span>
+                    <span class="dot" id="i2"></span>
+                    <span class="dot" id="i3"></span>
+                    <span class="dot" id="i4"></span>
+                    <span class="dot" id="i5"></span>
+                    <span class="dot" id="i6"></span>
+                </div>
+                <div id="int2" class="triangle-down" style="position:absolute; bottom: 25px; left: calc(65.14% - 4px)" onclick="getInteraction(2)"></div>
+                <div id="bar2" class="intprogress" style="position:absolute; bottom:38px; left: calc(65.14% - 90px);">
+                    <span class="dot" id="i8"></span>
+                    <span class="dot" id="i9"></span>
+                    <span class="dot" id="i10"></span>
+                    <span class="dot" id="i11"></span>
+                    <span class="dot" id="i12"></span>
+                    <span class="dot" id="i13"></span>
+                    <span class="dot" id="i14"></span>
+                    <span class="dot" id="i15"></span>
+                    <span class="dot" id="i16"></span>
+                    <span class="dot" id="i17"></span>
+                    <span class="dot" id="i18"></span>
+                    <span class="dot" id="i19"></span>
+                    <span class="dot" id="i20"></span>
+                    <span class="dot" id="i21"></span>
+                    <span class="dot" id="i22"></span>
+                </div>
+                <div id="int3" class="triangle-down" style="position:absolute; bottom: 25px; left: calc(96.17% - 4px);" onclick="getInteraction(3)"></div>
+                <div id="bar3" class="intprogress" style="position:absolute; bottom:38px; left: calc(99% - 75px);">
+                    <span class="dot" id="i25"></span>
+                    <span class="dot" id="i26"></span>
+                    <span class="dot" id="i27"></span>
+                    <span class="dot" id="i28"></span>
+                    <span class="dot" id="i29"></span>
+                </div>
+            </div>
         </div>
         <audio id="ping" src="./mixkit-message-pop-alert-2354.mp3"></audio>
 
@@ -361,7 +395,7 @@ outline: 0;
 
             </div>
     
-            <button id="next" class="btn" onclick="getResponse();" disabled>Click to see the next message</button> 
+            <button id="next" class="btn" onclick="getResponse();" disabled>Click to continue</button> 
         </div>
         <script src="./chatbot.js"></script>
 </body>

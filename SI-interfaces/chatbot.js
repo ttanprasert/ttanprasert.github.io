@@ -19,6 +19,7 @@ const nonmsg = [7, 21, 22, 23, 29];
 video.onplay = function() {
     pauseOther(null);
     toggle("bubble", "none");
+    toggle("intprogress", "none");
     grayAll();
 };
 
@@ -29,14 +30,14 @@ video.addEventListener('timeupdate', function() {
   if (this.currentTime >= 68 && lastCheckedAt < 68 && this.currentTime < 69) {
     this.pause();
     setTimeout(function () {
-        document.getElementById("int1").style.borderBottom = "18px solid yellow";
+        displayBar(1);
         getResponse();
         disableMainBtn(false);
     }, 1000); // wait 1 second
   } else if (this.currentTime >= 224 && lastCheckedAt < 224 && this.currentTime < 225) {
     this.pause();
     setTimeout(function () {
-        document.getElementById("int2").style.borderBottom = "18px solid yellow";
+        displayBar(2);
         getResponse();
         disableMainBtn(false);
     }, 1000); // wait 1 second
@@ -45,7 +46,7 @@ video.addEventListener('timeupdate', function() {
   } else if (this.currentTime >= 331 && lastCheckedAt < 331 && this.currentTime < 332) {
     this.pause();
     setTimeout(function () {
-        document.getElementById("int3").style.borderBottom = "18px solid yellow";
+        displayBar(3);
         getResponse();
         disableMainBtn(false);
     }, 1000); // wait 1 second
@@ -53,7 +54,7 @@ video.addEventListener('timeupdate', function() {
 });
 
 video.addEventListener('seeked', function() {
-    console.log(this.currentTime);
+    //console.log(this.currentTime);
     setChat(this.currentTime);
 });
 
@@ -67,8 +68,28 @@ function pauseOther(ele) {
     });
 }
 
+function displayBar(i){
+    document.getElementById("int"+i).style.borderTop = "14px solid dodgerblue";
+    document.getElementById("bar"+i).style.display = "block";
+    if (i == 1) {
+        var s = 1;
+        var n = 7;
+    } else if (i == 2) {
+        var s = 8;
+        var n = 23;
+    } else {
+        var s = 25;
+        var n = 30;
+    }
+    for (let i = s; i < n; i++) {
+        document.getElementById("i"+i).style.backgroundColor = "black";
+        document.getElementById("i"+i).style.display = "inline-block";
+    }
+}
+
 function getResponse(){
-    console.log("getResponse:", msg_ind);
+    //console.log("getResponse:", msg_ind);
+    //updateBar();
 
     if (nonmsg.includes(msg_ind)) { // for clicks that aren't for voice or text messages
 
@@ -87,7 +108,6 @@ function getResponse(){
             participants.src = "./messages/all-silent.png";
             video.play();
             disableMainBtn(true);
-            mainBtn.textContent = "Click to see the next message";
         }
 
         else if (msg_ind == 21) {
@@ -103,12 +123,30 @@ function getResponse(){
 
     else {
         var msg = document.getElementById("msg"+(msg_ind));
+        document.getElementById("i"+msg_ind).style.backgroundColor = "yellow";
 
         if (msg.constructor.name == "HTMLAudioElement") {
 
             participants.src = "./messages/adrian-speaking.png"
             document.getElementById("tsc"+(msg_ind)).style.display = "block";
             msg.play();
+            msg.onended = function(){
+                /*blink();
+                setTimeout(function(){
+                    blink();
+                    setTimeout(function(){
+                        blink();
+                    }, 500);
+                }, 500);*/
+                mainBtn.className = "btn buzz-out";
+                mainBtn.style.backgroundImage = "linear-gradient(to bottom right, #4FC3F7 100%, #7986CB 50%, #E1F5FE 0%)";
+                mainBtn.style.color = "black";
+                setTimeout(function() {
+                    mainBtn.className = "btn";
+                    mainBtn.style.backgroundImage = "linear-gradient(to bottom right, #00d2ff 0%, #3a7bd5 51%, #00d2ff 100%)";
+                    mainBtn.style.color = "white";
+                }, 1000);
+            }
         }
         else {
             if (msg_ind > 1) {
@@ -131,18 +169,16 @@ function getResponse(){
             pingaudio.play();
             updateScroll(); 
         }
-
-        if (msg_ind == 6 || msg_ind == 22 || msg_ind == 28) {
-            mainBtn.textContent = "Click to resume playing video";
-        }
     }
     msg_ind += 1;
 }
 
 function grayAll() {
-    document.getElementById("int1").style.borderBottom = "18px solid gray";
-    document.getElementById("int2").style.borderBottom = "18px solid gray";
-    document.getElementById("int3").style.borderBottom = "18px solid gray";
+    document.getElementById("int1").style.borderTop = "14px solid yellow";
+    document.getElementById("int2").style.borderTop = "14px solid yellow";
+    document.getElementById("int3").style.borderTop = "14px solid yellow";
+    toggle("intprogress", "none");
+    toggle("dot", "none");
 }
 
 function setChat(t) {
@@ -157,7 +193,7 @@ function setChat(t) {
     } else {
         showChat(1, 30); // to fix: show all messages
     }
-    console.log("setChat:", msg_ind);
+    //console.log("setChat:", msg_ind);
 }
 
 function getInteraction(n) {
@@ -167,23 +203,23 @@ function getInteraction(n) {
     if (n == 1) {
         video.currentTime = 68;
         hideChat(1, msg_ind);
-        document.getElementById("int1").style.borderBottom = "18px solid yellow";
+        displayBar(1);
         pauseOther(document.getElementById("msg1"));
     }
     else if (n == 2) {
         video.currentTime = 224;
         hideChat(8, msg_ind);
-        document.getElementById("int2").style.borderBottom = "18px solid yellow";
+        displayBar(2);
         pauseOther(document.getElementById("msg9"));
     }
     else {
         video.currentTime = 331;
         hideChat(25, msg_ind);
-        document.getElementById("int3").style.borderBottom = "18px solid yellow";
+        displayBar(3);
         pauseOther(document.getElementById("msg25"));
     }
     video.pause();
-    console.log('getInteraction:', msg_ind);
+    //console.log('getInteraction:', msg_ind);
     getResponse();
     disableMainBtn(false);
 }
@@ -256,3 +292,18 @@ function disableMainBtn(t){
         mainBtn.style.opacity = "1";
     }
 }
+
+
+/*function updateBar() {
+    if (msg_ind <= 7) {
+        var n = msg_ind*100/6;
+        document.getElementById("bar1").style.backgroundImage = "linear-gradient(to right, white, white "+n+"px, gray "+n+"px)";
+    } else if (msg_ind <= 23) {
+        var n = (msg_ind-7)*100/15;
+        document.getElementById("bar2").style.backgroundImage = "linear-gradient(to right, white, white "+n+"px, gray "+n+"px)";
+    } else {
+        var n = (msg_ind-24)*100/4;
+        document.getElementById("bar3").style.backgroundImage = "linear-gradient(to right, white, white "+n+"px, gray "+n+"px)";
+    }
+    console.log(msg_ind, n);
+}*/
