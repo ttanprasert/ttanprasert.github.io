@@ -136,14 +136,11 @@ function clickProgress(x, id, mx, mn) {
 }
 
 function playVideo() {
-    var playpause = document.getElementById("playpause");
     if(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2) {
         video.pause();
-        //playpause.style.display = "block";
         playBtn.innerHTML = "<i class='fa fa-play'></i>&nbsp; Play";
     } else {
         video.play();
-        //playpause.style.display = "none";
         playBtn.innerHTML = "<i class='fa fa-pause'></i>&nbsp; Pause";
     }
 }
@@ -369,22 +366,6 @@ function updateScroll(){
 function closeForm(msg_ind) {
     var element = document.getElementById("tsc"+msg_ind);
     element.style.display = "none";
-}
-
-/*function stopSound(sound) {
-    sound.pause();
-    sound.currentTime = 0;
-}*/
-
-function playpause(){
-    var btn = document.getElementById("playbtn");
-    if (btn.className == "playbutton") {
-        btn.className = "playbutton pause";
-        video.play();
-    } else {
-        btn.className = "playbutton";
-        video.pause();
-    }
 }
 
 function disableMainBtn(t){
