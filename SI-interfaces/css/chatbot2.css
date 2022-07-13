@@ -114,7 +114,7 @@
   position: absolute;
   bottom: 3%;/*calc(3% + 25px);*/
   right: 10px;
-  width: calc(95% - 5px);
+  width: calc(95% - 3px);
   height: 10%;
   background-color: gray;
   border: 5px solid #dedede; 
