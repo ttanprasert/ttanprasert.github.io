@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>What the world looked like before WW1 - YouTube</title>
+
+<!-- Add icon library -->
+<link rel="icon" type="image/png" href="./messages/gachapon.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/chatbot2.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="jquery.rwdImageMaps.min.js"></script>
+
+<style>
+
+/* Base Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* NOTE
+html is set to 62.5% so that all the REM measurements throughout Skeleton
+are based on 10px sizing. So basically 1.5rem = 15px :) */
+html {
+  font-size: 62.5%; 
+  height: 100%;
+}
+body {
+  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  font-weight: 400;
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  color: #222;
+  background-color:black;
+}
+
+input[type="text"]
+{
+    font-family: "Roboto", sans-serif;
+    font-size:13px;
+}
+
+a {
+    cursor: pointer;
+}
+
+.column {
+  float: left;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.map {
+outline: 0;
+}
+
+.audioPlayer{
+  display: block;
+  border-radius: 10px;
+  margin: 20px auto 5px;
+}
+
+
+</style>
+</head>
+<body>
+
+        <img id="participants" src="./messages/all-silent.png" height="15%" style="position:relative; top:1%; left:16%;">
+        <div style="position:relative;height:77%; aspect-ratio: 16 / 9;top: 1%;left:4%; "  onmouseover="showPP(1);" onmouseout="showPP(2);">
+            <video id="video" height=100% style="position:absolute;bottom:0%;left:0%;z-index:0;border: 1px solid #dedede;">
+                <source src="https://drive.google.com/uc?export=view&id=17L5hHdblroyR4y_GcpDg_TTofHaChFW-" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div id="playpause">
+                <button class="btn" id="playpause-btn" onclick="playVideo();" style="position:absolute;bottom:45%;left:40%;z-index:1;"><i class="fa fa-play"></i>&nbsp; Play</button>
+            </div>
+        </div>
+        <div id="video-time" style="position:absolute;color:white;bottom:33px; left:0.8%">00:00</div>
+        <div class="control" onmouseover="showDragger(1);" onmouseout="showDragger(2);">
+            <div class="dragger" id="video-dragger" style="position:absolute; bottom:25%;"></div>
+            <span class="progress" id="progress1" style="width: calc(0.2*(100% - 268px));"></span>
+            <span class="dot" id="i1" onclick="getDialogue(1)"></span>
+            <span class="dot" id="i2" onclick="getDialogue(2)"></span>
+            <span class="dot" id="i3" onclick="getDialogue(3)"></span>
+            <span class="dot" id="i4" onclick="getDialogue(4)"></span>
+            <span class="dot" id="i5" onclick="getDialogue(5)"></span>
+            <span class="dot" id="i6" onclick="getDialogue(6)"></span>
+            <span class="progress" id="progress2" style="width: calc(0.5*(100% - 268px));"></span>
+            <span class="dot" id="i8" onclick="getDialogue(8)"></span>
+            <span class="dot" id="i9" onclick="getDialogue(9)"></span>
+            <span class="dot" id="i10" onclick="getDialogue(10)"></span>
+            <span class="dot" id="i11" onclick="getDialogue(11)"></span>
+            <span class="dot" id="i12" onclick="getDialogue(12)"></span>
+            <span class="dot" id="i13" onclick="getDialogue(13)"></span>
+            <span class="dot" id="i14" onclick="getDialogue(14)"></span>
+            <span class="dot" id="i15" onclick="getDialogue(15)"></span>
+            <span class="dot" id="i16" onclick="getDialogue(16)"></span>
+            <span class="dot" id="i17" onclick="getDialogue(17)"></span>
+            <span class="dot" id="i18" onclick="getDialogue(18)"></span>
+            <span class="dot" id="i19" onclick="getDialogue(19)"></span>
+            <span class="dot" id="i20" onclick="getDialogue(20)"></span>
+            <span class="dot" id="i21" onclick="getDialogue(21)"></span>
+            <span class="dot" id="i22" onclick="getDialogue(22)"></span>
+            <span class="progress" id="progress3" style="width: calc(0.25*(100% - 268px));"></span>
+            <span class="dot" id="i25" onclick="getDialogue(25)"></span>
+            <span class="dot" id="i26" onclick="getDialogue(26)"></span>
+            <span class="dot" id="i27" onclick="getDialogue(27)"></span>
+            <span class="dot" id="i28" onclick="getDialogue(28)"></span>
+            <span class="dot" id="i29" onclick="getDialogue(29)"></span>
+            <span class="progress" id="progress4" style="width: calc(0.05*(100% - 268px));"></span>
+        </div>
+        <audio id="ping" src="./mixkit-message-pop-alert-2354.mp3"></audio>
+
+        <div id="tsc1" class="bubble">
+            Before the professor tells us the answer, let’s take a moment, try and see if you can spot the differences between this map from 1914 and what Europe looks like nowadays. Specifically, think about what countries existed and where the borders were.
+            <!--button class="smallbtn" style="position: absolute; top:5px; right:5px;" onclick="closeForm(1);"><i class="fa fa-window-close"></i></button-->
+            <audio class="audioPlayer" id="msg1" src="./messages/msg1.mp3"></audio>
+        </div>
+        
+        <div id="tsc4" class="bubble">
+            Yes, and yes! We can see two big countries in the middle that look different from the modern map, the German Empire and Austria Hungary, also known as the Austro-Hungarian Empire. Is there any other country that seemed bigger back in the day?
+            <!--button class="smallbtn" style="position: absolute; top:5px; right:5px;" onclick="closeForm(4);"><i class="fa fa-window-close"></i></button-->
+            <audio class="audioPlayer" id="msg4" src="./messages/msg4.mp3"></audio>
+        </div>
+ 
+        <div id="tsc6" class="bubble">
+            That’s right, Russia. Wow, you guys are great! Now, let’s hear the professor talk a bit about what the differences are, exactly. 
+            <!--button class="smallbtn" style="position: absolute; top:5px; right:5px;" onclick="closeForm(6);"><i class="fa fa-window-close"></i></button-->
+            <audio class="audioPlayer" id="msg6" src="./messages/msg6.mp3"></audio>
+        </div>
+
+        <div id="tsc8" class="bubble">
+            Let me pause here for a bit. As  they mentioned, most countries in the Middle East were in the Empire. Do you know which countries are there today? 
+            <!--button class="smallbtn" style="position: absolute; top:5px; right:5px;" onclick="closeForm(8);"><i class="fa fa-window-close"></i></button-->
+            <audio class="audioPlayer" id="msg8" src="./messages/msg8.mp3"></audio>
+        </div>
+
+        <div id="tsc10" class="bubble">
+            Right, Katsumi. Iraq is one. What else?
+            <!--button class="smallbtn" style="position: absolute; top:5px; right:5px;" onclick="closeForm(10);"><i class="fa fa-window-close"></i></button-->
+            <audio class="audioPlayer" id="msg10" src="./messages/msg10.mp3"></audio>
+        </div>
+
+        <div id="tsc12" class="bubble">
+            Yes, although not all of Saudi Arabia, but a part of it is in the Ottoman Empire. What other countries do you think there are, Danny?
+            <!--button class="smallbtn" style="position: absolute; top:5px; right:5px;" onclick="closeForm(12);"><i class="fa fa-window-close"></i></button-->
+            <audio class="audioPlayer" id="msg12" src="./messages/msg12.mp3"></audio>
+        </div>
+
+        <div id="tsc14" class="bubble">
+            India is actually a bit further down and to the right, so it was <b>never</b> part of the Ottoman Empire. Some other countries that were in the bright red region on the map are Syria, Lebanon, and most of Israel. 
+            <!--button class="smallbtn" style="position: absolute; top:5px; right:5px;" onclick="closeForm(14);"><i class="fa fa-window-close"></i></button-->
+            <audio class="audioPlayer" id="msg14" src="./messages/msg14.mp3"></audio>
+        </div>
+
+        <div id="tsc16" class="bubble">
+            Danny said in the chat that he heard that the Ottoman Empire was supposedly bigger than this, and that’s not wrong! What you see here is the Ottoman Empire in its dying state. At the peak of its power, long before this, it actually controlled most of the Muslim world. There is North Africa - Egypt right there. Also a little bit to the right, going into Persia. A little bit to the top, going into Southeast Europe. Greece, in particular. This is a map from 1914, so the Empire already shrunk down to only a few countries.
+            <!--button class="smallbtn" style="position: absolute; top:5px; right:5px;" onclick="closeForm(16);"><i class="fa fa-window-close"></i></button-->
+            <audio class="audioPlayer" id="msg16" src="./messages/msg16.mp3"></audio>
+        </div>
+
+        <div id="tsc18" class="bubble">
+            Katsumi asked whether the Ottoman Empire started declining around 1914. The answer is <b>no</b>. Actually, its peak was hundreds and hundreds of years ago, and it had been declining for some time already. 
+            <!--button class="smallbtn" style="position: absolute; top:5px; right:5px;" onclick="closeForm(18);"><i class="fa fa-window-close"></i></button-->
+            <audio class="audioPlayer" id="msg18" src="./messages/msg18.mp3"></audio>
+        </div>
+
+        <div id="tsc20" class="bubble">
+            No problem. These are great questions. Well, if there’s no more question here, let’s move on!
+            <!--button class="smallbtn" style="position: absolute; top:5px; right:5px;" onclick="closeForm(20);"><i class="fa fa-window-close"></i></button-->
+            <audio class="audioPlayer" id="msg20" src="./messages/msg20.mp3"></audio>
+        </div>
+
+        <div id="tsc25" class="bubble">
+            Jordan just asked a great question here in the chat. What’s the point of all of these expansions? Well, one could say it's just ambition and ego. But there were also reasons like, we want to civilize these other lands, to spread our ethnic beliefs. It sounds absurd now. But these are considered a rational justification for colonizations at that time.
+            <!--button class="smallbtn" style="position: absolute; top:5px; right:5px;" onclick="closeForm(25);"><i class="fa fa-window-close"></i></button-->
+            <audio class="audioPlayer" id="msg25" src="./messages/msg25.mp3"></audio>
+        </div>
+
+        <div id="tsc27" class="bubble">
+            Katsumi suggested in the chat that the fight for natural resource could be a factor. Yes, it is definitely one of the reasons for war. The race to possess natural resources, raw materials, and oil, is one of the ways for these empires to gain power. Does this make sense, Jordan?
+            <!--button class="smallbtn" style="position: absolute; top:5px; right:5px;" onclick="closeForm(27);"><i class="fa fa-window-close"></i></button-->
+            <audio class="audioPlayer" id="msg27" src="./messages/msg27.mp3"></audio>
+        </div>
+
+
+        <div class="chat" id="chatbot" style="display:block">
+            <div id="chatheader" class="header">Chat (4)</div>
+            <div id="chatwindow" class="container">
+                <!-- 
+                    <div id="name1" class="stname" style="margin-top: 0px">Adrian Hernandez</div>
+                    <img id="avt1" src="./characters/AH.png" class="avatar">
+                    <div id="msg1" class="col-md-12 bot-item">
+                        Before the professor tells us the answer, let’s take a moment, try and see if you can spot the differences between this map from 1914 and what Europe looks like nowadays. Specifically, think about what countries existed and where the borders were.
+                    </div>
+                --> 
+    
+                <div class="row">
+                    <div id="name2" class="stname">Danny Hollander</div>
+                    <img id="avt2" src="./characters/DH.png" class="avatar">
+                    <div id="msg2" class="col-md-12 bot-item">
+                        Germany seems pretty big here.
+                    </div>
+                </div>
+                    
+                <div class="row">
+                    <div id="name3" class="stname">Katsumi Mori</div>
+                    <img id="avt3" src="./characters/KM.png" class="avatar">
+                    <div id="msg3" class="col-md-12 bot-item">
+                        Austria and Hungary are one country?
+                    </div>
+                </div>
+                
+                <!-- 
+                <div class="row">
+                    <div id="name4" class="stname">Adrian Hernandez</div>
+                    <img id="avt4" src="./characters/AH.png" class="avatar">
+                    <div id="msg4" class="col-md-12 bot-item">
+                        Yes, and yes! We can see two big countries in the middle that look different from the modern map, the German Empire and Austria Hungary, also known as the Austro-Hungarian Empire. Is there any other country that seemed bigger back in the day?
+                    </div>
+                </div>
+                --> 
+                    
+                <div class="row">
+                    <div id="name5" class="stname">Jordan Williams</div>
+                    <img id="avt5" src="./characters/JW.png" class="avatar">
+                    <div id="msg5" class="col-md-12 bot-item">
+                        Russia?
+                    </div>
+                </div>
+
+                <!--     
+                <div class="row">
+                        <div id="name6" class="stname">Adrian Hernandez</div>
+                        <img id="avt6" src="./characters/AH.png" class="avatar">
+                        <div id="msg6" class="col-md-12 bot-item">
+                                That’s right, Russia. Wow, you guys are great! Now, let’s hear the professor talk a bit about what the differences are, exactly. 
+                        </div>
+                </div>
+                -->  
+
+                <!-- msg7: resume playing video -->
+                
+                <!--   
+                <div class="row">
+                    <div id="msg8" class="col-md-12 bot-item">
+                        Let me pause here for a bit. As  they mentioned, most countries in the Middle East were in the Empire. Do you know which countries are there today?
+                    </div>
+                </div>
+                -->
+
+                <div class="row">
+                    <div id="name9" class="stname">Katsumi Mori</div>
+                    <img id="avt9" src="./characters/KM.png" class="avatar">
+                    <div id="msg9" class="col-md-12 bot-item">
+                        Iraq?
+                    </div>
+                </div>
+                
+                <!-- 
+                <div class="row">
+                    <div id="msg10" class="col-md-12 bot-item">
+                        Right, Katsumi. Iraq is one. What else?
+                    </div>
+                </div>
+                -->
+                    
+                <div class="row">
+                    <div id="name11" class="stname">Jordan Williams</div>
+                    <img id="avt11" src="./characters/JW.png" class="avatar">
+                    <div id="msg11" class="col-md-12 bot-item">
+                        Saudi Arabia? 
+                    </div>
+                </div>
+    
+                <!--
+                <div class="row">
+                    <div id="msg12" class="col-md-12 bot-item">
+                        Yes, although not all of Saudi Arabia, but a part of it is in the Ottoman Empire. What other countries do you think there are, Danny?
+                    </div>
+                </div>
+                -->
+
+                <div class="row">
+                    <div id="name13" class="stname">Danny Hollander</div>
+                    <img id="avt13" src="./characters/DH.png" class="avatar">
+                    <div id="msg13" class="col-md-12 bot-item">
+                        India?
+                    </div>
+                </div>
+                
+                <!--
+                <div class="row">
+                    <div id="msg14" class="col-md-12 bot-item">
+                        India is actually a bit further down and to the right, so it was never  part of the Ottoman Empire. Some other countries that were in the bright red region on the map are Syria, Lebanon, and most of Israel. 
+                    </div>
+                </div>
+                -->
+
+                <div class="row">
+                    <div id="name15" class="stname">Danny Hollander</div>
+                    <img id="avt15" src="./characters/DH.png" class="avatar">
+                    <div id="msg15" class="col-md-12 bot-item">
+                        I see. But I heard from somewhere that the Ottoman Empire was bigger than this…?
+                    </div>
+                </div>
+
+                <!--      
+                <div class="row">
+                    <div id="msg16" class="col-md-12 bot-item">
+                        Danny said in the chat that he heard that the Ottoman Empire was supposedly bigger than this, and that’s not wrong! What you see here is the Ottoman Empire in its dying state. At the peak of its power, long before this, it actually controlled most of the Muslim world. There is North Africa - Egypt right there. Also a little bit to the right, going into Persia. A little bit to the top, going into Southeast Europe. Greece, in particular. This is a map from 1914, so the Empire already shrunk down to only a few countries.
+                    </div>
+                </div>
+                --> 
+
+                <div class="row">
+                    <div id="name17" class="stname">Katsumi Mori</div>
+                    <img id="avt17" src="./characters/KM.png" class="avatar">
+                    <div id="msg17" class="col-md-12 bot-item">
+                        Did it just start declining around the time WW1 started?
+                    </div>
+                </div>
+                
+                <!--
+                <div class="row">
+                    <div id="msg18" class="col-md-12 bot-item">
+                        Katsumi asked whether the Ottoman Empire started declining around 1914. The answer is no. Actually, its peak was hundreds and hundreds of years ago, and it had been declining for some time already. 
+                    </div>
+                </div>
+                -->
+
+                <div class="row">
+                    <div id="name19" class="stname">Katsumi Mori</div>
+                    <img id="avt19" src="./characters/KM.png" class="avatar">
+                    <div id="msg19" class="col-md-12 bot-item">
+                        Got it. Thank you!
+                    </div>
+                </div>
+
+                <!--
+                <div class="row">
+                    <div id="msg20" class="col-md-12 bot-item">
+                        No problem. These are great questions. Well, if there’s no more question here, let’s move on!
+                    </div>
+                </div>
+                -->
+
+                <!-- msg21: KM [emoji] *thumb-up* -->
+                <!-- msg22: JW [emoji] *okay* -->
+                <!-- msg23: resume playing video -->
+
+                <div class="row">
+                    <div id="name24" class="stname">Jordan Williams</div>
+                    <img id="avt24" src="./characters/JW.png" class="avatar">
+                    <div id="msg24" class="col-md-12 bot-item">
+                        Question! Why do these empires need to fight for more lands if they already have so much?
+                    </div>
+                </div>
+
+                <!--
+                <div class="row">
+                    <div id="msg25" class="col-md-12 bot-item">
+                        Jordan just asked a great question here in the chat. What’s the point of all of these expansions? Well, one could say it's just ambition and ego. But there were also reasons like, we want to civilize these other lands, to spread our ethnic beliefs. It sounds absurd now. But these are considered a rational justification for colonizations at that time.
+                    </div>
+                </div>
+                -->
+
+                <div class="row">
+                    <div id="name26" class="stname">Katsumi Mori</div>
+                    <img id="avt26" src="./characters/KM.png" class="avatar">
+                    <div id="msg26" class="col-md-12 bot-item">
+                        Fight for natural resources?
+                    </div>
+                </div>
+
+                <!--
+                <div class="row">
+                    <div id="msg27" class="col-md-12 bot-item">
+                        Yes, Katsumi, the fight for natural resources is definitely one of the reasons for war. The race to possess natural resources, raw materials, and oil, is one of the ways for these empires to gain power. Does this make sense, Jordan?
+                    </div>
+                </div>
+                -->
+
+                <div class="row">
+                    <div id="name28" class="stname">Jordan Williams</div>
+                    <img id="avt28" src="./characters/JW.png" class="avatar">
+                    <div id="msg28" class="col-md-12 bot-item">
+                        Yes. Thanks!
+                    </div>
+                </div>
+
+                <!-- msg29: resume playing video -->                
+
+            </div>
+    
+            <button id="next" class="btn" onclick="getResponse();" disabled><i class="fa fa-step-forward"></i>&nbsp; Click to continue</button> 
+        </div>
+        <script src="./chatbot2.js"></script>
+</body>
+</html>
