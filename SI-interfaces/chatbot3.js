@@ -254,8 +254,12 @@ function getResponse(){
             participants.src = "./messages/katsumi-thumbup-jordan-ok.png";
             document.getElementById("i"+msg_ind).style.backgroundColor = "white";
             pingaudio.play();
-            msg_ind += 1; // If this flow works, remove the resume step later
-            disableMainBtn(true);
+            /*msg_ind += 1; // If this flow works, remove the resume step later
+            disableMainBtn(true);*/
+        }
+
+        else {
+            playVideo();
         }
     }
 
@@ -287,16 +291,33 @@ function getResponse(){
 
             participants.src = "./messages/all-silent.png";
             stname.style.display = "block";
-            msg.style.display = "inline-block";
             profilepic.style.display = "inline-block";
-            pingaudio.play();
-            updateScroll(); 
+
+            if (document.getElementById("typing"+(msg_ind))) {
+                var typing = document.getElementById("typing"+(msg_ind));
+                var t = Number(typing.getAttribute('value')) * 1000;
+                typing.style.display = "inline-block";
+                updateScroll(); 
+                setTimeout(function () {
+                    typing.style.display = "none";
+                    msg.style.display = "inline-block";
+                    pingaudio.play();
+                    updateScroll(); 
+                }, t); // wait t milliseconds
+            }
+
+            else {
+                msg.style.display = "inline-block";
+                pingaudio.play();
+                updateScroll(); 
+            }
+            
         }
 
-        if (msg_ind == 6 || msg_ind == 28) {
+        /*if (msg_ind == 6 || msg_ind == 28) {
             msg_ind += 1; // If this flow works, remove the resume step later
             disableMainBtn(true);
-        }
+        }*/
     }
     msg_ind += 1;
 }
