@@ -26,14 +26,14 @@ var pingaudio = document.getElementById("ping");
 const nonmsg = [7, 21, 22, 23, 29];
 disableMainBtn(true);
 
-video.onplay = function() {
-    pauseOther(null);
+/*video.onplay = function() {
+    //pauseOther(null);
     toggle("bubble", "none");
-    participants.src = "./messages/all-silent.png";
-    disableMainBtn(true);
-    updateTimeline(video.currentTime);
-    dragger.style.display = "block";
-};
+    //participants.src = "./messages/all-silent.png";
+    //disableMainBtn(true);
+    //updateTimeline(video.currentTime);
+    //dragger.style.display = "block";
+};*/
 
 video.addEventListener('timeupdate', function() {
   var lastCheckedAt = $video.data('lastcheck') || 0;
@@ -178,7 +178,6 @@ function dragElement(elmnt) {
     e = e || window.event;
     e.preventDefault();
     // get the mouse cursor position at startup:
-    //pos3 = e.clientX;
     document.onmouseup = closeDragElement;
     // call a function whenever the cursor moves:
     document.onmousemove = elementDrag;
@@ -410,6 +409,9 @@ function disableMainBtn(t){
         playBtn.style.backgroundImage = "linear-gradient(to bottom right, #00d2ff 0%, #3a7bd5 51%, #00d2ff 100%)";
         playBtn.style.cursor = "pointer";
         playBtn.style.opacity = "1";
+
+        // disable dragger
+        dragger.style.display = "block";
     }
     else {
         // enable main button
