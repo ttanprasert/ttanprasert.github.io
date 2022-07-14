@@ -17,7 +17,7 @@ var tag = document.createElement('script');
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 const isVideoPlaying = video => !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
-
+var timer;
 
 var $video = $('#video');
 var video = $video.get(0);
@@ -125,23 +125,18 @@ function updateTimeline(t) {
     dragger.style.left = (ele.offsetLeft + (n/100)*ele.offsetWidth - 6) +"px"; // update dragger
 }
 
-function pauseOther(ele) {
-    $("audio").not(ele).each(function (index, audio) {
-        audio.pause();
-        audio.currentTime = 0;
-    });
-}
-
 function clickProgress(x, id, mx, mn) {
     var ele = document.getElementById(id);
     var clickedValue = ((x - ele.offsetLeft) * (mx-mn) / ele.offsetWidth) + mn;
         
     console.log('You clicked within the value range at: ' + clickedValue);
+    clearTimeout(timer);
+    toggle("col-md-12 type-item", "none");
+    toggle("bubble", "none");
     video.currentTime = clickedValue;
     setChat(video.currentTime+1);
     updateTimeline(clickedValue);
-    pauseOther(null);
-    toggle("bubble", "none");
+    //pauseOther(null);
     disableMainBtn(true);
 }
 
@@ -152,6 +147,7 @@ function playVideo() {
     } else {
         video.play();
         playBtn.innerHTML = "<i class='fa fa-pause'></i>&nbsp; Pause";
+        disableMainBtn(true);
     }
 }
 
@@ -239,8 +235,10 @@ function getDialogue(i) {
 
 function getResponse(){
     console.log("getResponse:", msg_ind);
-    pauseOther(null); // end everything else before get a reponse
     toggle("bubble", "none");
+    clearTimeout(timer);
+    toggle("col-md-12 type-item", "none");
+    showChat(1, msg_ind);
 
     if (nonmsg.includes(msg_ind)) { // for clicks that aren't for voice or text messages
 
@@ -298,12 +296,7 @@ function getResponse(){
                 var t = Number(typing.getAttribute('value')) * 1000;
                 typing.style.display = "inline-block";
                 updateScroll(); 
-                setTimeout(function () {
-                    typing.style.display = "none";
-                    msg.style.display = "inline-block";
-                    pingaudio.play();
-                    updateScroll(); 
-                }, t); // wait t milliseconds
+                timer = setTimeout(showTyped, t, typing, msg); // wait t milliseconds
             }
 
             else {
@@ -320,6 +313,13 @@ function getResponse(){
         }*/
     }
     msg_ind += 1;
+}
+
+function showTyped(typing, msg) {
+    typing.style.display = "none";
+    msg.style.display = "inline-block";
+    pingaudio.play();
+    updateScroll(); 
 }
 
 function setChat(t) {
