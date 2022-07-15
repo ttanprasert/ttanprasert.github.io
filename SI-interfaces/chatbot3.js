@@ -147,6 +147,7 @@ function playVideo() {
     } else {
         video.play();
         playBtn.innerHTML = "<i class='fa fa-pause'></i>&nbsp; Pause";
+        participants.src = "./messages/all-silent.png";
         disableMainBtn(true);
     }
 }
@@ -256,6 +257,9 @@ function getResponse(){
         }
 
         else {
+            var t = video.currentTime;
+            video.load();
+            video.currentTime = t;
             playVideo();
         }
     }
