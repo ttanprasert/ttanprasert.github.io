@@ -23,9 +23,9 @@ var $video = $('#video');
 var video = $video.get(0);
 var participants = document.getElementById("participants");
 var pingaudio = document.getElementById("ping");
-const nonmsg = [2, 10, 17, 31, 32, 33, 39, 41, 43, 44];
-const emojis = [2, 31, 32, 41, 43];
-const emojion = [3, 4, 5, 6, 7, 42];
+const nonmsg = [2, 10, 18, 26, 28, 29, 37, 39, 41, 42];
+const emojis = [2, 26, 28, 39, 41];
+const emojion = [3, 4, 5, 6, 7, 27, 40];
 disableMainBtn(false);
 
 video.onended = function() {
@@ -39,21 +39,19 @@ video.addEventListener('timeupdate', function() {
   var lastCheckedAt = $video.data('lastcheck') || 0;
   $video.data('lastcheck', this.currentTime);
   
-  if (this.currentTime > 68 && lastCheckedAt < 68 && this.currentTime < 69) {
+  if (this.currentTime > 117 && lastCheckedAt < 117 && this.currentTime < 118) {
     this.pause();
     setTimeout(function () {
         getResponse();
         disableMainBtn(false);
     }, 1000); // wait 1 second
-  } else if (this.currentTime > 224 && lastCheckedAt < 224 && this.currentTime < 225) {
+  } else if (this.currentTime > 212.5 && lastCheckedAt < 212.5 && this.currentTime < 213.5) {
     this.pause();
     setTimeout(function () {
         getResponse();
         disableMainBtn(false);
     }, 1000); // wait 1 second
-  } else if (this.currentTime > 325 && lastCheckedAt < 325 && this.currentTime < 326) {
-    getResponse(); // msg24 = student's question, happens while the lecture is still playing
-  } else if (this.currentTime > 331 && lastCheckedAt < 331 && this.currentTime < 332) {
+  } else if (this.currentTime > 258 && lastCheckedAt < 258 && this.currentTime < 259) {
     this.pause();
     setTimeout(function () {
         getResponse();
@@ -79,52 +77,52 @@ video.addEventListener('play', function() {
 });
 
 document.getElementById('progress1').addEventListener('click', function (e) {
-    clickProgress(e.pageX, 'progress1', 68, 0);
+    clickProgress(e.pageX, 'progress1', 117, 0);
 });
 
 document.getElementById('progress2').addEventListener('click', function (e) {
-    clickProgress(e.pageX, 'progress2', 224, 68);
+    clickProgress(e.pageX, 'progress2', 212, 117);
 });
 
 document.getElementById('progress3').addEventListener('click', function (e) {
-    clickProgress(e.pageX, 'progress3', 331, 224);
+    clickProgress(e.pageX, 'progress3', 258, 212);
 });
 
 document.getElementById('progress4').addEventListener('click', function (e) {
-    clickProgress(e.pageX, 'progress4', 341, 331);
+    clickProgress(e.pageX, 'progress4', 351, 258);
 });
 
 function updateTimeline(t) {
     if (t == 0 && msg_ind < 10) {
         return;
     }
-    if (t < 69 && msg_ind < 17) {
-        var n = t*100/68;
+    if (t < 118 && msg_ind < 19) {
+        var n = t*100/117;
         var ele =  p1;
         p2.style.backgroundImage = "linear-gradient(to right, gray, gray)";
         p3.style.backgroundImage = "linear-gradient(to right, gray, gray)";
         p4.style.backgroundImage = "linear-gradient(to right, gray, gray)";
-    } else if (t < 225 && msg_ind < 33) {
-        var n = (t-68)*100/(224-68);
+    } else if (t < 213 && msg_ind < 29) {
+        var n = (t-117)*100/(212-117);
         var ele =  p2;
         p1.style.backgroundImage = "linear-gradient(to right, white, white)";
         p3.style.backgroundImage = "linear-gradient(to right, gray, gray)";
         p4.style.backgroundImage = "linear-gradient(to right, gray, gray)";
-    } else if (t < 332 && msg_ind < 38) {
-        var n = (t-224)*100/(331-224);
+    } else if (t < 259 && msg_ind < 38) {
+        var n = (t-212)*100/(258-212);
         var ele =  p3;
         p1.style.backgroundImage = "linear-gradient(to right, white, white)";
         p2.style.backgroundImage = "linear-gradient(to right, white, white)";
         p4.style.backgroundImage = "linear-gradient(to right, gray, gray)";
     } else {
-        var n = (t-331)*100/(341-331);
+        var n = (t-258)*100/(351-258);
         var ele =  p4;
         p1.style.backgroundImage = "linear-gradient(to right, white, white)";
         p2.style.backgroundImage = "linear-gradient(to right, white, white)";
         p3.style.backgroundImage = "linear-gradient(to right, white, white)";
     }
     ele.style.backgroundImage = "linear-gradient(to right, white, white "+n+"%, gray "+n+"%)"; // update progress bar
-    //console.log("updateTimeline:",t);
+    console.log("updateTimeline:",t, n);
     dragger.style.left = (ele.offsetLeft + (n/100)*ele.offsetWidth - 6) +"px"; // update dragger
 }
 
@@ -198,13 +196,13 @@ function dragElement(elmnt) {
     
     //console.log("drag:", e.clientX, p1.offsetLeft, p1.offsetLeft + p1.offsetWidth);
     if (e.clientX > p1.offsetLeft && e.clientX < p1.offsetLeft + p1.offsetWidth) {
-        clickProgress(e.clientX, 'progress1', 68, 0)
+        clickProgress(e.clientX, 'progress1', 117, 0)
     } else if (e.clientX > p2.offsetLeft && e.clientX < p2.offsetLeft + p2.offsetWidth) {
-        clickProgress(e.clientX, 'progress2', 224, 68)
+        clickProgress(e.clientX, 'progress2', 212, 117)
     } else if (e.clientX > p3.offsetLeft && e.clientX < p3.offsetLeft + p3.offsetWidth) {
-        clickProgress(e.clientX, 'progress3', 331, 224)
+        clickProgress(e.clientX, 'progress3', 258, 212)
     } else if (e.clientX > p4.offsetLeft && e.clientX < p4.offsetLeft + p4.offsetWidth) {
-        clickProgress(e.clientX, 'progress4', 341, 331)
+        clickProgress(e.clientX, 'progress4', 351, 258)
     }
   }
 
@@ -222,17 +220,16 @@ function getDialogue(i) {
     } else {
         showChat(1, i);
     }
-
-    if(i < 10) {
+    if(i < 10) { // DONE: update index, TODO: update time
         video.currentTime = 0;
-    } else if(i < 17) {
-        video.currentTime = 68;
-    } else if (i < 33) {
-        video.currentTime = 224;
-    } else if (i < 39) {
-        video.currentTime = 331;
+    } else if(i < 18) {
+        video.currentTime = 117;
+    } else if (i < 29) {
+        video.currentTime = 212;
+    } else if (i < 37) {
+        video.currentTime = 258;
     } else {
-        video.currentTime = 341;
+        video.currentTime = 351;
     }
     updateTimeline(video.currentTime);
     video.pause();
@@ -250,19 +247,25 @@ function getResponse(){
 
     if (nonmsg.includes(msg_ind)) { // for clicks that aren't for voice or text messages
 
-        if (msg_ind == 2 || msg_ind == 31 || msg_ind == 41) {
+        if (msg_ind == 2 || msg_ind == 39) {
             participants.src = "./messages/katsumi-thumbup.png";
             document.getElementById("i"+msg_ind).style.backgroundColor = "white";
             pingaudio.play();
         }
-    
-        else if (msg_ind == 32) {
-            participants.src = "./messages/katsumi-thumbup-jordan-ok.png";
+
+        else if (msg_ind == 26) {
+            participants.src = "./messages/danny-thumbup.png";
             document.getElementById("i"+msg_ind).style.backgroundColor = "white";
             pingaudio.play();
         }
 
-        else if (msg_ind == 43) {
+        else if (msg_ind == 28) {
+            participants.src = "./messages/danny-thumbup-jordan-ok.png";
+            document.getElementById("i"+msg_ind).style.backgroundColor = "white";
+            pingaudio.play();
+        }
+    
+        else if (msg_ind == 41) {
             participants.src = "./messages/katsumi-thumbup-jordan-claspedhand.png";
             document.getElementById("i"+msg_ind).style.backgroundColor = "white";
             pingaudio.play();
@@ -270,7 +273,7 @@ function getResponse(){
             mainBtn.style.backgroundImage = "linear-gradient(to bottom right, #E57373 0%, #BC3C15 51%, #E57373 100%)";
         }
 
-        else if (msg_ind == 44) { // the end
+        else if (msg_ind == 42) { // the end
             document.location.reload();
         }
 
@@ -285,9 +288,30 @@ function getResponse(){
 
     else {
         var msg = document.getElementById("msg"+(msg_ind));
-        if (msg_ind != 34 ) {
-            document.getElementById("i"+msg_ind).style.backgroundColor = "white";
-        }
+        document.getElementById("i"+msg_ind).style.backgroundColor = "white";
+
+        /*if (msg.constructor.name == "HTMLAudioElement") {
+
+            if (!emojion.includes(msg_ind)) {
+                participants.src = "./messages/adrian-speaking.png";
+            }
+        
+            document.getElementById("tsc"+(msg_ind)).style.display = "block";
+            msg.play();
+            if (msg_ind != 16) { // Last message: enable play button, not main button
+                msg.onended = function(){
+                    mainBtn.className = "btn buzz-out";
+                    mainBtn.style.backgroundImage = "linear-gradient(to bottom right, #4FC3F7 100%, #7986CB 50%, #E1F5FE 0%)";
+                    mainBtn.style.color = "black";
+                    setTimeout(function() {
+                        mainBtn.className = "btn";
+                        mainBtn.style.backgroundImage = "linear-gradient(to bottom right, #00d2ff 0%, #3a7bd5 51%, #00d2ff 100%)";
+                        mainBtn.style.color = "white";
+                    }, 1000);
+                }
+            }
+        }*/
+
 
         var profilepic = document.getElementById("avt"+(msg_ind));
         var stname = document.getElementById("name"+(msg_ind));
@@ -312,7 +336,7 @@ function getResponse(){
             pingaudio.play();
             updateScroll(); 
         }
-
+            
     }
     msg_ind += 1;
 }
@@ -325,20 +349,17 @@ function showTyped(typing, msg) {
 }
 
 function setChat(t) {
-    if (t < 68) {
+    if (t < 117) {
         hideChat(11, msg_ind);
         showChat(1, 11);
-    } else if (t < 224) {
-        hideChat(18, msg_ind);
-        showChat(1, 18);
-    } else if (t < 326) {
-        hideChat(34, msg_ind);
-        showChat(1, 34);
-    } else if (t < 331) {
-        hideChat(35, msg_ind);
-        showChat(1, 35);
+    } else if (t < 212) {
+        hideChat(19, msg_ind);
+        showChat(1, 19);
+    } else if (t < 258) {
+        hideChat(29, msg_ind);
+        showChat(1, 30);
     } else {
-        showChat(1, 40); // to fix: show all messages
+        showChat(1, 38); // to fix: show all messages
     }
     //console.log("setChat:", msg_ind);
 }
@@ -352,8 +373,6 @@ function hideChat(s, n) {
                 msg.style.display = "none";
                 document.getElementById("avt"+(i)).style.display = "none";
                 document.getElementById("name"+(i)).style.display = "none";
-            } 
-            if (i!=34) {
                 document.getElementById("i"+(i)).style.backgroundColor = "gray";
             }
         }
@@ -366,15 +385,13 @@ function hideChat(s, n) {
 
 function showChat(s, n) {
     for (let i = s; i < n; i++) {
-        //console.log(i, document.getElementById("msg"+(i)).constructor.name);
         if (document.getElementById("msg"+(i))) { // check if the element exists
             msg = document.getElementById("msg"+(i));
             if (msg.constructor.name == "HTMLDivElement") {
+                console.log(i, document.getElementById("msg"+(i)).constructor.name);
                 msg.style.display = "inline-block";
                 document.getElementById("avt"+(i)).style.display = "inline-block";
                 document.getElementById("name"+(i)).style.display = "block";
-            }
-            if (i!=34) {
                 document.getElementById("i"+(i)).style.backgroundColor = "white";
             }
         }
