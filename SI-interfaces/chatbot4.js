@@ -51,7 +51,7 @@ video.addEventListener('timeupdate', function() {
         getResponse();
         disableMainBtn(false);
     }, 1000); // wait 1 second
-  } else if (this.currentTime > 258 && lastCheckedAt < 258 && this.currentTime < 259) {
+  } else if (this.currentTime > 258.5 && lastCheckedAt < 258.5 && this.currentTime < 259.5) {
     this.pause();
     setTimeout(function () {
         getResponse();
@@ -81,15 +81,15 @@ document.getElementById('progress1').addEventListener('click', function (e) {
 });
 
 document.getElementById('progress2').addEventListener('click', function (e) {
-    clickProgress(e.pageX, 'progress2', 212, 117);
+    clickProgress(e.pageX, 'progress2', 212.5, 117);
 });
 
 document.getElementById('progress3').addEventListener('click', function (e) {
-    clickProgress(e.pageX, 'progress3', 258, 212);
+    clickProgress(e.pageX, 'progress3', 258.5, 212.5);
 });
 
 document.getElementById('progress4').addEventListener('click', function (e) {
-    clickProgress(e.pageX, 'progress4', 351, 258);
+    clickProgress(e.pageX, 'progress4', 351, 258.5);
 });
 
 function updateTimeline(t) {
@@ -102,27 +102,27 @@ function updateTimeline(t) {
         p2.style.backgroundImage = "linear-gradient(to right, gray, gray)";
         p3.style.backgroundImage = "linear-gradient(to right, gray, gray)";
         p4.style.backgroundImage = "linear-gradient(to right, gray, gray)";
-    } else if (t < 213 && msg_ind < 29) {
-        var n = (t-117)*100/(212-117);
+    } else if (t < 213.5 && msg_ind < 29) {
+        var n = (t-117)*100/(212.5-117);
         var ele =  p2;
         p1.style.backgroundImage = "linear-gradient(to right, white, white)";
         p3.style.backgroundImage = "linear-gradient(to right, gray, gray)";
         p4.style.backgroundImage = "linear-gradient(to right, gray, gray)";
-    } else if (t < 259 && msg_ind < 38) {
-        var n = (t-212)*100/(258-212);
+    } else if (t < 259.5 && msg_ind < 38) {
+        var n = (t-212.5)*100/(258-212.5);
         var ele =  p3;
         p1.style.backgroundImage = "linear-gradient(to right, white, white)";
         p2.style.backgroundImage = "linear-gradient(to right, white, white)";
         p4.style.backgroundImage = "linear-gradient(to right, gray, gray)";
     } else {
-        var n = (t-258)*100/(351-258);
+        var n = (t-258.5)*100/(351-258.5);
         var ele =  p4;
         p1.style.backgroundImage = "linear-gradient(to right, white, white)";
         p2.style.backgroundImage = "linear-gradient(to right, white, white)";
         p3.style.backgroundImage = "linear-gradient(to right, white, white)";
     }
     ele.style.backgroundImage = "linear-gradient(to right, white, white "+n+"%, gray "+n+"%)"; // update progress bar
-    console.log("updateTimeline:",t, n);
+    //console.log("updateTimeline:",t, n);
     dragger.style.left = (ele.offsetLeft + (n/100)*ele.offsetWidth - 6) +"px"; // update dragger
 }
 
@@ -198,11 +198,11 @@ function dragElement(elmnt) {
     if (e.clientX > p1.offsetLeft && e.clientX < p1.offsetLeft + p1.offsetWidth) {
         clickProgress(e.clientX, 'progress1', 117, 0)
     } else if (e.clientX > p2.offsetLeft && e.clientX < p2.offsetLeft + p2.offsetWidth) {
-        clickProgress(e.clientX, 'progress2', 212, 117)
+        clickProgress(e.clientX, 'progress2', 212.5, 117)
     } else if (e.clientX > p3.offsetLeft && e.clientX < p3.offsetLeft + p3.offsetWidth) {
-        clickProgress(e.clientX, 'progress3', 258, 212)
+        clickProgress(e.clientX, 'progress3', 258.5, 212.5)
     } else if (e.clientX > p4.offsetLeft && e.clientX < p4.offsetLeft + p4.offsetWidth) {
-        clickProgress(e.clientX, 'progress4', 351, 258)
+        clickProgress(e.clientX, 'progress4', 351, 258.5)
     }
   }
 
@@ -225,9 +225,9 @@ function getDialogue(i) {
     } else if(i < 18) {
         video.currentTime = 117;
     } else if (i < 29) {
-        video.currentTime = 212;
+        video.currentTime = 212.5;
     } else if (i < 37) {
-        video.currentTime = 258;
+        video.currentTime = 258.5;
     } else {
         video.currentTime = 351;
     }
@@ -335,10 +335,10 @@ function setChat(t) {
     if (t < 117) {
         hideChat(11, msg_ind);
         showChat(1, 11);
-    } else if (t < 212) {
+    } else if (t < 212.5) {
         hideChat(19, msg_ind);
         showChat(1, 19);
-    } else if (t < 258) {
+    } else if (t < 258.5) {
         hideChat(29, msg_ind);
         showChat(1, 30);
     } else {
