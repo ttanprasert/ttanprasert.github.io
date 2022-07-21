@@ -314,7 +314,12 @@ function getResponse(){
         }
 
     }
+
     msg_ind += 1;
+
+    if (msg_ind == 2) { // change button from start to continue
+        disableMainBtn(false);
+    }
 }
 
 function showTyped(typing, msg) {
@@ -404,14 +409,13 @@ function closeForm(msg_ind) {
 }
 
 function disableMainBtn(t){
-    mainBtn.innerHTML = "<i class='fa fa-step-forward'></i>&nbsp; Click to continue";
-
     if (t) {
         //disable main button
         mainBtn.disabled = true;
         mainBtn.style.backgroundImage = "none";
         mainBtn.style.cursor = "not-allowed";
         mainBtn.style.opacity = "0.6";
+        mainBtn.innerHTML = "<i class='fa fa-step-forward'></i>&nbsp; Click to continue";
 
         //enable play function
         playBtn.disabled = false;
@@ -424,8 +428,14 @@ function disableMainBtn(t){
     }
     else {
         // enable main button
+        if (msg_ind == 1) {
+            mainBtn.style.backgroundImage = "linear-gradient(to bottom right, #9DC869 0%, #3F8243 51%, #9DC869 100%)";
+            mainBtn.innerHTML = "<i class='fa fa-step-forward'></i>&nbsp; Start";
+        } else {
+            mainBtn.style.backgroundImage = "linear-gradient(to bottom right, #00d2ff 0%, #3a7bd5 51%, #00d2ff 100%)";
+            mainBtn.innerHTML = "<i class='fa fa-step-forward'></i>&nbsp; Click to continue";
+        }
         mainBtn.disabled = false;
-        mainBtn.style.backgroundImage = "linear-gradient(to bottom right, #00d2ff 0%, #3a7bd5 51%, #00d2ff 100%)";
         mainBtn.style.cursor = "pointer";
         mainBtn.style.opacity = "1";
 
