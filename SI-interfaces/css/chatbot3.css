@@ -1,7 +1,6 @@
-
 .container {
   /*border: 2px solid #dedede;*/
-  background-color: white;
+  background-color:white;
   /*border-radius: 5px;*/
   padding: 10px;
   margin: 0;
@@ -25,6 +24,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
+  margin-bottom: 10px;
   display: none;
 }
 
@@ -41,7 +41,7 @@
   background-color: #ddd;
   color: #222;
   margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   border-radius: 15px;
   padding: 10px 20px;
   max-width: 65%;
@@ -79,10 +79,6 @@
   display: none;
   padding: 10px 15px;
   /*box-shadow:2px 5px 10px #333;*/
-}
-
-.row{
-  margin-top: 10px;
 }
 
 /* Clear floats after the columns */
