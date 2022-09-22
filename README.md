@@ -1,3 +1,3 @@
-# ttanprasert.github.io
+# MAIN WEBPAGE
 
-Thitaree Tanprasert's main webpage
+This is the main webpage.
