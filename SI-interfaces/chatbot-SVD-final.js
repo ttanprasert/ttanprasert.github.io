@@ -95,7 +95,12 @@ document.getElementById('progress4').addEventListener('click', function (e) {
 });
 
 function updateTimeline(t) {
+    //console.log("updateTimeline:",t);
     if (t == 0 && msg_ind < 10) {
+        p1.style.backgroundImage = "linear-gradient(to right, gray, gray)";
+        p2.style.backgroundImage = "linear-gradient(to right, gray, gray)";
+        p3.style.backgroundImage = "linear-gradient(to right, gray, gray)";
+        p4.style.backgroundImage = "linear-gradient(to right, gray, gray)";
         return;
     }
     if (t < 60 && msg_ind < 17) {
@@ -124,7 +129,6 @@ function updateTimeline(t) {
         p3.style.backgroundImage = "linear-gradient(to right, white, white)";
     }
     ele.style.backgroundImage = "linear-gradient(to right, white, white "+n+"%, gray "+n+"%)"; // update progress bar
-    //console.log("updateTimeline:",t);
     dragger.style.left = (ele.offsetLeft + (n/100)*ele.offsetWidth - 6) +"px"; // update dragger
 }
 
@@ -132,7 +136,7 @@ function clickProgress(x, id, mx, mn) {
     var ele = document.getElementById(id);
     var clickedValue = ((x - ele.offsetLeft) * (mx-mn) / ele.offsetWidth) + mn;
         
-    console.log('You clicked within the value range at: ' + clickedValue);
+    //console.log('You clicked within the value range at: ' + clickedValue);
     clearTimeout(timer);
     toggle("col-md-12 type-item", "none");
     toggle("bubble", "none");
@@ -216,7 +220,7 @@ function dragElement(elmnt) {
 }
 
 function getDialogue(i) {
-    console.log("getDialogue:", i, msg_ind);
+    //console.log("getDialogue:", i, msg_ind);
     if (msg_ind > i) {
         hideChat(i, msg_ind);
     } else {
