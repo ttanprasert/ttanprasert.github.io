@@ -1,0 +1,298 @@
+html {
+    font-size: 62.5%; 
+    height: 100%;
+}
+  
+body {
+    font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+    line-height: 1.6;
+    font-weight: 400;
+    height: 95%;
+    font-family: "Roboto", sans-serif;
+    color: black;
+    background-color:white;
+}
+
+.column {
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.columnInstruction {
+  width: 100%;
+  display: block;
+}
+
+.cropInstruction {
+  width: 1000px; /* width of container */
+  height: 200px; /* height of container */
+  object-fit: cover;
+  object-position: 0 -50px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.textContainer {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.questionBlock {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.definition {
+  width: 300px;
+  padding: 10px;
+  background-color: royalblue;
+  color: white;
+  font-size: 12px;
+  margin-left: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.surveyContainer {
+  padding: 40px;
+}
+
+.vcenter {
+  position: absolute;
+  top: 40%;
+  text-align: center;
+}
+
+.continueButton {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+  border: 2px solid navy;
+  padding: 14px 40px;
+}
+
+.continueButton:hover{
+  background-color: navy;
+  color: white;
+}
+
+.debateTopic {
+  text-align: center;
+  padding: 50px 0px 0px;
+}
+
+.choiceGroup {
+  display: inline-block;
+  text-align: center;
+  padding: 0px 20px;
+}
+.choiceGroup label {
+  display: block;
+}
+
+.videoEssay {
+  z-index: 0;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.commentArea {
+  width: calc(100% - 10px);
+  height: 25%;
+  margin-left: 10px;
+}
+
+.avatar{
+  vertical-align: top;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 20px;
+  border: solid 2px black;
+  float: left;
+}
+
+
+.comment {
+  width: calc(100% - 60px);
+  height: 30%;
+  float: left;
+}
+
+textarea.comment {
+  width: calc(100% - 80px);
+  height: 50%;
+  padding: 5px;
+  font-family: "Roboto";
+}
+
+.chatHeader{
+  font-size: 18px;
+  color: white;
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.chatContainer {
+  background-color:white;
+  padding: 6px;
+  width: calc(100% - 12px);
+  height: calc(100% - 60px);
+  overflow: auto;
+  display: block;
+}
+
+.notme {
+  float: left;
+}
+
+.me {
+  float: right;
+}
+
+.chatBubble {
+  background-color: white;
+  clear: both;
+}
+
+.chatProfile {
+  vertical-align: top;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 5px;
+  border: solid 2px black;
+}
+
+.notmeProfile {
+  background-color: lightblue;
+}
+
+.meProfile {
+  background-color: lightpink;
+}
+
+.chatMessage {
+  vertical-align: top;
+  max-width: 70%;
+  padding: 8px;
+  margin: 5px;
+  width: fit-content;
+  word-wrap: break-word;
+  border-radius: 16px;
+}
+
+.notmeMessage {
+  text-align: left;
+  background-color: #68c;
+  color: white;
+}
+
+.meMessage {
+  text-align: right;
+  background-color:#bcf;
+}
+
+.chat {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  height: 100%;
+  width: calc(95% - 5px);
+  border: 2px solid #dedede;
+  border-radius: 5px;
+  background-color: black;
+}
+
+.textArea {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 20%;
+  background-color: gray;
+  opacity: 0.6;
+  border-radius: 5px;
+}
+
+.textBox {
+  width: calc(100% - 30px);
+  height: calc(87% - 20px);
+  margin: 1.5%;
+  padding: 10px;
+  font-family: 'Roboto';
+  float:left;
+}
+
+.eval {
+  width: 60%;
+  height: 20%;
+  padding: 10px;
+}
+
+.sendButton {
+  float:left;
+  margin: 1.5%;
+  height: 87%;
+  width: 12%;
+  background-color: royalblue;
+  color: white;
+  font-size: 1.8pw;
+}
+
+table.likertTable {
+  background-color: white;
+  padding: 10px;
+  width: calc(90% - 60px);
+}
+table.likertTable th {
+  padding: 3px;
+}
+
+.indent {
+  padding: 0% 5%;
+}
+
+.recap {
+  width:100%;
+  display: block;
+  justify-content: left;
+  height: 30%;
+  margin-bottom: 20px;
+}
+
+.chatRecap {
+  float: left;
+  background-color:white;
+  padding: 10px;
+  margin: 10px;
+  width: 30%;
+  height: 80%;
+  border: 2px solid #dedede;
+  border-radius: 5px;
+  overflow: auto;
+}
+
+.end {
+  text-align: center;
+}
+
+.completionCode {
+  color: royalBlue;
+  font-size: 24px;
+}

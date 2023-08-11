@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIVIDEO-Prototype</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/styles.css" type="text/css">
+
+</head>
+
+<body>
+    
+    <h3>Talk with the chatbot about the video</h3>
+    <p>You have to talk to the chatbot for at least 3 rounds (send 3 messages and receive 3 messages) before you can click Continue.</p>
+    <div style="position:absolute; left:0%; bottom: 20px; width:50%; height:calc(100% - 130px); float:left;">
+        <video controls class="videoEssay" id="video">
+            <source src="source/audiobook (prop).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="commentArea">
+            <img id="userAvatar" class="avatar" src="source/user-icon.jpg">
+            <p>Your comment...</p>
+        </div>
+    </div>
+    <div style="position:absolute; left:55%; bottom: 20px; width: 25%; height:calc(100% - 130px); float:left;">
+        <div class="chat" id="chatbot" style="display:block">
+            <div id="chatheader" class="chatHeader">Chat with YOUTUBER</div>
+            <div id="chatwindow" class="chatContainer">
+                
+            </div>
+            <div class="textArea">
+                <textarea id="message-input" class="textBox" rows="5" cols="30"></textarea>
+                <!--button type="button" class="sendButton"><i class="fa fa-paper-plane"></i></button-->
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="continueButton" onclick="getmsg()">DONE</i></button>
+
+    <script src="./chat.js"></script>
+</body>
+</html>
