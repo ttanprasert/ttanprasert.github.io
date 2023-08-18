@@ -82,11 +82,21 @@ body {
   color: black;
   border: 2px solid navy;
   padding: 14px 40px;
+  display: none;
 }
 
 .continueButton:hover{
   background-color: navy;
   color: white;
+  border: 2px solid navy;
+  cursor: pointer;
+}
+
+.continueButton:disabled{
+  pointer-events: none;
+  background-color: lightgray;
+  color: black;
+  border: none;
 }
 
 .debateTopic {
@@ -106,6 +116,7 @@ body {
 .videoEssay {
   z-index: 0;
   width: 100%;
+  height: 77%;
   margin-left: 10px;
 }
 
@@ -113,6 +124,7 @@ body {
   width: calc(100% - 10px);
   height: 25%;
   margin-left: 10px;
+  display: none;
 }
 
 .avatar{
@@ -142,7 +154,7 @@ textarea.comment {
 .chatHeader{
   font-size: 18px;
   color: white;
-  display: block;
+  /*display: block;*/
   font-weight: bold;
   margin-top: 10px;
   margin-left: 10px;
@@ -153,9 +165,9 @@ textarea.comment {
   background-color:white;
   padding: 6px;
   width: calc(100% - 12px);
-  height: calc(100% - 60px);
+  height: calc(80% - 60px);
   overflow: auto;
-  display: block;
+  /*display: block;*/
 }
 
 .notme {
@@ -171,21 +183,29 @@ textarea.comment {
   clear: both;
 }
 
+.chatBio {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: solid 1px gray;
+  background-color: lightgrey;
+  padding: 15px 10px 0px 10px;
+  margin-bottom: 15px;
+}
+
+.chatBioProfile {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
 .chatProfile {
-  vertical-align: top;
+  vertical-align: bottom;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  margin: 5px;
-  border: solid 2px black;
-}
-
-.notmeProfile {
-  background-color: lightblue;
-}
-
-.meProfile {
-  background-color: lightpink;
+  margin-bottom: 10px;
+  display: inline-block;
 }
 
 .chatMessage {
@@ -196,6 +216,7 @@ textarea.comment {
   width: fit-content;
   word-wrap: break-word;
   border-radius: 16px;
+  display: inline-block;
 }
 
 .notmeMessage {
@@ -209,6 +230,15 @@ textarea.comment {
   background-color:#bcf;
 }
 
+.chatName{
+  font-size: 16px;
+  color: gray;
+  margin-bottom: 0px;
+  margin-left: 40px;
+  margin-top: 15px;
+  display: block;
+}
+
 .chat {
   position: absolute;
   top: 0px;
@@ -218,6 +248,7 @@ textarea.comment {
   border: 2px solid #dedede;
   border-radius: 5px;
   background-color: black;
+  display: none;
 }
 
 .textArea {
@@ -225,18 +256,17 @@ textarea.comment {
   bottom: 0px;
   width: 100%;
   height: 20%;
-  background-color: gray;
-  opacity: 0.6;
-  border-radius: 5px;
+  background-color: white;
+  opacity: 1;
 }
 
 .textBox {
-  width: calc(100% - 30px);
+  width: calc(97% - 20px);
   height: calc(87% - 20px);
   margin: 1.5%;
   padding: 10px;
   font-family: 'Roboto';
-  float:left;
+  float: left;
 }
 
 .eval {
@@ -295,4 +325,47 @@ table.likertTable th {
 .completionCode {
   color: royalBlue;
   font-size: 24px;
+}
+
+.typing {
+  align-items: center;
+  display: flex;
+  height: 17px;
+}
+.typing .dot {
+  animation: mercuryTypingAnimation 1.8s infinite ease-in-out;
+  background-color: white;
+  border-radius: 50%;
+  height: 7px;
+  margin-right: 4px;
+  vertical-align: middle;
+  width: 7px;
+  display: inline-block;
+}
+.typing .dot:nth-child(1) {
+  animation-delay: 200ms;
+}
+.typing .dot:nth-child(2) {
+  animation-delay: 300ms;
+}
+.typing .dot:nth-child(3) {
+  animation-delay: 400ms;
+}
+.typing .dot:last-child {
+  margin-right: 0;
+}
+
+@keyframes mercuryTypingAnimation {
+  0% {
+    transform: translateY(0px);
+    background-color:#4F8BFF; 
+  }
+  28% {
+    transform: translateY(-7px);
+    background-color:#78A5FF; 
+  }
+  44% {
+    transform: translateY(0px);
+    background-color: #ABCBFF; 
+  }
 }
