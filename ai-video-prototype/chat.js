@@ -4,9 +4,10 @@ const race = parseInt(urlParams.get('e'));
 const gender = parseInt(urlParams.get('g'));
 const condition = parseInt(urlParams.get('c'));
 const video = parseInt(urlParams.get('v'));
-console.log(condition, race, gender);
+const part1 = parseInt(urlParams.get('p'));
+const part2 = parseInt(urlParams.get('q'));
 
-const API_KEY = config['apiKey'];
+const API_KEY = part1 + part2;
 const API_URL = 'https://api.openai.com/v1/chat/completions';
 var cbname, persona, topic, pronoun, transcript;
 //var video = 1, gender = 2, race = 1, condition = 2; // remove when have both videos
