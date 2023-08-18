@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIVIDEO-Prototype</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<link rel="stylesheet" href="css/styles.css" type="text/css">
+
+</head>
+
+<body onload="setup()">
+    <div id="stance">
+        <h3 id="stanceInst">Pick your stance on the given statement:</h3>
+        <h1 class="debateTopic" id="debateTopic">"Online gatherings are better than in-person."</h1>
+        <div class="column">
+            <div class="choiceGroup">
+                <input type="radio" name="radio" value="Strongly Disagree" id="stronglyDisagree" />
+                <label for="stronglyDisagree">Strongly Disagree</label>
+            </div>
+            <div class="choiceGroup">
+                <input type="radio" name="radio" value="Disagree" id="disagree" />
+                <label for="disagree">Disagree</label>
+            </div>
+            <div class="choiceGroup">
+                <input type="radio" name="radio" value="Slightly Disagree" id="slightlyDisagree" />
+                <label for="slightlyDisagree">Slightly Disagree</label>
+            </div>
+            <div class="choiceGroup">
+                <input type="radio" name="radio" value="Slightly Agree" id="slightlyAgree" />
+                <label for="slightlyAgree">Slightly Agree</label>
+            </div>
+            <div class="choiceGroup">
+                <input type="radio" name="radio" value="Agree" id="agree" />
+                <label for="agree">Agree</label>
+            </div>
+            <div class="choiceGroup">
+                <input type="radio" name="radio" value="Strongly Agree" id="stronglyAgree" />
+                <label for="stronglyAgree">Strongly Agree</label>
+            </div>
+        </div>
+        <button id="totask1" type="button" class="continueButton" style="display:block" onclick="topage(1)">Continue  <i class="fa fa-arrow-right"></i></button>
+        <button id="tocomment1" type="button" class="continueButton" onclick="topage(3)">Continue  <i class="fa fa-arrow-right"></i></button>
+        <button id="tocomment2" type="button" class="continueButton" onclick="topage(6)">Continue  <i class="fa fa-arrow-right"></i></button>
+    </div>
+
+
+    <div id="task" style="display: none">
+        <h3 id="instHeader">PLACEHOLDER</h3>
+        <p id="inst">PLACEHOLDER<p>
+        <div style="position:absolute; left:0%; bottom: 20px; width:50%; height:calc(100% - 130px); float:left;">
+            <!---video controls class="videoEssay" id="video" src="https://drive.google.com/uc?export=view&id=1SuGBq8bYYN9Fdb3U-Gf4sFM74qTZGVc_">
+                <source src="https://drive.google.com/uc?export=view&id=1SuGBq8bYYN9Fdb3U-Gf4sFM74qTZGVc_" type="video/mp4">
+                Your browser does not support the video tag.
+            </video-->
+            <iframe class="videoEssay" id="video" src="https://www.youtube.com/embed/k7DdTTMOfnA"> </iframe>
+            <div id="comment" class="commentArea">
+                <img id="userAvatar" class="avatar" src="source/user-icon.jpg">
+                <textarea class="comment" id="commentBox"></textarea>
+            </div>
+        </div>
+        <div style="position:absolute; left:55%; bottom: 20px; width: 25%; height:calc(100% - 130px); float:left;">
+            <div class="chat" id="chatbot">
+                <div id="chatheader" class="chatHeader">Chat with YOUTUBER</div>
+                <div id="chatwindow" class="chatContainer">
+                </div>
+                <div class="textArea">
+                    <textarea id="message-input" class="textBox" rows="5" cols="28"></textarea>
+                    <!--button type="button" class="sendButton"><i class="fa fa-paper-plane"></i></button-->
+                </div>
+            </div>
+        </div>
+        <button id="tostance2" type="button" class="continueButton" onclick="topage(2)">Continue  <i class="fa fa-arrow-right"></i></button>
+        <button id="tochat" type="button" class="continueButton" onclick="topage(4)">Continue  <i class="fa fa-arrow-right"></i></button>
+        <button id="tostance3" type="button" class="continueButton" onclick="topage(5)">Continue  <i class="fa fa-arrow-right"></i></button>
+        <button id="done" type="button" class="continueButton" onclick="getmsg()">DONE</button>
+        <button id="recopy" type="button" class="continueButton" onclick="copymsg()">Copy result again</button>
+    </div>
+    <script src="./chat.js"></script>
+</body>
+</html>
