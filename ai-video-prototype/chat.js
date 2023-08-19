@@ -113,9 +113,10 @@ function generateRandom(min, max, excpt) {
 function pickPersonas() {
   // choose chatbot persona here
   if (condition === 2) {
-    race = generateRandom(1, 6, race);
+    race = generateRandom(1, 5, race);
     gender = generateRandom(1, 5, gender);
   }
+  console.log(condition, race, gender);
   switch (race) {
     case 1:
       persona = "asian";
