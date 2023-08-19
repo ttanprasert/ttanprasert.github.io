@@ -1,12 +1,12 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const race = parseInt(urlParams.get('e'));
-const gender = parseInt(urlParams.get('g'));
+var race = parseInt(urlParams.get('e'));
+var gender = parseInt(urlParams.get('g'));
 const condition = parseInt(urlParams.get('c'));
 const video = parseInt(urlParams.get('v'));
 const part1 = urlParams.get('p');
 const part2 = urlParams.get('q');
-console.log(condition, race, gender);
+//console.log(condition, race, gender);
 
 const API_KEY = "sk-" + part1 + part2;
 const API_URL = 'https://api.openai.com/v1/chat/completions';
@@ -117,7 +117,7 @@ function pickPersonas() {
     race = generateRandom(1, 5, race);
     gender = generateRandom(1, 5, gender);
   }
-  console.log(condition, race, gender);
+  //console.log(condition, race, gender);
   switch (race) {
     case 1:
       persona = "asian";
