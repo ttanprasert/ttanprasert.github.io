@@ -6,6 +6,7 @@ const condition = parseInt(urlParams.get('c'));
 const video = parseInt(urlParams.get('v'));
 const part1 = urlParams.get('p');
 const part2 = urlParams.get('q');
+console.log(condition, race, gender);
 
 const API_KEY = "sk-" + part1 + part2;
 const API_URL = 'https://api.openai.com/v1/chat/completions';
