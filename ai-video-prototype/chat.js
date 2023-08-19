@@ -384,12 +384,15 @@ function getmsg()
   document.querySelectorAll('.chatMessage').forEach(function(node) {
     if (node.classList.contains("me")) {
       conv += "You: ";
+      conv += node.innerHTML + "\n";
     } else {
-      conv += cbname + ": ";
+      if (node.firstChild.nodeType === Node.TEXT_NODE) {
+        conv += cbname + ": ";
+        conv += node.innerHTML + "\n";
+      }
     }
-    conv += node.innerHTML + "\n";
   });
-  console.log(conv);
+  //console.log(conv);
   navigator.clipboard.writeText(conv);
   alert("All your data have been copied! Go back to Qualtrics page to paste it.");
 
