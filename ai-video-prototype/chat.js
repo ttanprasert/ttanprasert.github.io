@@ -6,12 +6,11 @@ const condition = parseInt(urlParams.get('c'));
 const video = parseInt(urlParams.get('v'));
 const part1 = urlParams.get('p');
 const part2 = urlParams.get('q');
-//console.log(condition, race, gender);
+//console.log(condition, race, gender, part1, part2);
 
 const API_KEY = "sk-" + part1 + part2;
 const API_URL = 'https://api.openai.com/v1/chat/completions';
 var cbname, persona, topic, pronoun, transcript;
-//var video = 1, gender = 2, race = 1, condition = 2; // remove when have both videos
 var stance1, stance2, stance3, comment1, comment2;
 var conv = "";
 var messages = [];
@@ -48,12 +47,6 @@ function sendMessage(message, itsMe, bubble) { // ...Mario
   }
   else
   {
-    /*var name = document.createElement("div");
-    name.classList.add("chatName");
-    name.classList.add("notme");
-    name.innerHTML = cbname;
-    messageBlock.appendChild(name);*/
-
     var avatar = document.createElement("img");
     avatar.classList.add("chatProfile");
     avatar.classList.add("notme");
@@ -117,7 +110,6 @@ function pickPersonas() {
     race = generateRandom(1, 5, race);
     gender = generateRandom(1, 5, gender);
   }
-  //console.log(condition, race, gender);
   switch (race) {
     case 1:
       persona = "asian";
@@ -176,24 +168,24 @@ function pickVideo(){
   var vid = document.getElementById("video");
   if (video === 1){
     if (stance1 === "Strongly Disagree" || stance1 === "Disagree" || stance1 === "Slightly Disagree") {
-      vid.src = "https://www.youtube.com/embed/k7DdTTMOfnA";
+      vid.src = "https://www.youtube.com/embed/k7DdTTMOfnA?enablejsapi=1&version=3&playerapiid=ytplayer";
       fetch("./source/v1-against.txt")
             .then(response => response.text())
             .then(text => {transcript = text;});
     } else {
-      vid.src = "https://www.youtube.com/embed/wyizExCca_A";
+      vid.src = "https://www.youtube.com/embed/wyizExCca_A?enablejsapi=1&version=3&playerapiid=ytplayer";
       fetch("./source/v1-for.txt")
             .then(response => response.text())
             .then(text => {transcript = text;});
     }
   } else {
     if (stance1 === "Strongly Disagree" || stance1 === "Disagree" || stance1 === "Slightly Disagree") {
-      vid.src = "https://www.youtube.com/embed/NJmVmORjyC0";
+      vid.src = "https://www.youtube.com/embed/NJmVmORjyC0?enablejsapi=1&version=3&playerapiid=ytplayer";
       fetch("./source/v2-against.txt")
             .then(response => response.text())
             .then(text => {transcript = text;});
     } else {
-      vid.src = "https://www.youtube.com/embed/z7eV0e-_tiY";
+      vid.src = "https://www.youtube.com/embed/z7eV0e-_tiY?enablejsapi=1&version=3&playerapiid=ytplayer";
       fetch("./source/v2-for.txt")
             .then(response => response.text())
             .then(text => {transcript = text;});
@@ -202,8 +194,8 @@ function pickVideo(){
 }
 
 function stopVideo() {
-  var vid = document.getElementById("video");
-  vid.contentWindow.postMessage( '{"event":"command", "func":"stopVideo", "args":""}', '*');
+  //console.log("Stop video");
+  $('.videoEssay')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
 }
 
 function addChatbotBio() {
@@ -280,24 +272,7 @@ function topage(n) {
       document.getElementById("instHeader").innerHTML = "Watch the video. You may pause, skip, or rewind any parts of the video."
       document.getElementById("inst").innerHTML = "";
       stance1 = document.querySelector('input[name="radio"]:checked').value;
-      // choose video based on variable video and stance1 (if stance is disagree, pick one, else pick the other)
-      // change to pickVideo() later;
       pickVideo();
-      /*try {
-        if (stance1 === "Strongly Disagree" || stance1 === "Disagree" || stance1 === "Slightly Disagree") {
-          document.getElementById("video").src = "./source/v" + video.toString() + "-against.mp4";
-          fetch("./source/v" + video.toString() + '-against.txt')
-            .then(response => response.text())
-            .then(text => {transcript = text;});
-        } else {
-          document.getElementById("video").src = "./source/v" + video.toString() + "-for.mp4";
-          fetch("./source/v" + video.toString() + '-for.txt')
-            .then(response => response.text())
-            .then(text => {transcript = text;});
-        }
-      } catch(error) {
-        console.error ("Error: ", error);
-      }*/
       break;
     case 2:
       var prevbutton = document.getElementById("tostance2");
@@ -336,7 +311,7 @@ function topage(n) {
       addChatbotBio();
       messages.push({"role": "system", "content": "You are a famous YouTuber in early 20's. You're talking to a fan of another YouTuber who" + stance2.toLowerCase() + "s with a video that says" + topic + " However, you think the opposite to this YouTUber. Your goal is to try and persuade this viewer to agree with you instead. Try to keep to persuasive dialogue. Do not preach or offend the viewer. Instead, try to frame your argument in a way that matches their values. Keep each message short and casual. No more than 50 words. Have a quick back-and-forth with the user. Don't write out long paragraphs."});
       messages.push({"role": "system", "content": "Here's the transcript of the video the viewer just watched: " + transcript});
-      console.log(messages);
+      //console.log(messages);
       sendMessage("Hi! That was a pretty fun video, wasn't it? I see that you " + stance2.toLowerCase() + " with the statement that " + topic + " I think the opposite. So, let's discuss. Do you want to talk first about why you " + stance2.toLowerCase() + "?")
       break;
     case 5:
@@ -394,7 +369,7 @@ function getmsg()
       }
     }
   });
-  //console.log(conv);
+  console.log(conv);
   navigator.clipboard.writeText(conv);
   alert("All your data have been copied! Go back to Qualtrics page to paste it.");
 
