@@ -28,6 +28,10 @@ function setup() {
   console.log(persona);
 }
 
+document.getElementById("commentBox").addEventListener("change", function(event) {
+  document.getElementById("tochat").disabled = false;
+});
+
 function sendMessage(message, itsMe, bubble) { // ...Mario
   var messageList = document.getElementById("chatwindow");
   var messageBlock = document.createElement("div");
@@ -292,6 +296,7 @@ function topage(n) {
       taskpage.style.display = "block";
       prevbutton.style.display = "none";
       curbutton.style.display = "block";
+      curbutton.disabled = true;
       document.getElementById("comment").style.display = "block";
       document.getElementById("instHeader").innerHTML = "Please leave any comment under the video."
       stance2 = document.querySelector('input[name="radio"]:checked').value;
