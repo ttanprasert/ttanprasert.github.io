@@ -44,8 +44,6 @@ function sendMessage(message, itsMe, bubble) { // ...Mario
   if(itsMe)
   {
     messageBlock.classList.add("me");
-    //avatar.classList.add("me");
-    //avatar.src = "source/user-icon.jpg";
     newMessage.classList.add("me");
     newMessage.classList.add("meMessage");
   }
@@ -90,7 +88,7 @@ function sendMessage(message, itsMe, bubble) { // ...Mario
     if (countTyping > 0) {
       document.getElementById("typing" + (countTyping-1).toString()).style.display = "none";
     }
-    if (countTyping > 2) {
+    if (countTyping > 6) {
       document.getElementById("tostance3").disabled = false;
     }
   }
@@ -99,8 +97,11 @@ function sendMessage(message, itsMe, bubble) { // ...Mario
   // Add message block to chat window
   messageList.appendChild(messageBlock);
 
-  messageList.scrollTop = messageList.scrollHeight;
+  if (itsMe || countTyping > 0) {
+    messageList.scrollTop = messageList.scrollHeight;
   // console.log(messages);
+  }
+  
 }
 
 function generateRandom(min, max, excpt) {
@@ -261,44 +262,56 @@ async function sendAIMessage(prompt)
   }
   //sendMessage("placeholder AI message", false);
 }
+var checkboxes = document.querySelectorAll("input[type=radio][name=radio]");
+checkboxes.forEach(function(checkbox) {
+  checkbox.addEventListener('change', function() {
+    if (this.checked) {
+      document.getElementById("totask1").disabled = false;
+    }
+  })
+});
 
 function topage(n) {
   var stancepage = document.getElementById("stance");
-  var taskpage = document.getElementById("task");
+  var step = document.getElementById("step");
+  var instHeader = document.getElementById("instHeader");
+  var inst = document.getElementById("inst");
   switch(n) {
     case 1:
       var prevbutton = document.getElementById("totask1");
       var curbutton = document.getElementById("tostance2");
       stancepage.style.display = "none";
-      taskpage.style.display = "block";
+      step.innerHTML = "STEP 2";
+      document.getElementById("task").style.display = "block";
       prevbutton.style.display = "none";
       curbutton.style.display = "block";
-      document.getElementById("instHeader").innerHTML = "Watch the video. You may pause, skip, or rewind any parts of the video."
-      document.getElementById("inst").innerHTML = "";
+      instHeader.innerHTML = "Watch the video."
+      inst.innerHTML = "Please watch the video from beginning to the end. You may pause, rewind, or speed up any parts of the video.";
       stance1 = document.querySelector('input[name="radio"]:checked').value;
       pickVideo();
       break;
     case 2:
       var prevbutton = document.getElementById("tostance2");
       var curbutton = document.getElementById("tocomment1");
-      //document.getElementById("video").pause();
       stopVideo();
+      step.innerHTML = "STEP 3";
       stancepage.style.display = "block";
-      taskpage.style.display = "none";
       prevbutton.style.display = "none";
       curbutton.style.display = "block";
-      document.getElementById("stanceInst").innerHTML = "Pick your stance on the given statement again:";
+      instHeader.innerHTML = "Pick your stance on the given statement again after watching the video.";
+      inst.innerHTML = "If your stance doesn't change, simply click Continue.";
       break;
     case 3:
       var prevbutton = document.getElementById("tocomment1");
       var curbutton = document.getElementById("tochat");
       stancepage.style.display = "none";
-      taskpage.style.display = "block";
       prevbutton.style.display = "none";
       curbutton.style.display = "block";
+      step.innerHTML = "STEP 4";
       curbutton.disabled = true;
       document.getElementById("comment").style.display = "block";
-      document.getElementById("instHeader").innerHTML = "Please leave any comment under the video."
+      instHeader.innerHTML = "Please leave any comment under the video.";
+      inst.innerHTML = "Based on your stance and what the vlogger said, write a few sentences."
       stance2 = document.querySelector('input[name="radio"]:checked').value;
       break;
     case 4: 
@@ -306,38 +319,39 @@ function topage(n) {
       var curbutton = document.getElementById("tostance3");
       prevbutton.style.display = "none";
       curbutton.style.display = "block";
+      step.innerHTML = "STEP 5";
       curbutton.disabled = true;
       document.getElementById("commentBox").disabled = true;
       document.getElementById("chatbot").style.display = "block";
-      document.getElementById("instHeader").innerHTML = "Talk with the chatbot about the video"
-      document.getElementById("inst").innerHTML = "You have to talk to the chatbot for at least 3 rounds (send 3 messages and receive 3 messages) before you can click Continue.";
+      instHeader.innerHTML = "Debate the topics with the chatbot to clarify your stance"
+      inst.innerHTML = "You have to talk to the chatbot for at least 7 rounds (send 7 messages and receive 7 messages) before you can click Continue.";
       comment1 = document.getElementById("commentBox").value;
       document.getElementById("chatheader").innerHTML = "Chat with " + cbname;
       addChatbotBio();
       messages.push({"role": "system", "content": "You are a famous YouTuber in early 20's. You're talking to a fan of another YouTuber named Mint. The YouTuber " + stance2.toLowerCase() + "s with the statement: " + topic + " The fan is convinced by the YouTuber. However, you think the opposite to Mint. Your goal is to try and persuade this viewer to take your stance instead. Try to keep to persuasive dialogue. Do not preach or offend the viewer. Instead, try to frame your argument in a way that matches their values. Keep each message short and casual. No more than 50 words. Have a quick back-and-forth with the user. Don't write out long paragraphs."});
       messages.push({"role": "system", "content": "Here's the transcript of the video the viewer just watched: " + transcript});
-      //console.log(messages);
-      sendMessage("Hi! That was a pretty fun video, wasn't it? I see that you " + stance2.toLowerCase() + " with the statement that " + topic + " I think the opposite. So, let's discuss. Do you want to talk first about why you " + stance2.toLowerCase() + "?")
+      sendMessage(`Hi! That was a pretty fun video, wasn't it? I see that you ` + stance2.toLowerCase() + ` with the statement that "` + topic + `" I think the opposite. So, let's discuss. Do you want to talk first about why you ` + stance2.toLowerCase() + "?")
       break;
     case 5:
       var prevbutton = document.getElementById("tostance3");
       var curbutton = document.getElementById("tocomment2");
       stancepage.style.display = "block";
-      taskpage.style.display = "none";
       prevbutton.style.display = "none";
       curbutton.style.display = "block";
+      instHeader.innerHTML = "Pick your stance again after debating on the topic with the chatbot.";
+      inst.innerHTML = "If your stance doesn't change, simply click Continue.";
+      step.innerHTML = "STEP 6";
       break;
     case 6:
       var prevbutton = document.getElementById("tocomment2");
       var curbutton = document.getElementById("done");
       stancepage.style.display = "none";
-      taskpage.style.display = "block";
       prevbutton.style.display = "none";
       curbutton.style.display = "block";
       document.getElementById("commentBox").disabled = false;
       document.getElementById("message-input").disabled = true;
-      document.getElementById("instHeader").innerHTML = "Edit your comment, if there’s anything you would like to change or add about the video."
-      document.getElementById("inst").innerHTML = "";
+      instHeader.innerHTML = "Revise your comment based on your debate with the chatbot."
+      inst.innerHTML = "If there’s nothing you would like to change or add to your comment, simply click Continue.";
       stance3 = document.querySelector('input[name="radio"]:checked').value;
       break;
   }
@@ -345,45 +359,51 @@ function topage(n) {
 
 function getmsg()
 {
+  document.getElementById("step").innerHTML = "FINISHED";
+  document.getElementById("instHeader").innerHTML = "Please copy the data and paste it in the Qualtrics survey."
+  document.getElementById("inst").innerHTML = "Select and copy all the text in the box grey box or click the Copy Data button in the buttom right corner."
+
   var commentBox = document.getElementById("commentBox");
   comment2 = commentBox.value;
   commentBox.disabled = true;
   
-  conv += "Chatbot name: " + cbname + "\n\n\n";
+  conv += "Chatbot name: " + cbname + "<br><br>";
   if (video === 1) {
     conv += "Your opinion on the statement 'Online gatherings are better than in-person' changes as follow:\n\n"
   } else {
     conv += "Your opinion on the statement 'Customers shouldn't have to tip' changes as follow:\n\n"
   }
   
-  conv += "Before watching the video: " + stance1 + "\n\n";
-  conv += "After watching the video: " + stance2 + '\n';
-  conv += "Your comment: " + comment1 + '\n\n';
-  conv += "After talking to the chatbot:" + stance3 + '\n';
-  conv += "Your revised comment: " + comment2 + '\n\n'
-  conv += "Your chat history:\n";
+  conv += "Before watching the video: " + stance1 + "<br><br>";
+  conv += "After watching the video: " + stance2 + '<br>';
+  conv += "Your comment: " + comment1 + '<br><br>';
+  conv += "After talking to the chatbot:" + stance3 + '<br>';
+  conv += "Your revised comment: " + comment2 + '<br><br>'
+  conv += "Your chat history:<br>";
 
   document.querySelectorAll('.chatMessage').forEach(function(node) {
     if (node.classList.contains("me")) {
       conv += "You: ";
-      conv += node.innerHTML + "\n";
+      conv += node.innerHTML + "<br>";
     } else {
       if (node.firstChild.nodeType === Node.TEXT_NODE) {
         conv += cbname + ": ";
-        conv += node.innerHTML + "\n";
+        conv += node.innerHTML + "<br>";
       }
     }
   });
   console.log(conv);
-  navigator.clipboard.writeText(conv);
-  alert("All your data have been copied! Go back to Qualtrics page to paste it.");
+  //navigator.clipboard.writeText(conv);
+  //alert("All your data have been copied! Go back to Qualtrics page to paste it.");
 
   document.getElementById("done").style.display = "none";
   document.getElementById("recopy").style.display = "block";
+  document.getElementById("data").innerHTML = conv;
+  document.getElementById("dataDiv").style.display = "block";
 }
 
 function copymsg()
 {
   navigator.clipboard.writeText(conv);
-  alert("All your data have been copied! Go back to Qualtrics page to paste it.");
+  alert("All your data has been copied! Go back to Qualtrics page to paste it.");
 }

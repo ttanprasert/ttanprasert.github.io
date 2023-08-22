@@ -12,8 +12,14 @@
 </head>
 
 <body onload="setup()">
-    <div id="stance">
-        <h3 id="stanceInst">Pick your stance on the given statement:</h3>
+    <div style="position:absolute; left:0px; top:0px; z-index:1; background-color:black;">
+        <h3 id="step" style="color: white; padding-left: 20px; padding-right: 20px;">STEP 1</h3>
+    </div>
+    <h3 id="instHeader" style="position: absolute; left: 125px; top: 0px; width: auto;">Pick your stance on the given statement</h3>
+    <p id="inst" style="position: absolute; left: 125px; top: 40px;"><p>
+
+    <div id="stance" class="modal">
+        <h3 id="stanceInst" style="text-align:center">Pick your stance on the statement:</h3>
         <h1 class="debateTopic" id="debateTopic"> </h1>
         <div class="column">
             <div class="choiceGroup">
@@ -41,27 +47,21 @@
                 <label for="stronglyAgree">Strongly Agree</label>
             </div>
         </div>
-        <button id="totask1" type="button" class="continueButton" style="display:block" onclick="topage(1)">Continue  <i class="fa fa-arrow-right"></i></button>
+        <button id="totask1" type="button" class="continueButton" style="display:block" onclick="topage(1)" disabled>Continue  <i class="fa fa-arrow-right"></i></button>
         <button id="tocomment1" type="button" class="continueButton" onclick="topage(3)">Continue  <i class="fa fa-arrow-right"></i></button>
         <button id="tocomment2" type="button" class="continueButton" onclick="topage(6)">Continue  <i class="fa fa-arrow-right"></i></button>
     </div>
 
 
     <div id="task" style="display: none">
-        <h3 id="instHeader">PLACEHOLDER</h3>
-        <p id="inst">PLACEHOLDER<p>
-        <div style="position:absolute; left:0%; bottom: 20px; width:50%; height:calc(100% - 130px); float:left;">
-            <!---video controls class="videoEssay" id="video" src="https://drive.google.com/uc?export=view&id=1SuGBq8bYYN9Fdb3U-Gf4sFM74qTZGVc_">
-                <source src="https://drive.google.com/uc?export=view&id=1SuGBq8bYYN9Fdb3U-Gf4sFM74qTZGVc_" type="video/mp4">
-                Your browser does not support the video tag.
-            </video-->
+        <div style="position:absolute; left:0%; bottom: 20px; width:70%; height:calc(100% - 130px); float:left;">
             <iframe class="videoEssay" id="video" src=""> </iframe>
             <div id="comment" class="commentArea">
                 <img id="userAvatar" class="avatar" src="source/user-icon.jpg">
                 <textarea class="comment" id="commentBox"></textarea>
             </div>
         </div>
-        <div style="position:absolute; left:55%; bottom: 20px; width: 25%; height:calc(100% - 130px); float:left;">
+        <div style="position:absolute; left:73%; bottom: 20px; width: 25%; height:calc(100% - 130px); float:left;">
             <div class="chat" id="chatbot">
                 <div id="chatheader" class="chatHeader">Chat with YOUTUBER</div>
                 <div id="chatwindow" class="chatContainer">
@@ -76,8 +76,13 @@
         <button id="tochat" type="button" class="continueButton" onclick="topage(4)">Continue  <i class="fa fa-arrow-right"></i></button>
         <button id="tostance3" type="button" class="continueButton" onclick="topage(5)">Continue  <i class="fa fa-arrow-right"></i></button>
         <button id="done" type="button" class="continueButton" onclick="getmsg()">DONE</button>
-        <button id="recopy" type="button" class="continueButton" onclick="copymsg()">Copy result again</button>
+        <button id="recopy" type="button" class="continueButton" onclick="copymsg()">Copy Data</button>
     </div>
+
+    <div id="dataDiv" class="modal" style="display: none; background-color: lightgrey;">
+       <p id="data" style='padding: 10px; background-color: lightgrey; font-family: "Lucida Console", "Courier New", monospace;'>PLACEHOLDER</p>
+    </div>
+
     <script type="text/javascript" src="./config.js"></script>
     <script type="text/javascript" src="./chat.js"></script>
 </body>
