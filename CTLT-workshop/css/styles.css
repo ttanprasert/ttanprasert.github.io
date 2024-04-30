@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+  }
+
+html, body {
+    margin: 0;
+    height: 100%;
+    font-family: "Trebuchet MS", sans-serif;
+  }
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    padding-left: 20px;
+}
+  
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.menuBlock {
+    float: left;
+    margin-right: 20px;
+}
+
+.examples {
+    width: 90%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    color: black;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    overflow-y:scroll;
+}
+
+.examples:disabled {
+    color: gray;
+    background-color: lightgray;
+}
+
+.submitButton {
+    margin-top: 20px;
+    width: 150px;
+    padding: 12px 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #0e9c65;
+    color: white;
+    font-size: 16px;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+.submitButton:hover {
+    background-color: #0a6e47;
+    border: none;
+}
+
+
+.loader {
+    border: 12px solid lightgray;
+    border-radius: 50%;
+    border-top: 12px solid #4a4a4a;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    margin: auto;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
