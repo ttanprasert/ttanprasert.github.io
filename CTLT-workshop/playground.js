@@ -4,7 +4,7 @@ const id = urlParams.get('id');
 const task = urlParams.get('task');
 
 const API_URL = 'https://api.openai.com/v1/chat/completions';
-const API_KEY = "sk-" + id + task;
+const API_KEY = "sk-" + id + "B" + task + "1c";
 
 messages = [];
 var m = document.getElementById("model");
@@ -31,6 +31,8 @@ function chooseMethod() {
 }
 
 function generateOutput() {
+    messages = [];
+
     document.getElementById("output-text").innerHTML = "";
     document.getElementById("loading").style.display = "block";
 

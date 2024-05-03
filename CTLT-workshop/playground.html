@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <h2 style="margin: 20px;">Playground
+    <h2 style="margin-left: 10px; margin-top:10px;" >Playground
         <select name="method-select" style="font-size: 20px; font-family:'Trebuchet MS', sans-serif;" id="method" onChange="chooseMethod();">
             <option value="0">Prompt</option>
             <option value="1">Examples</option>
@@ -21,46 +21,46 @@
     </h2>
     
     <div class="row">
-        <div class="column">
+        <div class="column" style="margin-top: -15px;">
             <h3>Training</h3>
             <b>Prompt:</b><br>
-            <textarea id="train-context" class="examples" style="height: 10vh;">You will be given a pair of question and answer. You should turn it into a dialogue between a teaching assistant, AH, and three students, DH, KM, and JW.</textarea><br><br>
+            <textarea id="train-context" class="examples" style="height: 30vh;">You will be given a pair of question and answer. You should turn it into a dialogue between a teaching assistant, Adrian, and three students, Danny, Katsumi, and Jordan.</textarea><br><br>
             <b>Examples:</b><br>
-            <textarea id="train-examples" class="examples" style="height: 70vh;" disabled>
-[Question:] Can you spot the differences between this map from 1914 and what Europe looks like nowadays (the previous map that was just shown)? Hint: think about what countries existed and where the borders were!
-[Answer:] There are three main differences between Europe in 1914 and nowadays: (1) Germany was bigger than it is now; (2) Russia was also bigger than it is now; (3) Austria and Hungary are one country, and it's called the Austro-Hungarian Empire.
-[Dialogue:] AH: Before the professor tells us the answer, let’s take a moment, try and see if you can spot the differences between this map from 1914 and what Europe looks like nowadays. Specifically, think about what countries existed and where the borders were.
-DH: Germany seems pretty big here.
-KM: Austria and Hungary are one country?
-AH: Yes, and yes! We can see two big countries in the middle that look different from the modern map, the German Empire and Austria Hungary, also known as the Austro-Hungarian Empire. Is there any other country that seemed bigger back in the day?
-JW: Russia?
-AH: That’s right, Russia.
-###
-            </textarea>
+            <textarea id="train-examples" class="examples" style="height: 40vh" disabled>[Question:] What do you think are the main reasons that Napoleon lost the Battle of Waterloo?
+[Answer:] There are two main reasons. One is that it rained the night before the attack, so the ground was muddy, and Napoleon’s weapons weren’t suitable for such terrain. The other reason is that Napoleon's strategy was to launch a surprise attack on the coalition armies before they  combined. However, there was a miscalculation in timing and the 7th Coalition managed to assemble anyway.
+[Dialogue:]
+Adrian: Let’s pause here a bit to discuss the battle. Would anyone like to guess the reasons for Napoleon’s loss?
+Danny: Maybe he thought that his enemies had not caught the news of his return and planned attacks yet, but they did, so he failed.
+Adrian: You’re partially right. Napoleon planned to attack the separate armies before they could assemble and form another Coalition. But the reason that he failed was not because they heard the news, but because he made a miscalculation in the timing of his attack, so the other side managed to assemble their force anyway.
+Jordan: Is this assembled force the 7th Coalition?
+Adrian: Yes. It’s the 7th Coalition. Its formation was very disadvantageous for the French army, but there was one other factor that played a role in Napoleon’s loss and it has to do with weather. Can anyone guess what happened?
+Katsumi: It rained?
+Adrian: That’s right. It rained the night before the attack. Unfortunately, Napoleon didn’t prepare for this, and the weapons in his army weren’t suitable for the muddy terrain. So, that’s our two reasons: the muddy ground and the miscalculation of attack timing. Let’s return to the video and see what happened after the war was lost.</textarea>
         </div>
-        <div class="column" style="background-color:white">
+        <div class="column" style="margin-top: -15px;">
             <h3>Testing</h3>
             <div class="row">
-                <div class="menuBlock" style="width: 75%;">
+                <div class="menuBlock" style="width: calc(95% - 300px);">
                     <b>Input:</b><br>
-                    <textarea id="test-input" class="examples" style="width: 100%; height: 17vh;"></textarea><br><br>
+                    <textarea id="test-input" class="examples" style="width: 100%; height: 30vh;">[Question:] When should you conduct a study with a survey versus an interview?
+[Answer:] A survey is suitable for when you want to reach a wide range of people but don't need high response rate. An interview is better when you need to probe deeply into a topic, as you can ask follow-up questions.</textarea><br><br>
                 </div>
-                <div class="menuBlock" style="width: 20%;">
-                    <p>Model:</p>
+                <div class="menuBlock" style="width: 250px;">
+                    <p style="margin-bottom: 0px;">Model:</p>
                     <select name="model-select" style="font-size: 16px; font-family:'Trebuchet MS', sans-serif;" id="model">
                         <option value="0">gpt-3.5-turbo</option>
                         <option value="1">gpt-3.5-turbo-0125</option>
                         <option value="2">gpt-4</option>
                         <option value="3">gpt-4-turbo</option>
                     </select>
-                    <p id="temperature">Temperature: 0.5</p>
+                    <p id="temperature" style="margin-bottom: 0px;">Temperature: 0.5</p>
                     <input id="tempSlider" type="range" style="width: 60%;" min="0" max="100" value="50">
                     <button id="submit" type="button" class="submitButton" onclick="generateOutput();">Generate Dialogue</button>
                 </div>
             </div>
                     
             <b>Output:</b><br>
-            <div id="test-output" class="examples" style="height: 63vh; background-color:white; font-family:monospace;"> 
+            <div id="test-output" class="examples" style="height: 40vh; background-color:white; font-family:monospace;"> 
                 <p id="output-text"></p>
                 <div id="loading" class="loader" style="display:none;"></div>
             </div>
