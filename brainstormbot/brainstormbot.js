@@ -33,7 +33,7 @@ function setup() {
     document.getElementById("chatwindow").style.height = "calc(100% - 230px)";
   }
   else {
-    messages.push({"role": "system", "content": "You will act as 3 university students called Charlie, Daniel, and Jordan. These 3 students are philosophy majors, and they are working with the user, " + username + ", a fellow student, to brainstorm a debate stance and arguments from the following prompt: " + document.getElementById("debateTopic" + topic).innerHTML + " The team will work together to brainstorm the thesis statement of the essay and come up 3 evidence-based arguments to support the thesis, while referring to the prompt, whether to agree or disagree, for any relevant information on the topic. The 3 people that you will be acting as should have diverse backgrounds and opinions, so they are most likely to find the downside of others' suggestions and push for what they think is right. They persuade others not by preaching their opinions but by framing their arguments to align with others' values.  Charlie agrees with the debate prompt. Daniel disagrees. Jordan is neutral and will need to be persuaded by Charlie, Daniel, and " + username + ". Your response should take the form of <student's name>: <message>. Only one message (one person) at a time. The group members will take turn to speak in a fixed order: Charlie, Daniel, Jordan, then " + username + ". When the user says 'NEXT', the next member according to this order should speak up. Keep each message short and casual. No more than 50 words. The four team members should have a quick back-and-forth with each other."});
+    messages.push({"role": "system", "content": "You will act as 3 university students called Charlie, Daniel, and Jordan. These 3 students are philosophy majors, and they are working with the user, " + username + ", a fellow student, to brainstorm a debate stance and arguments from the following prompt: " + document.getElementById("debateTopic" + topic).innerHTML + " The team will work together to brainstorm the thesis statement of the essay and come up 3 evidence-based arguments to support the thesis, while referring to the prompt, whether to agree or disagree, for any relevant information on the topic. The 3 people that you will be acting as should have diverse backgrounds and opinions, so they are most likely to find the downside of others' suggestions and push for what they think is right. They persuade others not by preaching their opinions but by framing their arguments to align with others' values.  Charlie agrees with the debate prompt. Daniel disagrees. Jordan is neutral and will need to be persuaded by Charlie, Daniel, and " + username + ". Your response should take the form of <student's name>: <message>. Only one message (one person) at a time. The group members will take turn to speak in a fixed order: Charlie, Daniel, Jordan, then " + username + ". Every member should contribute ideas and insights, so if " + username + "doesn't contribute enough, the peer students should prompt them to engage. Keep each message short and casual. No more than 50 words. The four team members should have a quick back-and-forth with each other."});
   }
 }
 
@@ -117,7 +117,7 @@ function sendMessage(message, itsMe, bubble) {
     newMessage.classList.add("meMessage");
     newMessage.innerHTML = message;
     messages.push({role: "user", content: message});
-    dialogue = dialogue.concat(name + ": " + message + "\n");
+    dialogue = dialogue.concat(username + ": " + message + "\n");
     rnd += 1;
   }
   else
