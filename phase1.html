@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Groupchat-Prototype</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<link rel="stylesheet" href="./styles.css" type="text/css">
+
+</head>
+
+<body onload="setup()">
+
+<div class="row">
+    <div class="column" style="left: 1%;">
+        <button id="instButton" type="button" class="collapsible" onclick="collapse(1);"><h2><i class="fa fa-minus"></i> Activity instruction</h2></button>
+        <div class="content" id="instContent" style="display:block;">
+            <h3>Time limit</h3>
+            <p>You have 20 minutes to complete the task. <u>The timer will start when you open the <b>+ Debate Prompt</b> tab below.</u> After 20 minutes have passed, the system will not force you to stop, but please wrap up and export the data as quickly as possible.</p>
+            <h3>Instruction</h3> 
+            <p>Read the debate prompt below and discuss with your teammate(s) in the chat window to <u>fill in the argument outline template on the right</u>. Hover over the question mark icon <i class="fa fa-question-circle" aria-hidden="true"></i> above each box to see what you are expected to write.
+            </p>
+            <p>Your teammate(s) have already received and processed the prompts. You should manage how much time you will take to read and contemplate the prompt on your own and when you will start the discussion. When you want to start discussing, <u>click the <b>START CONVERSATION</b> button at the end of the debate prompt.</u> Your teammate(s) cannot fill in the worksheet, but you are allowed to copy and paste text from their chat messages to the worksheet. The worksheet will become fillable after you have talked with your teammate(s) for <u>3 rounds</u>.</p>
+            <p>When you are done, click the button <b>FINISH TASK</b> (bottom-right corner of the screen) to export your data and return to the Qualtrics survey to upload the file. The FINISH TASK button will be enabled after you have talked for <u>7 rounds</u>.</p>
+            <h3>Evaluation</h3>
+            <p>Your outcome will be evaluated on the logical coherence, logical completeness, and persuasiveness of your argument outline. (Full points: 5 points on the thesis statement, 5 points for each argument, and 5 points for connection between arguments, total 25 points.)</p>
+        </div>
+        <button id="promptButton" type="button" class="collapsible" style="margin-top: 15px;" onclick="collapse(2);"><h2><i class="fa fa-plus"></i> Debate prompt</h2></button>
+        <div class="content" id="promptContent">
+            <div id="debateTopic2" style="display:none;">
+                <p>John Stuart Mill, a philosopher in the 19th century, proposes the concept of ‘Utilitarianism’ and writes a book of the same title, as a framework for studying morals based on hedonism. He presents the concept of morals utility or the ‘greatest happiness principle’, which ‘holds that actions are right in proportion as they tend to promote happiness; wrong as they tend to produce the reverse of happiness.’ Judging morality of an action by its desirability raises opposition from a group of philosophers, who are not convinced that pleasure or happiness is the ultimate end in life. Believing that human beings are capable of evaluating actions beyond the notion of pleasure, they claim that his doctrine is one ‘worth only of swine.’ In his book, Mill makes a counterargument, which consists of 2 premises.</p>
+
+                <p>Firstly, Mill claims that quality of pleasure should also be evaluated, and that it is ‘absurd’ to estimate pleasure based on quantity alone. Rather than preferring ‘more’ quantity of pleasure, he argues that humans will not choose a certain kind of pleasure over another, even if the former is of greater quantity. This is due to the quality of pleasure, which is more connected to happiness. And the only ones who can make this decision between two pleasures are those who are acquainted and experienced in both pleasures, equally, ‘irrespective of any feeling of moral obligation.’
+            
+                <p>Secondly, Mill states that ‘The rule of life’ of a swine is not good enough for human beings. According to him, ‘Few human creatures would consent to be changed into any of the lower animals for a promise of the fullest allowance of a beast’s pleasure.’ This unwillingness comes from a sense of dignity as well as the knowledge of several types of pleasures. The knowledge makes them aware of the imperfect happiness in the world and bear with it, while those with lower capability are unconscious of this imperfection. The sense of dignity makes them unenvious of these lower beings and prefer to be ‘a human being dissatisfied than a pig satisfied.’</p>
+
+                <p>Based on the two premises of Mill's counterargument, do you agree with Mill’s concept of morals utility?</p>
+            
+                <p>(Reference: Mill, John Stuart, and George Sher. <i>Utilitarianism.</i> Hackett, 2001.)</p>
+
+                <button id="startButton2" class="startButton" onclick="start();"><b>START CONVERSATION</b></button>
+            </div>
+            <div id="debateTopic1" style="display:none;"> 
+                <p>Since the time of Ancient Greek, there have been intense debates on the cause of human actions. Plato, in particular, holds that reasons govern human actions and constrain passions. However, in <i>A Treatise of Human Nature</i>, David Hume believes that all actions arise from passions, and that human’s soul holds the battle between different passions, which constantly emerge in response to particular situations.</p>
+
+                <p>Hume’s arguments consist of 3 main parts. Firstly, he states that ‘abstract or demonstration reasoning never influences any of our actions, but only as it directs our judgment concerning causes and effects.’ He explains that reason is merely the discovery of connection between a certain object and the pain or pleasure it causes. Therefore, it cannot produce any actions, including preventing volition, by itself. This leads to his second argument, which is that action arises from impulse, and that impulse can only be prevented by an opposing impulse. Since, impulse arises from passions, he argues that what happens in our soul is actually the battle between calm and violent passions. He states that all passions are reasonable, as long as they are based on true suppositions and are exerted into actions via the right means. This does not necessarily mean they are caused by reasoning, but that they have reference to reasons in some way. Specifically, a calm passion is more related to reasoning and less emotion, while a violent passion is caused and strengthened mostly by emotions and affections. The ‘strength of mind’, he concludes, is how we overpower the violent passion with the calm one.</p>
+
+                <p>Based on Hume's three-part argument, do you agree with his model of relationship between reason and passion?</p>
+
+                <p>(Reference: Hume, David, et al. <i>A Treatise of Human Nature.</i> Oxford University Press, 2009.)</p>
+
+                <button id="startButton1" class="startButton" onclick="start();"><b>START CONVERSATION</b></button>
+            </div>   
+        </div> 
+    </div>
+
+    <div class="column" style="left: 34%;">
+        <div class="chat" id="chatbot">
+            <h2 style="margin-top:10px">Discussion chatroom</h2>
+            <div class="timer" id="timer">20:00</div>
+            <p id="chatorder"><b>Chat order:</b> Charlie <i class="fa fa-arrow-right"></i> Daniel <i class="fa fa-arrow-right"></i> Jordan <i class="fa fa-arrow-right"></i> You</p>
+            <div id="chatwindow" class="chatContainer"></div>
+            <textarea id="message-input" class="textBox"></textarea>
+        </div>
+    </div>
+
+    <div class="column" style="left: 67%;">
+        <div class="surveyContainer">
+            <h2 style="margin-top:10px">Argument outline template</h2>
+            <b style="font-size: 18px;">Thesis statement (1 sentence)</b>  <div class="tooltip"><i class="fa fa-question-circle" aria-hidden="true"></i>
+                <span class="tooltiptext" style="left: -240px; top: 3vh;">
+                    <p>This is your group’s answer to the prompt. The thesis statement should be a stance that can be disputed and defended with follow-up arguments.</p> 
+                    <p><b>Example:</b> For a prompt "Based on Kant's explanation, do you agree with his idea of moral action and moral worth?", the thesis statement could be "Although we agree that an action is moral when you do it for the sake of morality, we disagree that it must be performed in contrary to immediate inclination to have moral worth."</p>
+                </span></div><br> 
+                <textarea id="thesis" class="formBox" rows="2" cols="35" disabled></textarea>
+            <div style="padding-left:20px; font-size: 14px;">
+                <b style="font-size: 16px;">Argument 1 (1 sentence)</b>  <div class="tooltip"><i class="fa fa-question-circle" aria-hidden="true"></i>
+                    <span class="tooltiptext" style="left: -185px; top: 3vh;">
+                        <p>This is the topic or core idea that you want to defend in one round of debate. It is either a part of your thesis statement or a basic assumption that leads you to the thesis statement.</p>
+                        <p><b>Example:</b> "An action is not moral if its motive is for one's immediate inclination."</p>
+                    </span></div><br>
+                <textarea id="arg1-topic" class="formBox" rows="2" cols="35" disabled></textarea> <br>
+                <div style="padding-left: 20px;">
+                    Evidence (2-3 sentence)  <div class="tooltip"><i class="fa fa-question-circle" aria-hidden="true"></i>
+                        <span class="tooltiptext" style="left: -150px; top: 3vh;">
+                            <p>Give example scenarios to strengthen or clarify your argument.</p>
+                            <p><b>Example:</b> "Take an example of a shopkeeper who doesn't overcharge. Here, honesty is not performed because it's moral in itself but because it will earn him more sales and customer's trust. So, his action is not moral."</p>
+                        </span></div><br> 
+                        <textarea id="arg1-evidence" class="formBox" rows="4" cols="35" disabled></textarea> <br>
+                    Connection to thesis statement (2-3 sentence)  <div class="tooltip"><i class="fa fa-question-circle" aria-hidden="true"></i> 
+                        <span class="tooltiptext" style="left: -290px; bottom: 3vh;">
+                            <p>Explain how this argument connects to your thesis statement</p>
+                            <p><b>Example:</b> "This argument is the first half of the thesis statement, since the example shows that one's motive determines whether one's action is moral, and that, just knowing that what you do aligns with morality doesn't make your action moral."</p>
+                        </span></div><br>
+                        <textarea id="arg1-connect" class="formBox" rows="4" cols="35" disabled></textarea> <br>
+                </div>
+                <b style="font-size: 16px;">Argument 2 (1 sentence)</b>  <div class="tooltip"><i class="fa fa-question-circle" aria-hidden="true"></i>
+                    <span class="tooltiptext" style="left: -185px; bottom: 3vh;">
+                        <p>This is the topic or core idea that you want to defend in one round of debate. It is either a part of your thesis statement or a basic assumption that leads you to the thesis statement.</p>
+                        <p><b>Example:</b> "An action is not moral if its motive is for one's immediate inclination."</p>
+                    </span></div><br>
+                <textarea id="arg2-topic" class="formBox" rows="2" cols="35" disabled></textarea> <br>
+                <div style="padding-left: 20px;">
+                    Evidence (2-3 sentence)  <div class="tooltip"><i class="fa fa-question-circle" aria-hidden="true"></i>
+                        <span class="tooltiptext" style="left: -150px; bottom: 3vh;">
+                            <p>Give example scenarios to strengthen or clarify your argument.</p>
+                            <p><b>Example:</b> "Take an example of a shopkeeper who doesn't overcharge. Here, honesty is not performed because it's moral in itself but because it will earn him more sales and customer's trust. So, his action is not moral."</p>
+                        </span></div><br>
+                    <textarea id="arg2-evidence" class="formBox" rows="4" cols="35" disabled></textarea> <br>
+                    Connection to thesis statement (2-3 sentence)  <div class="tooltip"><i class="fa fa-question-circle" aria-hidden="true"></i> 
+                        <span class="tooltiptext" style="left: -290px; bottom: 3vh;">
+                            <p>Explain how this argument connects to your thesis statement</p>
+                            <p><b>Example:</b> "This argument is the first half of the thesis statement, since the example shows that one's motive determines whether one's action is moral, and that, just knowing that what you do aligns with morality doesn't make your action moral."</p>
+                        </span></div><br>
+                    <textarea id="arg2-connect" class="formBox" rows="4" cols="35" disabled></textarea> <br>
+                </div>
+                <b style="font-size: 16px;">Argument 3 (1 sentence)</b>  <div class="tooltip"><i class="fa fa-question-circle" aria-hidden="true"></i>
+                    <span class="tooltiptext" style="left: -185px; bottom: 3vh;">
+                        <p>This is the topic or core idea that you want to defend in one round of debate. It is either a part of your thesis statement or a basic assumption that leads you to the thesis statement.</p>
+                        <p><b>Example:</b> "An action is not moral if its motive is for one's immediate inclination."</p>
+                    </span></div><br>
+                <textarea id="arg3-topic" class="formBox" rows="2" cols="35" disabled></textarea> <br>
+                <div style="padding-left: 20px;">
+                    Evidence (2-3 sentence)  <div class="tooltip"><i class="fa fa-question-circle" aria-hidden="true"></i>
+                        <span class="tooltiptext" style="left: -150px; bottom: 3vh;">
+                            <p>Give example scenarios to strengthen or clarify your argument.</p>
+                            <p><b>Example:</b> "Take an example of a shopkeeper who doesn't overcharge. Here, honesty is not performed because it's moral in itself but because it will earn him more sales and customer's trust. So, his action is not moral."</p>
+                        </span></div><br> 
+                    <textarea id="arg3-evidence" class="formBox" rows="4" cols="35" disabled></textarea> <br>
+                    Connection to thesis statement (2-3 sentence)  <div class="tooltip"><i class="fa fa-question-circle" aria-hidden="true"></i> 
+                        <span class="tooltiptext" style="left: -290px; bottom: 3vh;">
+                            <p>Explain how this argument connects to your thesis statement</p>
+                            <p><b>Example:</b> "This argument is the first half of the thesis statement, since the example shows that one's motive determines whether one's action is moral, and that, just knowing that what you do aligns with morality doesn't make your action moral."</p>
+                        </span></div><br>
+                    <textarea id="arg3-connect" class="formBox" rows="4" cols="35" disabled></textarea><br> 
+                </div>
+            </div>
+            <p style="color: white; cursor: default; user-select:none;"> EMPTY SPACE </p>
+        </div>
+        <button id="download" type="button" class="downloadButton" onclick="getmsg()" disabled><b>FINISH TASK<br>Click to download your data</b></button>
+    </div>   
+</div>
+
+<script type="text/javascript" src="./brainstormbot.js"></script>
+
+</body>
+</html>
