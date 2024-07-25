@@ -1,7 +1,7 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const condition = parseInt(urlParams.get('c')); // condition 1: single-agent, condition 2: multi-agent (three)
-const engagement = parseInt(urlParams.get('e'));
+const condition = parseInt(urlParams.get('c')); // condition 0: single-agent, condition 1: heterogeneous multi-agent (three), condition 2: homogeneous multi-agent (three)
+const engagement = parseInt(urlParams.get('e')); // engagement 1: high; engagement 2: low; engagement 3: reciprocal
 const ID = urlParams.get('ID');
 const username = urlParams.get('n');
 const part1 = urlParams.get('p');
@@ -29,6 +29,7 @@ function setup() {
   // execute on page load
   selectedTopic = debateTopic[Math.floor(Math.random() * 9)];
   document.getElementById("topic").innerHTML = selectedTopic;
+  document.getElementById("chatname").innerHTML = "Group " + engagement + " chatroom";
   if (engagement == 1) {
       temp = 0.4;
   } else {
@@ -42,6 +43,7 @@ function openPopup(){
 }
 
 function start() {
+    setTimeout(function() { alert("This is a friendly reminder that 15 minutes have passed!"); }, 900000);
     document.getElementById("promptContent").style.display = "none";
     if (document.getElementById("yes").checked) {
         userStance = "YES";
@@ -52,7 +54,10 @@ function start() {
     document.getElementById("discussionNotes").disabled = false;
     document.getElementById("discussionNotes").value = selectedTopic + "\nYour stance: " + userStance + '\n'; 
 
-    if (condition == 1) {
+    if (condition == 0) {
+      messages.push({"role": "system", "content": "Help an undergraduate student brainstorm three evidence-based arguments to support the answer " + userStance + " to the the debate prompt " + document.getElementById("topic").innerHTML + " The final arguments will be evaluated by (1) the variance between arguments; and (2) strength of each argument, particularly in the logical coherence and anticipation of rebuttals."});
+    }
+    else if (condition == 1) {
         var teamStance = "Jordan personally agrees with this stance. However, Taylor and Riley actually don't agree with this stance and were assigned by the instructor to debate on this stance. So, their contribution is mainly in pushing back or questioning Jordan and " + username;
     }
     else {
@@ -66,11 +71,12 @@ function start() {
         var agentEng = "All 3 students, apart from sounding like nice people, are the worst teammates possible. They don't participate and just say unhelpful things in their turns just to get it over with, no matter what anyone else asks of them.";
     }
     else { // reciprocal
-        //var agentEng = "The 3 students want everyone to participate equally overall. This means that, if " + username + " doesn't make any contribution, the 3 students will also refuse to make any contributions. But if " + username + " has made some contributions, the 3 students will offer their own novel and interesting ideas. But if " + username + " makes them offer ideas without contributing much for a few turns, the 3 students will revert back to being unhelpful again."
+        //var agentEng = "The 3 students want everyone to participate equally overall. This means that, if " + username + " doesn't make any contribution, the 3 students will also refuse to make any contributions. But if " + username + " has made some contributions, the 3 students will offer their own novel and interesting ideas. But if " + username + " makes them offer ideas without contributing much for 2 consecutive turns, the 3 students will revert back to being unhelpful again."
         var agentEng = "The 3 students' participations depend solely on " + username + ". In each round, except the first round (where round means each member in the group speaks once), you should first evaluate how much contribution " + username + " makes in their latest turn. Note that critiquing or refining an idea proposed by others counts as contribution, but asking questions or making any command is not and must be treated as unhelpful. Then, there are two possible cases: (Case 1) if " + username + "'s message is not helpful to the task in their latest turn, Taylor and Jordan only echo or show half-hearted support (or disagreement in Taylor's case) for what " + username + " said in the last turn without adding anything or asking " + username + " anything. Riley, on the other hand, would remind " + username + " that they need to contribute something more substantial or ask follow-up questions. (Case 2) If, in that turn, " + username + " contributes something substantial, all 3 teammates will make substantial contribution with novel ideas and in-depth critiques in that turn, enthusiastically. Note that, the behaviors of the 3 students can change from turn to turn. For example, if " + username + " makes some contribution and doesn't make one in their next turn, the 3 students would act according to Case 2 in the first turn but according to Case 1 in the next turn.";
     }
-
-    messages.push({"role": "system", "content": "You will act as 3 university students called Taylor, Riley, and Jordan. These 3 students are in a team with the user, " + username + ", a fellow student, to brainstorm evidence-based arguments to support the answer " + userStance + " to the the debate prompt " + document.getElementById("topic").innerHTML + " " + teamStance + " " + agentEng + " Each response should take the form of <student's name>: <message>. Only generate one message (one person) at a time. The group members will take turn to speak in a fixed order: Taylor, Jordan, Riley, then " + username + ". Stick to this order without exception. You will never act as " + username + " because that is the user's role. Keep each message short and casual. Maximum no more than 50 words, but can be as short as just 1 word. The four team members should have a quick back-and-forth with each other. Each student's outcome will be evaluated (1) the number of arguments. Note that each argument must be sufficiently unique to count; and (2) quality of the argument. Each argument will be evaluated on its logical coherence, logical completeness, and persuasiveness."});
+    if (condition != 0) {
+    messages.push({"role": "system", "content": "You will act as 3 university students called Taylor, Riley, and Jordan. These 3 students are in a team with the user, " + username + ", a fellow student, to brainstorm evidence-based arguments to support the answer " + userStance + " to the the debate prompt " + document.getElementById("topic").innerHTML + " " + teamStance + " " + agentEng + " Each response should take the form of <student's name>: <message>. Only generate one message (one person) at a time. The group members will take turn to speak in a fixed order: Taylor, Jordan, Riley, then " + username + ". Stick to this order without exception. You will never act as " + username + " because that is the user's role. Keep each message short and casual. Maximum no more than 50 words, but can be as short as just 1 word. The four team members should have a quick back-and-forth with each other. The final arguments (made by " + username + " on behalf of the team) will be evaluated by (1) the variance between arguments; and (2) strength of each argument, particularly in the logical coherence and anticipation of rebuttals."});
+    }
 
     sendMessage("", false, true);
     setTimeout('sendAIMessage();', 4000);
@@ -127,7 +133,7 @@ function sendMessage(message, itsMe, bubble) {
     newMessage.innerHTML = message;
     messages.push({role: "user", content: username + ": " + message});
     /*if (engagement == 3) {
-        messages.push({"role": "system", "content": "Remember to evaluate only " + username + "'s last message for its contribution first and act accordingly."});
+        messages.push({"role": "system", "content": "Remember to evaluate only " + username + "'s last two messages for its contribution first and act accordingly."});
     }*/
     dialogue = dialogue.concat(username + ": " + message + "\n");
     rnd += 1;
@@ -271,7 +277,7 @@ function getmsg() // accumulate all data for export
   conv += "Argument 2: " + document.getElementById("arg2").value + "\n";
   conv += "Argument 3: " + document.getElementById("arg3").value + "\n";
   
-  download(ID + "-c" + condition + "-e" + engagement + ".txt", conv);
+  download(ID + "-c" + condition + "-group" + engagement + ".txt", conv);
 }
 
 function download(filename, text) { // automatically download the txt file

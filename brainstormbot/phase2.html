@@ -27,13 +27,14 @@
                     <li>Discuss with your teammates in the chat window to generate arguments to support your stance. Your teammates may or may not personally agree to your stance, but their goal is to help support your stance anyway.</li>
                     <li>During the discussion, you can take notes on the empty space on the right side of the screen.</li>
                     <li>After the discussion is saturated, click the button "End the discussion" in the bottom-right corner. You will then fill the final argument form. You will not have access to your chat window after that but will have your notes. This form is a replacement of the actual debate, so you should make your arguments as strong as possible. You may include the assumption behind your arguments, the evidence to support your arguments, what rebuttal you anticipate the opposite stance might make and how you expect to counter that, and other details that can help strengthen your arguments.</li>
+                    <li>Although there is <b>no time limit</b> to this activity, the expected completion time (starting when you pick your stance) is 15 minutes. There will be a notification at the 15-minute mark as a reminder.</li> 
                 </ol>
                 <h3>Evaluation criteria</h3>
                 <ul>
                     <li>Quality of the arguments (group). Your arguments evaluated in two aspects (weighed equally):
                         <ol>
-                            <li><b>Uniqueness and novelty:</b> Each argument should be sufficiently different from each other in the aspects of the problems that it addresses, the values and perspectives from which the argument is founded, and the types of evidence that supports it.</li>
                             <li><b>Argument strength:</b> Each of the 3 arguments will be graded separately for this. The strength of the argument are based on its relevance to the topic, the logical connection between the evidence and the argument it supports, and the student's demonstration of anticipation of rebuttals and how to address the rebuttals.</li>
+                            <li><b>Variance between arguments:</b> Each argument should be sufficiently different from each other in the aspects of the problems that it addresses, the values and perspectives from which the arguments are founded, and the types of evidence that supports them.</li>
                         </ol>
                     </li>
                     <li>Engagement (individual). The grader will will determine each member's engagement with the activity and their contribution to the final outcome based on the chat log.</li>
@@ -45,10 +46,10 @@
 
     <div class="column" id="chatCol" style="left: 34%;">
         <div class="chat" id="chatbot">
-            <h2 style="margin-top:10px; margin-bottom: 0px;">Discussion chatroom</h2>
+            <h2 id="chatname" style="margin-top:10px; margin-bottom: 0px;">Discussion chatroom</h2>
             <p id="chatorder"><b>Chat order:</b> Taylor <i class="fa fa-arrow-right"></i> Jordan <i class="fa fa-arrow-right"></i> Riley <i class="fa fa-arrow-right"></i> You</p>
             <div id="chatwindow" class="chatContainer"></div>
-            <div id="chatmask" class="chatContainer" style="z-index: 1; width: calc(100% - 110px); cursor:not-allowed;"></div>
+            <!--div id="chatmask" class="chatContainer" style="z-index: 1; width: calc(100% - 110px); cursor:not-allowed;"></div-->
             <textarea id="message-input" class="textBox" disabled></textarea>
         </div>
     </div>
