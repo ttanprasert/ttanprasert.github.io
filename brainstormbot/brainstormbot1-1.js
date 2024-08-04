@@ -26,16 +26,16 @@ var startTimer = 0;
 
 console.log(numAgent, stanceDiv);
 
-const debateTopic = ["Should robots/AI have rights?", "Does technology create more jobs than it destroys?", "Is AI a threat to humanity?", "Can you separate art from the artist?", "Should potential employers consider an applicant’s social media during a job application?", "Can art be objectively bad?", "Can good intentions exonerate one from bad outcomes?", "Are we happier now as a society than in times past?", "Is stealing ever permissible?"];
+const debateTopic = ["Should robots/AI have rights?", "Is AI a threat to humanity?", "Can you separate art from the artist?", "Should potential employers consider an applicant’s social media during a job application?", "Can good intentions exonerate one from bad outcomes?", "Are we happier now as a society than in times past?", "Is stealing ever permissible?"];
 
 function setup() {
   // execute on page load
   if (stanceDiv == 0) { // practice round
-    selectedTopic = debateTopic[8];
+    selectedTopic = debateTopic[6];
   } else if ((stanceDiv == 1 && group == 1) || (stanceDiv == 2 && group == 2)) {
-    selectedTopic = debateTopic[Math.floor(Math.random() * 4)];
+    selectedTopic = debateTopic[Math.floor(Math.random() * 3)];
   } else {
-    selectedTopic = debateTopic[Math.floor(Math.random() * 4) + 4];
+    selectedTopic = debateTopic[Math.floor(Math.random() * 3) + 3];
   }
 
   if (numAgent == 3) {
@@ -85,7 +85,7 @@ function start() {
             var teamStance = "Jordan personally agrees with this stance. However, Taylor and Riley actually don't agree with this stance and were assigned by the instructor to debate on this stance. So, their contribution is mainly in pushing back or questioning Jordan and " + username + ".";
         }
 
-        messages.push({"role": "system", "content": "You will act as 3 university students called Taylor, Riley, and Jordan. These 3 students are in a team with the user, " + username + ", a fellow student, to brainstorm evidence-based arguments to support the answer " + userStance + " to the the debate prompt " + document.getElementById("topic").innerHTML + " " + teamStance + " Each response should take the form of <student's name>: <message>. Only generate one message (one person) at a time. The group members will take turn to speak in a fixed order: Taylor, Jordan, Riley, then " + username + ". Stick to this order without exception. You will never act as " + username + " because that is the user's role. Keep each message short and casual. Maximum no more than 70 words, but can be as short as just 1 word. The four team members should have a quick back-and-forth with each other. The final arguments (made by " + username + " on behalf of the team) will be evaluated by (1) the variance between arguments: each argument should be sufficiently different from each other in the aspects of the problems that it addresses, the values and perspectives from which the arguments are founded, and the types of evidence that supports them; and (2) strength of each argument: each of the 3 arguments will be graded separately for this. The strength of the argument are based on its relevance to the topic, the logical connection between the evidence and the argument it supports, and the student's demonstration of anticipation of rebuttals and how to address the rebuttals."});
+        messages.push({"role": "system", "content": "You will act as 3 university students called Taylor, Riley, and Jordan. These 3 students are in a team with the user, " + username + ", a fellow student, to brainstorm evidence-based arguments to support the answer " + userStance + " to the the debate prompt " + document.getElementById("topic").innerHTML + " " + teamStance + " Each response should take the form of <student's name>: <message>. Only generate one message (one person) at a time. The group members will take turn to speak in a fixed order: Taylor, Jordan, Riley, then " + username + ". Stick to this order and never break it even if " + username + " calls out anyone specifically. You will never act as " + username + " because that is the user's role. Keep each message short and casual. Maximum no more than 70 words, but can be as short as just 1 word. The four team members should have a quick back-and-forth with each other. The final arguments (made by " + username + " on behalf of the team) will be evaluated by (1) the variance between arguments: each argument should be sufficiently different from each other in the aspects of the problems that it addresses, the values and perspectives from which the arguments are founded, and the types of evidence that supports them; and (2) strength of each argument: each of the 3 arguments will be graded separately for this. The strength of the argument are based on its relevance to the topic, the logical connection between the evidence and the argument it supports, and the student's demonstration of anticipation of rebuttals and how to address the rebuttals."});
     }
 
     sendMessage("", false, true);
@@ -294,7 +294,7 @@ function getmsg() // accumulate all data for export
   conv += "Argument 2: " + document.getElementById("arg2").value + "\n";
   conv += "Argument 3: " + document.getElementById("arg3").value + "\n";
 
-  conv += "Export at " + Math.floor((Date.now() - startTime) / 1000) + "seconds";
+  conv += "Export at " + Math.floor((Date.now() - startTime) / 1000) + " seconds";
   
   if (stanceDiv == 0) { // practice round
     openSampleArg();
