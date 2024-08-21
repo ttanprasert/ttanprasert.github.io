@@ -1,0 +1,502 @@
+html {
+    font-size: 62.5%; 
+    height: 100%;
+}
+  
+body {
+    font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+    line-height: 1.6;
+    font-weight: 400;
+    height: 95%;
+    font-family: "Trebuchet MS", sans-serif;
+    color: black;
+    background-color:white;
+}
+
+.button-container {
+  display: flex;
+}
+
+/* The Modal (background) */
+.modal {
+  display: block; /* Hidden by default */
+  position: relative; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  border: solid 2px black;
+  background-color: white;
+  box-shadow: 5px 10px 18px #888888;
+  border-radius: 10px;
+  width: 50%; /* Full width */
+  height: auto; /* Full height */
+}
+
+.column {
+  position: absolute;
+  top: 20px;
+  height: calc(100% - 40px);
+  width: 32%;
+  float: left; 
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.popup {
+  position: absolute;
+  z-index: 2;
+  width: 500px;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  background-color: white;
+  border: 2px solid navy;
+  border-radius: 4px;
+  display: none;
+  filter: drop-shadow(gray 5px 5px 2px);
+  align-content: center;
+}
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #3498db;
+  width: 40px;
+  height: 40px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 8px;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.textContainer {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.definition {
+  width: 300px;
+  padding: 10px;
+  background-color: royalblue;
+  color: white;
+  font-size: 12px;
+  margin-left: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.prompt {
+  border: 2px solid navy;
+  background-color:white;
+  border-radius: 5px;
+  padding-left: 15px;
+  margin-top: 15px;
+  height: 15%;
+  text-align: left;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+.content {
+  padding: 0px 15px;
+  height: 100%;
+  /*width: calc(95% - 5px);*/
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-color: #def5ff;
+}
+
+.survey {
+  border: 2px solid navy;
+  background-color:white;
+  height: 100%;
+  border-radius: 5px;
+  padding: 0px 15px;
+  display: block;
+}
+
+.surveyContainer {
+  overflow: auto;
+  height: calc(100% - 140px);
+}
+
+.vcenter {
+  position: absolute;
+  top: 40%;
+  text-align: center;
+}
+
+.downloadButton {
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+  border: 2px solid navy;
+  font-size: 18px;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 20px;
+  text-align: center;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+.downloadButton:hover{
+  background-color: navy;
+  color: white;
+  border: 2px solid navy;
+  cursor: pointer;
+}
+
+.downloadButton:disabled {
+  background-color:lightgrey;
+  color: grey;
+  border: none;
+  cursor: not-allowed;
+}
+
+.startButton {
+  color: white;
+  font-size: 18px;
+  width: calc(100% - 80px);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  margin-left: 40px;
+  background-color:navy;
+  border-radius: 8px;
+  text-align: center;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+.startButton:hover:enabled{
+  color: white;
+  border: 4px solid lightgray;
+  cursor: pointer;
+}
+
+.startButton:disabled {
+  cursor: not-allowed;
+  background-color: lightblue;
+  color:gray;
+}
+
+.continueButton {
+  position: absolute;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+  margin-top: 1.5%;
+  border: 2px solid navy;
+  font-size: 16px;
+  width: 16%;
+  height: 87%;
+  text-align: center;
+}
+
+.continueButton:hover{
+  background-color: navy;
+  color: white;
+  border: 2px solid navy;
+  cursor: pointer;
+}
+
+.continueButton:disabled{
+  pointer-events: none;
+  background-color: lightgray;
+  color: black;
+  border: none;
+}
+
+.debateTopic {
+  text-align: center;
+  padding: 10px 0px 10px;
+}
+
+.choiceGroup {
+  display: inline-block;
+  text-align: center;
+  padding: 0px 20px;
+}
+.choiceGroup label {
+  display: block;
+}
+
+.avatar{
+  vertical-align: top;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 20px;
+  border: solid 2px black;
+  float: left;
+}
+
+.chat {
+  position: absolute;
+  top: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 100%;
+  width: calc(100% - 30px);
+  border: 2px solid navy;
+  background-color:white;
+  border-radius: 5px;
+}
+
+.textBox {
+  position: absolute;
+  bottom: 15px;
+  width: calc(100% - 60px);
+  height: 80px;
+  padding: 15px;
+  font-family: 'Roboto';
+  float: left;
+  opacity: 1;
+}
+
+.chatContainer {
+  position: relative;
+  padding: 5px 5px;
+  width: 100%;
+  height: calc(100% - 195px);
+  overflow-y: scroll;
+  overflow-x: visible;
+}
+
+.notme {
+  float: left;
+}
+
+.me {
+  float: right;
+}
+
+.chatBubble:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.wrapper {
+  float: left;
+  max-width: calc(100% - 50px);
+}
+
+.leftwrapper {
+  float:left;
+  max-width: 50px;
+}
+
+.chatProfile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.chatMessage {
+  /*vertical-align: top;*/
+  max-width: 70%;
+  padding: 8px;
+  margin: 5px;
+  width: fit-content;
+  word-wrap: break-word;
+  border-radius: 16px;
+  display: block;
+}
+
+.notmeMessage {
+  text-align: left;
+  background-color: #68c;
+  color: white;
+}
+
+.meMessage {
+  text-align: right;
+  background-color:#bcf;
+}
+
+.chatName{
+  font-size: 16px;
+  color: gray;
+  margin-bottom: 0px;
+  margin-left: 5px;
+  margin-top: 0px;
+  display: block;
+}
+
+.question {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: #575757;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: block;
+}
+
+.agenda {
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+}
+.agenda:hover {
+  color: white;
+  background-color: gray;
+}
+
+.agenda:visited {
+  color: white;
+  background-color: black;
+}
+
+.formBox {
+  width: calc(100% - 50px);
+  padding: 10px;
+  margin-bottom: 10px;
+  font-family: 'Roboto';
+  float: left;
+  display: block;
+}
+
+.eval {
+  width: 60%;
+  height: 20%;
+  padding: 10px;
+}
+
+.sendButton {
+  float:left;
+  margin: 1.5%;
+  height: 87%;
+  width: 12%;
+  background-color: royalblue;
+  color: white;
+  font-size: 1.8pw;
+}
+
+table.likertTable {
+  background-color: white;
+  padding: 10px;
+  width: calc(90% - 60px);
+}
+table.likertTable th {
+  padding: 3px;
+}
+
+.indent {
+  padding: 0% 5%;
+}
+
+.recap {
+  width:100%;
+  display: block;
+  justify-content: left;
+  height: 30%;
+  margin-bottom: 20px;
+}
+
+.end {
+  text-align: center;
+}
+
+.tooltip {
+  position: relative;
+  top: 5px;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  background-color: #63ad6f;
+  display: none;
+  border-radius: 4px;
+  left: 8px;
+  width: 30px;
+  height: 30px;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: #f0f0f0;
+  color: black;
+  text-align: left;
+  border-radius: 4px;
+  padding: 15px 15px;
+  left: 15px;
+  top: 15px;
+  filter: drop-shadow(gray 2px 2px 2px);
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 10;
+
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.typing {
+  align-items: center;
+  display: flex;
+  height: 17px;
+}
+.typing .dot {
+  animation: mercuryTypingAnimation 1.8s infinite ease-in-out;
+  background-color: white;
+  border-radius: 50%;
+  height: 7px;
+  margin-right: 4px;
+  vertical-align: middle;
+  width: 7px;
+  display: inline-block;
+}
+.typing .dot:nth-child(1) {
+  animation-delay: 200ms;
+}
+.typing .dot:nth-child(2) {
+  animation-delay: 300ms;
+}
+.typing .dot:nth-child(3) {
+  animation-delay: 400ms;
+}
+.typing .dot:last-child {
+  margin-right: 0;
+}
+
+@keyframes mercuryTypingAnimation {
+  0% {
+    transform: translateY(0px);
+    background-color:#4F8BFF; 
+  }
+  28% {
+    transform: translateY(-7px);
+    background-color:#78A5FF; 
+  }
+  44% {
+    transform: translateY(0px);
+    background-color: #ABCBFF; 
+  }
+}

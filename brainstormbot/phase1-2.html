@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Groupchat-Prototype</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<link rel="stylesheet" href="./styles1-2.css" type="text/css">
+
+</head>
+
+<body onload="setup()">
+
+<div class="row">
+    <div class="column" style="left: 1%;">
+        <div class="content" id="instContent" style="display:block;">
+            <h2 style="margin-top: 10px;">Activity instruction</h2>
+            <div class="surveyContainer">
+                <p>Please read the instruction carefully before you start the activity. <u>The instruction is the same for every round of the task. If this is not your first round, feel free to start the activity right away.</u></p>
+                <h3 style="margin-top: 0px;">Scenario</h3> 
+                You and your teammates are preparing for a debate in an undergraduate-level course. Your team discuss to come up with strong arguments together. After the discussion, you will be the one to represent the team in the actual debate. The instructor of this course will then grade you and your teammates based on your arguments in the debate and the transcripts of your team's discussion.
+                <h3>Steps</h3>
+                <ol>
+                    <li><b>Click the "START ACTIVITY" button.</b> It will open a pop-up window with a debate prompt.</li>
+                    <li><b>Answer the debate prompt.</b> Your answer will be fixed as your team's stance for this activity.</li>
+                    <li><b>Discuss with your teammates in the chat window</b> (the middle column) to generate 3 arguments to support your stance. <u>Your goal is to engage with the conversation as much as you can and come up with the strongest possible arguments.</u> Your teammates may or may not personally agree to your stance, but they are instructed to help you come up with arguments to support your stance anyway.</li>
+                    <li><b>Fill out the final argument form</b> (the rightmost column). This form is a replacement for the actual debate, so you should make your arguments as strong as possible. You should describe, in details, the assumption behind your arguments, the evidence to support your arguments, what rebuttal you anticipate the opposite stance might make and how you expect to counter that, and other details that can help strengthen your arguments.</li>
+                    <li>When you think the discussion has saturated, i.e., there is no more improvement to be made on any arguments, <b>click the button "FINISH TASK"</b> at the bottom of the argument form.</li>
+                    <li><b>Annotate your teammate's chat responses</b> by hover over the green box next to the chat message that you think is "too cooperative" or "too contradictory" when compared to what you expected from an AI peer and/or a human peer.</li> 
+                    <li>When you finish annotating the chat, <b>click the button "EXPORT DATA"</b> at the bottom of the argument form and upload the exported .txt file to Qualtrics survey.</li>
+                    <li>There is no time limit to this activity, the expected completion time (starting when you pick your stance) is 15 minutes. There will be a notification at the 15-minute mark as a reminder.</li> 
+                </ol>
+                <h3>Instructor's evaluation criteria</h3>
+                <ul>
+                    <li>Quality of the arguments (team). Your arguments evaluated in two aspects (weighed equally):
+                        <ol>
+                            <li><b>Argument strength:</b> Each of the 3 arguments will be graded separately for this. The strength of the argument are based on its relevance to the topic, the logical connection between the evidence and the argument it supports, and the student's demonstration of anticipation of rebuttals and how to address the rebuttals.</li>
+                            <li><b>Variance between arguments:</b> Each argument should be sufficiently different from each other in the aspects of the problems that it addresses, the values and perspectives from which the arguments are founded, and the types of evidence that supports them.</li>
+                        </ol>
+                    </li>
+                    <li>Engagement (individual). The instructor will determine each member's engagement with the activity and their contribution to the final outcome based on the discussion transcript.</li>
+                </ul>
+            </div>
+            <button class="startButton" id="startButton" style="margin-top:10px;" onclick="openPopup();">START ACTIVITY</button>
+        </div>
+    </div>
+
+    <div class="column" id="chatCol" style="left: 34%;">
+        <div class="chat" id="chatbot">
+            <h2 id="chatname" style="margin-top:10px; margin-bottom: 0px;">Discussion chatroom</h2>
+            <div id="chatwindow" class="chatContainer"></div>
+            <!--div id="chatmask" class="chatContainer" style="z-index: 1; width: calc(100% - 110px); cursor:not-allowed;"></div-->
+            <textarea id="message-input" class="textBox"></textarea>
+        </div>
+    </div>
+
+    <!-- Final argument template -->
+    <div class="column" id="templateCol" style="left: 67%;">
+        <div class="survey">
+            <h2 style="margin-top:10px">Your final arguments</h2>
+            <div class="surveyContainer">
+                <div id="selectedStance">
+                    <b>Topic:</b> - <br>
+                    <b>Selected stance:</b> - <br>
+                </div>
+                <b style="font-size: 18px;">Argument 1 (2-4 sentences)</b><br>
+                <textarea id="arg1" class="formBox" rows="10" cols="35"></textarea><br>
+                <b style="font-size: 18px;">Argument 2 (2-4 sentences)</b><br>
+                <textarea id="arg2" class="formBox" rows="10" cols="35"></textarea><br>
+                <b style="font-size: 18px;">Argument 3 (2-4 sentences)</b><br>
+                <textarea id="arg3" class="formBox" rows="10" cols="35"></textarea><br>
+            </div>
+            <button class="startButton" id="finishButton" style="margin-top:10px;" onclick="finishTask();">FINISH TASK</button>
+            <button class="startButton" id="downloadButton" style="margin-top:10px; display:none;" onclick="getmsg();">EXPORT DATA</button>
+        </div>
+    </div>   
+</div>
+
+<div class="popup" id="promptContent">
+    <p style="text-align:center">Pick your stance on this debate topic:</p>
+    <h3 id="topic" style="text-align: center;">Can good intentions exonerate one from bad outcomes?</h3>
+    <div style="text-align: center;">
+        <input type="radio" id="yes" name="stance" value="1">
+        <label for="yes"><b style="color: green">YES</b></label>
+        <input style="margin-left: 5rem" type="radio" id="no" name="stance" value="2">
+        <label for="no"><b style="color:crimson">NO</b></label>
+    </div>
+    <button class="startButton" id="submitButton" style="background-color:gray; margin-top: 30px; padding-top: 5px; padding-bottom: 5px;" onclick="start();">Submit</button>
+</div>
+
+<div class="popup" id="loader" style="display:none; width: 120px; border: none; filter: none;">
+    <p style="text-align: center; color: grey; margin-top: 0px;">Initializing your chatroom ...</p>
+    <div class="loader"></div>
+</div>
+
+<div class="popup" style="max-height: 80%; overflow: auto;" id="sampleArgPopup">
+    <h2 style="text-align:center">This is the end of the practice round.</h2>
+    <h3 style="text-align:center">Before you move on, please read an example of full-score argument for your stance below. (Your data for this round will be exported after you click the CLOSE button at the bottom of this popup window.)</h3>
+    <p id="sampleArg"></p>
+    <button class="closeArgButton" id="closeArgButton" style="background-color:gray; margin-top: 30px; padding-top: 5px; padding-bottom: 5px; right: 5px;" onclick="closeSampleArg();"> CLOSE </button>
+</div>
+
+<script type="text/javascript" src="./brainstormbot1-2.js"></script>
+
+</body>
+</html>
