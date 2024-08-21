@@ -56,7 +56,7 @@ function openPopup(){
 
 async function start() {
     // start the timer, set an alert to pop up 15 minutes later
-    setTimeout(function() { alert("This is a friendly reminder that 15 minutes have passed!"); }, 900000);
+    setTimeout(function() { alert("This is a friendly reminder that 20 minutes have passed!"); }, 1200000);
 
     document.getElementById("promptContent").style.display = "none";
 
