@@ -107,6 +107,7 @@ function sendMessage(message, itsMe, bubble) {
   if (startTime == 0) {
     startTime = Date.now();
   }
+  console.log(message);
 
   var messageList = document.getElementById("chatwindow");
 
@@ -262,6 +263,8 @@ message.addEventListener("keypress", function(event) {
     sendMessage("", false, true); // create typing bubble
     if (condition == 2) {
       pickThread();
+    } else {
+      sendAIMessage(messages);
     }
     this.value = ""; // clear input textbox
     return false;
@@ -337,11 +340,11 @@ function getmsg() // accumulate all data for export
   conv += "[Total word count:] " + countWord + "\n";
   conv += "[Export at time:] " + Math.floor((Date.now() - startTime) / 1000);
   
-  if (condition == 0) { // practice round
+  /*if (condition == 0) { // practice round
     openSampleArg();
-  } else {
-    download(ID + "-c" + condition + ".txt", conv);
-  }
+  } else {*/
+  download(ID + "-c" + condition + ".txt", conv);
+  //}
 }
 
 function openSampleArg() {
