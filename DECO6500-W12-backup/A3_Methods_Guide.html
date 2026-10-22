@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)https://deco6500-course.uqcloud.net/resources/a3-method-guide/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A3 Methods Guide: Choosing Your Method | DECO6500</title>
+<link rel="stylesheet" href="./A3 Methods Guide_files/site.css">
+<script src="./A3 Methods Guide_files/main.js" defer=""></script>
+<!--
+  ============================================================
+  DECO6500 | Week 10 method guide for the course website (v2)
+  ============================================================
+  Student-facing reference page, listed under Resources. Revised
+  using the teaching team's method coaching cards (v1): the
+  lens x futuring technique x evidence model, eight lenses chosen
+  from what the intervention needs or changes, futuring
+  techniques, and grounding evidence.
+
+  Deliberately NOT included (teaching-team only): common traps,
+  "ask the student" prompts, coaching instructions, the
+  claim-marking prompt (held for the evidence weeks), and named
+  staff contacts.
+
+  Same shared .d6500 stylesheet as the Week 4, 9 and 10 pages, plus a
+  small block of .d6500-lens rules (at the end of the stylesheet) for the
+  collapsible lens cards. This page is hosted on the course website,
+  not Learn.UQ, so <details> and two small inline onclick handlers are
+  used. Without JavaScript, the lenses still open and close.
+
+  Checked against: A3 brief v4 (Task 4: approach categories,
+  grounding, generated contributions, ethics; method evaluation
+  criteria and strongest claim) and the A3 grading criteria.
+
+  CONTRAST: inherited unchanged from the Week 4 stylesheet.
+  ============================================================
+-->
+<style>
+  .d6500 {
+    --ink: #1f2523;
+    --ink-2: #3f4945;
+    --ink-3: #5f6b67;
+    --line: #d8e0dd;
+    --line-2: #aebbb6;
+    --paper: #fffafa;
+    --card: #ffffff;
+    --blue: #2d5b90;
+    --blue-dark: #244873;
+    --blue-tint: #eaf1f8;
+    --teal: #3f6a7a;
+    --teal-tint: #f1f8fa;
+    --amber: #9d6104;
+    --amber-tint: #fff7e8;
+    --slate: #f3f5f4;
+
+    box-sizing: border-box;
+    max-width: 54rem;
+    margin: 0 auto;
+    padding: 1.25rem;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .d6500 *,
+  .d6500 *::before,
+  .d6500 *::after { box-sizing: inherit; }
+
+  .d6500 h1, .d6500 h2, .d6500 h3 {
+    font-family: Quicksand, "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.25;
+    color: var(--ink);
+  }
+
+  .d6500 h1 { font-size: 1.85rem; font-weight: 700; margin: 0 0 .35rem; }
+  .d6500 h2 { font-size: 1.3rem;  font-weight: 700; margin: 2rem 0 .75rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+  .d6500 h3 { font-size: 1.05rem; font-weight: 700; margin: 0 0 .35rem; }
+  .d6500 p  { margin: 0 0 .75rem; }
+  .d6500 a  { color: var(--blue); text-decoration: underline; }
+  .d6500 a:hover, .d6500 a:focus { color: var(--blue-dark); }
+  .d6500 ul, .d6500 ol { margin: 0 0 .75rem; padding-left: 1.4rem; }
+  .d6500 li { margin: 0 0 .4rem; }
+  .d6500 strong { font-weight: 700; }
+
+  /* ---------- masthead ---------- */
+  .d6500-top {
+    padding: 1.1rem 1.25rem;
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--blue);
+    border-radius: .5rem;
+    background: var(--card);
+  }
+  .d6500-eyebrow {
+    margin: 0 0 .2rem;
+    color: var(--blue);
+    font-family: Quicksand, "Noto Sans", sans-serif;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .d6500-lede { margin: 0 0 1rem; color: var(--ink-2); font-size: 1.06rem; }
+
+  /* ---------- call to action ----------
+     CURRENTLY UNUSED ON THIS PAGE. Retained verbatim from the Week 4
+     stylesheet — see the header comment. Do not delete, do not
+     simplify the selectors (see the Week 4 file's own DL-010 note). */
+  .d6500 a.d6500-cta {
+    display: inline-block;
+    padding: .65rem 1.15rem;
+    border-radius: .25rem;
+    background: var(--blue);
+    color: #fff;
+    font-family: Quicksand, "Noto Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .d6500 a.d6500-cta:hover,
+  .d6500 a.d6500-cta:focus {
+    background: var(--blue-dark);
+    color: #fff;
+    text-decoration: underline;
+  }
+  .d6500-cta-note { margin: .5rem 0 0; color: var(--ink-3); font-size: .86rem; }
+
+  /* ---------- bring-this bar in the masthead ---------- */
+  .d6500-due {
+    margin: 1rem 0 0;
+    padding: .6rem .85rem;
+    border-left: 4px solid var(--amber);
+    border-radius: .25rem;
+    background: var(--amber-tint);
+    color: var(--ink);
+    font-size: .95rem;
+  }
+
+  /* ---------- where are we now ---------- */
+  .d6500-block-label {
+    margin: 0 0 .6rem;
+    color: var(--ink-3);
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .d6500-track {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    margin: 0 0 .85rem;
+    padding: 0;
+    list-style: none;
+  }
+  .d6500-wk {
+    flex: 1 1 10rem;
+    margin: 0;
+    padding: .7rem .85rem;
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--line-2);
+    border-radius: .5rem;
+    background: var(--card);
+  }
+  .d6500-wk-num {
+    display: block;
+    margin-bottom: .12rem;
+    color: var(--ink-3);
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .d6500-wk-name {
+    display: block;
+    font-family: Quicksand, "Noto Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .d6500-wk-date { display: block; margin-top: .2rem; color: var(--ink-3); font-size: .8rem; }
+  .d6500-wk--done { background: var(--slate); }
+  .d6500-wk--now { border-top-color: var(--blue); background: var(--blue-tint); }
+  .d6500-wk--now .d6500-wk-num { color: var(--blue-dark); }
+  .d6500-wk--due { border-top-color: var(--amber); background: var(--amber-tint); }
+  .d6500-wk--due .d6500-wk-num { color: var(--amber); }
+
+  /* ---------- panels ---------- */
+  .d6500-panel {
+    margin: 0 0 .85rem;
+    padding: .9rem 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: .5rem;
+    background: var(--card);
+  }
+  .d6500-panel > :last-child { margin-bottom: 0; }
+  .d6500-panel--info   { border-left: 4px solid var(--blue);  background: var(--blue-tint); }
+  .d6500-panel--note   { border-left: 4px solid var(--line-2); background: var(--slate); }
+  .d6500-panel--action { border-left: 4px solid var(--amber); background: var(--amber-tint); }
+
+  /* ---------- how the session is organised ---------- */
+  .d6500-rhythm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin: 0 0 .85rem;
+    padding: 0;
+    list-style: none;
+    counter-reset: ph;
+  }
+  .d6500-ph {
+    flex: 1 1 10rem;
+    margin: 0;
+    padding: .6rem .75rem;
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--line-2);
+    border-radius: .5rem;
+    counter-increment: ph;
+  }
+  .d6500-ph-name {
+    display: block;
+    font-family: Quicksand, "Noto Sans", sans-serif;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+  }
+  .d6500-ph-name::before {
+    content: counter(ph);
+    display: inline-block;
+    min-width: 1.35em;
+    margin-right: .35em;
+    padding: .05em 0;
+    border-radius: .25rem;
+    color: #fff;
+    font-size: .8em;
+    text-align: center;
+  }
+  .d6500-ph-what { display: block; margin-top: .2rem; color: var(--ink-2); font-size: .84rem; line-height: 1.4; }
+  .d6500-ph--1 { border-top-color: var(--blue);  background: var(--blue-tint); }
+  .d6500-ph--1 .d6500-ph-name { color: var(--blue-dark); }
+  .d6500-ph--1 .d6500-ph-name::before { background: var(--blue); }
+  .d6500-ph--2 { border-top-color: var(--teal);  background: var(--teal-tint); }
+  .d6500-ph--2 .d6500-ph-name { color: var(--teal); }
+  .d6500-ph--2 .d6500-ph-name::before { background: var(--teal); }
+  .d6500-ph--3 { border-top-color: var(--amber); background: var(--amber-tint); }
+  .d6500-ph--3 .d6500-ph-name { color: var(--amber); }
+  .d6500-ph--3 .d6500-ph-name::before { background: var(--amber); }
+
+  /* ---------- activity steps ---------- */
+  .d6500-steps { margin: 0 0 .85rem; padding: 0; list-style: none; counter-reset: st; }
+  .d6500-steps[start="6"] { counter-reset: st 5; }
+  .d6500-steps > li {
+    position: relative;
+    margin: 0 0 .55rem;
+    padding: .7rem .9rem .7rem 2.9rem;
+    border: 1px solid var(--line);
+    border-radius: .5rem;
+    background: var(--card);
+    counter-increment: st;
+  }
+  .d6500-steps > li::before {
+    content: counter(st);
+    position: absolute;
+    left: .9rem;
+    top: .78rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: .25rem;
+    background: var(--blue);
+    color: #fff;
+    font-family: Quicksand, "Noto Sans", sans-serif;
+    font-size: .85rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    text-align: center;
+  }
+  .d6500-steps > li.d6500-step--framing { background: var(--slate); }
+  .d6500-steps > li.d6500-step--framing::before { background: var(--ink-3); }
+  .d6500-step-kind {
+    display: block;
+    margin: 0 0 .15rem;
+    color: var(--ink-3);
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+  .d6500-step-out { display: block; margin: .3rem 0 0; color: var(--ink-3); font-size: .84rem; }
+  .d6500-break {
+    display: flex;
+    gap: .6rem;
+    align-items: center;
+    margin: 0 0 .55rem;
+    color: var(--ink-3);
+    font-family: Quicksand, "Noto Sans", sans-serif;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .d6500-break::before, .d6500-break::after {
+    flex: 1; height: 0; border-top: 1px dashed var(--line-2); content: "";
+  }
+
+  .d6500-outcomes { margin: 0; padding-left: 1.2rem; }
+  .d6500-outcomes li { margin-bottom: .3rem; }
+
+  .d6500-foot {
+    margin-top: 1.75rem;
+    padding-top: .85rem;
+    border-top: 1px solid var(--line);
+    color: var(--ink-3);
+    font-size: .86rem;
+  }
+
+  @media (max-width: 34rem) {
+    .d6500 { padding: .75rem; }
+    .d6500 h1 { font-size: 1.5rem; }
+    .d6500-wk, .d6500-ph { flex-basis: 100%; }
+    .d6500 a.d6500-cta { display: block; text-align: center; }
+  }
+
+  @media (forced-colors: active) {
+    .d6500-top, .d6500-panel, .d6500-wk, .d6500-ph, .d6500-steps > li { border: 1px solid CanvasText; }
+    .d6500 a.d6500-cta { border: 1px solid CanvasText; }
+    .d6500-due { border: 1px solid CanvasText; }
+  }
+
+  /* Collapsible lens cards (method guide only; this page is hosted on the
+     course website, not Learn.UQ, so native <details> is safe to use). */
+  .d6500-lens { margin: 0 0 12px; border: 1px solid var(--line); border-left: 4px solid var(--teal); border-radius: 6px; background: #fff; }
+  .d6500-lens > summary { cursor: pointer; padding: 12px 16px; font-weight: 700; list-style: none; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .d6500-lens > summary::-webkit-details-marker { display: none; }
+  .d6500-lens > summary::after { content: "Show"; font-size: 0.8em; font-weight: 600; opacity: 0.75; white-space: nowrap; }
+  .d6500-lens[open] > summary::after { content: "Hide"; }
+  .d6500-lens > summary:focus-visible { outline: 3px solid currentColor; outline-offset: 2px; }
+  .d6500-lens-fam { font-weight: 600; font-size: 0.85em; opacity: 0.8; margin-left: auto; white-space: nowrap; }
+  .d6500-lens-body { padding: 0 16px 8px; }
+  .d6500-lens-body p { margin: 0 0 10px; }
+  .d6500-lens-controls { margin: 0 0 12px; font-size: 0.9em; }
+  .d6500-lens-controls button { font: inherit; padding: 4px 10px; margin-right: 6px; border-radius: 4px; border: 1px solid currentColor; background: transparent; cursor: pointer; }
+</style>
+
+<style>
+  /* Added for the Week 12 backup: in-page navigation */
+  .d6500 [id] { scroll-margin-top: 1rem; }
+  .d6500 :target { outline: 3px solid #d9965b; outline-offset: 4px; border-radius: .4rem; }
+  .d6500-onpage ul { margin: 0; padding-left: 1.2rem; columns: 2; column-gap: 2rem; }
+  .d6500-onpage li { margin-bottom: .25rem; break-inside: avoid; }
+  @media (max-width: 40rem) { .d6500-onpage ul { columns: 1; } }
+</style>
+<script>
+  /* Open a closed lens or practice card when a link points into it */
+  (function () {
+    function openTarget() {
+      var id = decodeURIComponent(location.hash.slice(1));
+      if (!id) return;
+      var el = document.getElementById(id);
+      if (!el) return;
+      var d = el.closest('details');
+      while (d) { d.open = true; d = d.parentElement ? d.parentElement.closest('details') : null; }
+      if (el.tagName === 'DETAILS') el.open = true;
+      setTimeout(function () { el.scrollIntoView({ block: 'start' }); }, 0);
+    }
+    window.addEventListener('hashchange', openTarget);
+    document.addEventListener('DOMContentLoaded', openTarget);
+  })();
+</script>
+</head>
+<body class="nav-enhanced">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-brand" href="https://deco6500-course.uqcloud.net/index.html">DECO6500</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" hidden="">
+          <span class="nav-toggle__icon" aria-hidden="true"><span class="nav-toggle__bar"></span></span>
+          Menu
+        </button>
+        <nav id="primary-navigation" class="primary-nav" aria-label="Primary navigation" data-collapsible="" data-open="true">
+          <a href="https://deco6500-course.uqcloud.net/index.html">Dashboard</a>
+          <a href="https://deco6500-course.uqcloud.net/course-overview/index.html">Course Overview</a>
+          <a href="https://deco6500-course.uqcloud.net/assessments/index.html">Assessments</a>
+          <a href="https://deco6500-course.uqcloud.net/weekly-learning/index.html">Weekly Learning</a>
+          <a href="https://deco6500-course.uqcloud.net/teamwork/index.html">Teamwork</a>
+          <a href="https://deco6500-course.uqcloud.net/resources/index.html" aria-current="page">Resources</a>
+          <a class="link-inactive" href="https://deco6500-course.uqcloud.net/support/index.html" title="This content will be released later in the course">Support</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="page-shell">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="https://deco6500-course.uqcloud.net/index.html">Dashboard</a></li>
+          <li><a href="https://deco6500-course.uqcloud.net/resources/index.html">Resources</a></li>
+          <li aria-current="page">A3 Methods Guide</li>
+        </ol>
+      </nav>
+
+<div class="d6500">
+
+  <header class="d6500-top">
+    <p class="d6500-eyebrow">Week 10 · Assessment 3 · method guide</p>
+    <h1>Choosing Your Method</h1>
+    <p class="d6500-lede">How to get from your evaluation questions to a method you can run: what an A3 method is made of, eight lenses to start from, futuring techniques that move a lens through time, and the evidence that grounds it. Use it with the Decision Guide in Friday’s applied class, and come back to it whenever you revise your method.</p>
+    <p class="d6500-due"><strong>An A3 method = a lens × a futuring technique × evidence.</strong> A lens on its own describes today: that is an audit. A futuring technique on its own is a prediction. An A3 method needs both, and evidence you collect or read yourself.</p>
+  </header>
+
+
+  <nav class="d6500-panel d6500-panel--info d6500-onpage" aria-label="On this page">
+    <h3>On this page</h3>
+    <ul><li><a href="#made-of">What an A3 method is made of</a></li><li><a href="#key-terms">Key terms</a></li><li><a href="#decision-guide">The Decision Guide</a></li><li><a href="#decision-step-3">Find a starting lens</a></li><li><a href="#lenses">The eight lenses</a></li><li><a href="#futuring">Futuring techniques</a></li><li><a href="#time-points">Time points</a></li><li><a href="#grounding-evidence">Grounding evidence</a></li><li><a href="#look-forward">Make it look forward</a></li><li><a href="#rules-of-thumb">Rules of thumb</a></li><li><a href="From_Your_Question_to_Your_Method.html">From Your Question to Your Method</a></li></ul>
+  </nav>
+  <h2 id="made-of">What an A3 method is made of</h2>
+
+  <ol class="d6500-steps">
+    <li>
+      <span class="d6500-step-kind">What to look at</span>
+      <strong><a href="#lenses">A lens.</a></strong> A framework that tells you where to look, chosen from what your intervention needs in order to work, or what it changes once it is in use. <a href="#decision-step-3">Find a starting lens</a> or <a href="#lenses">see all eight</a>.
+    </li>
+    <li>
+      <span class="d6500-step-kind">When to look</span>
+      <strong><a href="#futuring">A futuring technique.</a></strong> It moves the lens through time points, such as Year 1 and Year 3, so your method follows the system forward instead of describing it as it stands today.
+    </li>
+    <li>
+      <span class="d6500-step-kind">What it rests on</span>
+      <strong><a href="#grounding-evidence">Evidence.</a></strong> Something you collect or read for each time point: comparable cases, documents, interviews, data. Without it, a future is your own guess.
+    </li>
+  </ol>
+
+  <p>You describe the result as <em>“I adapted X by doing Y because Z”</em>: X is the lens you start from, Y is what you do with it (including the time points and evidence), and Z is why that suits your question.</p>
+
+  <h2 id="key-terms">Key terms</h2>
+
+  <div class="d6500-panel d6500-panel--info">
+    <h3>Methods, frameworks and families</h3>
+    <ul>
+      <li><strong>Method.</strong> A protocol someone else could follow: the evidence you will look at, the lens you will use, and the steps you will take. If you cannot write the steps down for someone else, it is not a method yet.</li>
+      <li><strong>Framework (lens).</strong> Tells you where to look, such as NASSS or Value Sensitive Design. Not a method on its own; you adapt it into one.</li>
+      <li><strong>Technique.</strong> One concrete way of gathering or making evidence: an interview, a document analysis, a workshop, a pre-mortem.</li>
+      <li><strong>Families.</strong> The five approach categories in Task 4 of your A3 brief: 1 layered evidence review; 2 scenario-based; 3 stakeholder and practice-based; 4 risk, failure and consequences; 5 implementation-readiness. Each lens below shows its family. No family is the default.</li>
+    </ul>
+  </div>
+
+  <div class="d6500-panel d6500-panel--info">
+    <h3>Time, evidence and judging your method</h3>
+    <ul>
+      <li><strong>Drivers of change.</strong> The people, organisations, rules, data and technologies that push your system to change over time. Your intervention is expected to be one of them.</li>
+      <li><strong>Grounded futuring.</strong> Looking forward, but tied to evidence. Every A3 method has to look forward, whatever family it comes from.</li>
+      <li><strong>Generated contributions.</strong> Anything produced by an AI tool. Something to check, not evidence in itself; disclose how you used it.</li>
+      <li><strong>Method evaluation criteria.</strong> Three or four statements of what your method must do to count as working well, set before you run it and recorded in your Week 11 log entry.</li>
+      <li><strong>Strongest-claim statement.</strong> The strongest claim your method could support if everything went as planned. A method that does not work as planned is a valid outcome; what is assessed is how honestly you evaluate it.</li>
+    </ul>
+  </div>
+
+  <h2 id="decision-guide">The Decision Guide: from question to method</h2>
+
+  <p>Six steps, used in Friday’s applied class. When your tutor or the course coordinator mentions the Decision Guide, this is what they mean.</p>
+
+  <ol class="d6500-steps">
+    <li>
+      <span class="d6500-step-kind">Start here</span>
+      <strong>Start from your question.</strong> Underline what you actually need to find out: “who does the work”, “what could go wrong”, “who is left out”.
+      <span class="d6500-step-out">Report Section 2</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">Before you choose</span>
+      <strong>Write three or four method evaluation criteria.</strong> (<a href="From_Your_Question_to_Your_Method.html#into-section-4">Worked example</a>.) Draw on the six dimensions in Task 4 of the brief: <em>reach</em>, <em>answerability</em>, <em>grounding</em>, <em>perspectives</em>, <em>checkability</em> and <em>feasibility</em>. Make each specific: “My method works well on [dimension] if ___, which I’ll know because ___.”
+      <span class="d6500-step-out">Report Section 4; confirm in your Week 11 log entry</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">Find candidate lenses</span>
+      <strong>Ask what your intervention needs, and what it changes.</strong> What does it need in order to work? What does it change once it is in use? Which of those is your question about? <a href="#decision-step-3">The list in the next section</a> points you to a starting lens.
+    </li>
+    <li>
+      <span class="d6500-step-kind">Research</span>
+      <strong>Shortlist two or three methods.</strong> (See the <a href="#rules-of-thumb">rules of thumb</a>.) For each, note what it is good at seeing, what evidence it needs, and whether one person could run it in about two weeks. Read the “start reading” source, and look for one study that actually used it.
+      <span class="d6500-step-out">Your working log: what you considered instead</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">Choose</span>
+      <strong>Test the shortlist against your criteria.</strong> For each candidate and each criterion: met, partly met or not met. Choose the best fit, or combine two where each covers the other’s gap.
+    </li>
+    <li>
+      <span class="d6500-step-kind">Adapt and predict</span>
+      <strong>Add time and evidence, then write it up.</strong> Choose a <a href="#futuring">futuring technique</a> and your time points, name the <a href="#grounding-evidence">evidence</a> for each, write “I adapted X by doing Y because Z” and a protocol in three to five steps, and state your strongest claim.
+      <span class="d6500-step-out">Report Section 4</span>
+    </li>
+  </ol>
+
+  <h2 id="decision-step-3">Decision Guide step 3: find candidate lenses</h2>
+
+  <p>Most interventions both need and change things; your question decides which matters more. These are starting suggestions, not rules: with a good reason, you can use another lens from the five families. If you want to use a theory that is not on this page, talk to your tutor first.</p>
+
+  <ol class="d6500-steps">
+    <li>
+      <span class="d6500-step-kind">If your intervention mainly…</span>
+      <strong>Needs technology, data or infrastructure to work and connect</strong>
+      <span class="d6500-step-out"><a href="#lens-1" onclick="document.getElementById('lens-1').open=true">Lens 1</a> · Technology working: NASSS, with STPA or FMEA as an option · family 5</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">If your intervention mainly…</span>
+      <strong>Needs staff in an organisation to change how they work</strong>
+      <span class="d6500-step-out"><a href="#lens-2" onclick="document.getElementById('lens-2').open=true">Lens 2</a> · Process change: Normalisation Process Theory, with CFIR as an alternative · family 5</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">If your intervention mainly…</span>
+      <strong>Needs people (often not only the user) to change what they do</strong>
+      <span class="d6500-step-out"><a href="#lens-3" onclick="document.getElementById('lens-3').open=true">Lens 3</a> · Behaviour change: COM-B and the Theoretical Domains Framework (TDF) · family 3 or 5</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">If your intervention mainly…</span>
+      <strong>Needs rules, funding or data permissions</strong>
+      <span class="d6500-step-out"><a href="#lens-4" onclick="document.getElementById('lens-4').open=true">Lens 4</a> · Rules and funding: Document and policy analysis; “What’s the problem represented to be?” (WPR) · family 1</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">If your intervention mainly…</span>
+      <strong>Needs uptake to spread, and to last</strong>
+      <span class="d6500-step-out"><a href="#lens-5" onclick="document.getElementById('lens-5').open=true">Lens 5</a> · Uptake spreading: RE-AIM; Diffusion of Innovations · family 5</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">If your intervention mainly…</span>
+      <strong>Changes everyday routines and what they mean</strong>
+      <span class="d6500-step-out"><a href="#lens-6" onclick="document.getElementById('lens-6').open=true">Lens 6</a> · Everyday routines: Social practice theory · family 3</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">If your intervention mainly…</span>
+      <strong>Changes relationships, values and who holds power</strong>
+      <span class="d6500-step-out"><a href="#lens-7" onclick="document.getElementById('lens-7').open=true">Lens 7</a> · Relationships and power: Value Sensitive Design; power–interest mapping · family 3</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">If your intervention mainly…</span>
+      <strong>Could harm, exclude or be misused</strong>
+      <span class="d6500-step-out"><a href="#lens-8" onclick="document.getElementById('lens-8').open=true">Lens 8</a> · Harm and exclusion: Harms modelling; Consequence Scanning; pre-mortem · family 4</span>
+    </li>
+  </ol>
+
+  <h2 id="lenses">The eight lenses</h2>
+
+  <p>Select a lens to open it. Each one shows when to use it, what it is in plain words, what it looks at, how to make it look forward, what evidence one person can collect in about two weeks, and an example of a full method sentence. The examples are about other systems, so you can see the shape without copying the content.</p>
+
+  <p class="d6500-lens-controls"><button type="button" onclick="document.querySelectorAll('.d6500-lens').forEach(d=&gt;d.open=true)">Open all</button><button type="button" onclick="document.querySelectorAll('.d6500-lens').forEach(d=&gt;d.open=false)">Close all</button></p>
+
+  <details class="d6500-lens" id="lens-1">
+    <summary><span>Lens 1 · Technology working: NASSS, with STPA or FMEA as an option</span><span class="d6500-lens-fam">Family 5</span></summary>
+    <div class="d6500-lens-body">
+    <p><strong>Use it when</strong> your intervention only works if technology, data or infrastructure works reliably and connects with existing systems. For example: an app that must link to a hospital record system, a sensor network, or an AI model that must be accurate enough to act on.</p>
+    <p><strong>In plain words.</strong> NASSS (Greenhalgh et al., 2017) lists seven areas where technology projects become difficult: the problem, the technology, the value proposition (who gains, who pays), the adopter system (who must change), the organisation, the wider system (rules, funding), and embedding and adaptation over time. Each area is rated simple, complicated or complex: the more areas are complex, the less likely the technology is to be adopted and kept. STPA and FMEA (family 4) trace how parts of a system fail together; they take more effort and suit students with an engineering background.</p>
+    <p><strong>What it looks at.</strong> What must exist for it to work: data, devices, connections, maintenance, skills? Who keeps it running, and who pays? Which existing systems must it connect with? What happens when it is updated or breaks?</p>
+    <p><strong>Making it look forward.</strong> Use the over-time domain. Ask the domain questions at Year 1 (first rollout, early problems) and Year 3 (updates, staff turnover, contract renewal). It works well with a timeline, or a pre-mortem set at Year 3: “it is no longer used; why?”</p>
+    <p><strong>Evidence one person can collect in about two weeks.</strong> Technical documentation or standards; accounts of comparable systems over several years; two or three interviews with people who would run or maintain it, using a Year 1 and Year 3 scenario.</p>
+    <p><strong>Example of a full method sentence.</strong> <em>“I adapted NASSS by asking domains 2, 5 and 7 about Year 1 and Year 3 of a ward handover tablet, in interviews with two nurses and an IT support officer and against two comparable rollouts, because my question is what the ward must keep doing for the system to keep working.”</em></p>
+    <p><strong>Start reading.</strong> Greenhalgh, T., et al. (2017). <em>Journal of Medical Internet Research</em>, 19(11), e367.</p>
+    </div>
+  </details>
+
+  <details class="d6500-lens" id="lens-2">
+    <summary><span>Lens 2 · Process change: Normalisation Process Theory, with CFIR as an alternative</span><span class="d6500-lens-fam">Family 5</span></summary>
+    <div class="d6500-lens-body">
+    <p><strong>Use it when</strong> your intervention only works if staff in an organisation change their work routines. For example: a triage app that changes how nurses hand over, or a school platform that asks teachers to record something new each day.</p>
+    <p><strong>In plain words.</strong> Normalisation Process Theory (NPT; May and Finch, 2009) explains how a new way of working becomes a normal part of everyday work, or does not. It has four parts: <em>coherence</em> (do people understand it, and see it as different and worthwhile?), <em>cognitive participation</em> (do they commit to it?), <em>collective action</em> (does the work actually get done, and does it fit with other work, skills and resources?) and <em>reflexive monitoring</em> (do people judge it and change it over time?). CFIR (Damschroder et al., 2009; 2022) is an alternative with a longer list of factors, useful for writing interview questions; choose a few factors, not all of them.</p>
+    <p><strong>What it looks at.</strong> Whose daily work changes? What new tasks appear, and what has to stop to make time for them? Does the new work fit with existing roles, skills and resources?</p>
+    <p><strong>Making it look forward.</strong> The four parts tend to happen in order: coherence and commitment early, monitoring later. Place them on a timeline: Year 1 (coherence, commitment) and Year 3 (collective action, monitoring). Give staff a short scenario: “It is a year after it arrived. What happens at handover now?”</p>
+    <p><strong>Evidence one person can collect in about two weeks.</strong> Organisational procedures and role descriptions; two to four interviews with the staff who would do the work, using a scenario at two time points; comparable cases of similar workflow changes.</p>
+    <p><strong>Example of a full method sentence.</strong> <em>“I adapted NPT by asking three pharmacists about each of its four parts at Year 1 and Year 3 of an automated refill-reminder service, using a short scenario, and comparing their answers with the pharmacy’s current procedures, because my question is whether the new checking work becomes routine or is quietly dropped.”</em></p>
+    <p><strong>Start reading.</strong> May, C., &amp; Finch, T. (2009). <em>Sociology</em>, 43(3), 535–554.</p>
+    </div>
+  </details>
+
+  <details class="d6500-lens" id="lens-3">
+    <summary><span>Lens 3 · Behaviour change: COM-B and the Theoretical Domains Framework (TDF)</span><span class="d6500-lens-fam">Family 3 or 5</span></summary>
+    <div class="d6500-lens-body">
+    <p><strong>Use it when</strong> your intervention only works if people start, stop or keep doing something. Often these are people other than the user: carers, parents, staff, neighbours. For example: family carers responding to alerts, parents checking a device, residents sorting waste.</p>
+    <p><strong>In plain words.</strong> COM-B (Michie et al., 2011) says a behaviour happens only when a person has the <em>capability</em> (skills, knowledge, physical ability), the <em>opportunity</em> (time, resources, and what people around them do) and the <em>motivation</em> (plans and beliefs, but also habits and emotions). If one is missing, the behaviour does not happen. The TDF (Cane et al., 2012) breaks these into 14 more detailed domains, such as knowledge, skills, beliefs about consequences, environmental context and resources, social influences and emotion. It is often used to write interview questions. These were not covered in the lecture, so start with the reading below.</p>
+    <p><strong>What it looks at.</strong> Whose behaviour has to change for the intervention to work, apart from the user? For that person: which of capability, opportunity and motivation are in place, and which are missing?</p>
+    <p><strong>Making it look forward.</strong> Behaviour changes over time: novelty wears off, habits form or fail, what others do shifts. Ask about capability, opportunity and motivation at Year 1 and Year 3. It works well with a timeline, or a pre-mortem: “By Year 3 carers have stopped responding. Which of capability, opportunity or motivation failed first?”</p>
+    <p><strong>Evidence one person can collect in about two weeks.</strong> Two to four interviews with the people whose behaviour must change, using TDF-based questions and a scenario at two time points; published studies of the same behaviour over time (for example, how long people keep using reminders); comparable cases.</p>
+    <p><strong>Example of a full method sentence.</strong> <em>“I adapted COM-B by asking three family carers what capability, opportunity and motivation they would need to keep responding to alerts at Month 3 and Year 2, and checking their answers against published studies of alert fatigue, because my question is whether the work the app shifts to carers can last.”</em></p>
+    <p><strong>Start reading.</strong> Michie, S., van Stralen, M., &amp; West, R. (2011). <em>Implementation Science</em>, 6, 42. Cane, J., O’Connor, D., &amp; Michie, S. (2012). <em>Implementation Science</em>, 7, 37.</p>
+    </div>
+  </details>
+
+  <details class="d6500-lens" id="lens-4">
+    <summary><span>Lens 4 · Rules and funding: Document and policy analysis; “What’s the problem represented to be?” (WPR)</span><span class="d6500-lens-fam">Family 1</span></summary>
+    <div class="d6500-lens-body">
+    <p><strong>Use it when</strong> whether your intervention can operate, or what it is allowed to do, depends on laws, regulation, funding rules, privacy and data rules, procurement or professional standards. For example: sharing health data, a school using student data, a council licensing rule.</p>
+    <p><strong>In plain words.</strong> Document and policy analysis (Bowen, 2009) is a careful, step-by-step reading of documents (laws, policies, standards, funding guidelines, privacy statements) to find what they require, allow, assume and leave out. WPR (Bacchi, 2009) asks what problem a policy assumes it is solving, what that leaves out, and who it makes responsible. The NASSS wider-system domain is a shorter version of the same idea.</p>
+    <p><strong>What it looks at.</strong> Which documents apply to your intervention? What do they require or forbid? Who do they make responsible? What do they assume about the people involved?</p>
+    <p><strong>Making it look forward.</strong> Rules change, and rules are themselves drivers of change. Look for what is already scheduled or proposed: reviews, end dates, draft laws, consultation papers. Find comparable cases where rules changed after a similar technology arrived. It works well with a timeline (rules at Year 1, proposed changes by Year 3) or backcasting from Year 5: “the regulator has stopped the service; what had to happen?”</p>
+    <p><strong>Evidence one person can collect in about two weeks.</strong> The documents themselves (real, current and referenced); consultation submissions; regulator reports; comparable cases in other states or countries; optionally one interview with someone who applies the rules.</p>
+    <p><strong>Example of a full method sentence.</strong> <em>“I adapted document analysis by reading the state health records act, the hospital privacy policy and a current consultation paper, and building a timeline of the rules that would apply at Year 1 and the proposed changes that could apply by Year 3, because my question is who would be allowed to see the data the app collects.”</em></p>
+    <p><strong>Start reading.</strong> Bowen, G. A. (2009). <em>Qualitative Research Journal</em>, 9(2), 27–40. Bacchi, C. (2009). <em>Analysing Policy</em>. Pearson.</p>
+    </div>
+  </details>
+
+  <details class="d6500-lens" id="lens-5">
+    <summary><span>Lens 5 · Uptake spreading: RE-AIM; Diffusion of Innovations</span><span class="d6500-lens-fam">Family 5</span></summary>
+    <div class="d6500-lens-body">
+    <p><strong>Use it when</strong> what your intervention does depends on how many people or organisations take it up, who they are, and whether they keep using it. For example: a community app that only works if many neighbours join, or a service rolled out region by region.</p>
+    <p><strong>In plain words.</strong> RE-AIM (Glasgow et al., 1999) looks at <em>reach</em> (who takes part, and who does not), <em>effectiveness</em>, <em>adoption</em> (which organisations or settings take it up), <em>implementation</em> (is it delivered as intended) and <em>maintenance</em> (does it last). Diffusion of Innovations (Rogers, 2003) explains how a new idea spreads through a group over time, from early to late adopters, and which features speed it up or slow it down. For A3 the key point is who is left out as uptake grows: early adopters often have more resources, so gaps can widen (layer 4.1).</p>
+    <p><strong>What it looks at.</strong> Who takes it up first? Who takes it up late, or never? Which settings adopt it, and which cannot? Does use last?</p>
+    <p><strong>Making it look forward.</strong> Both frameworks are about time by design. Ask who is using it at Year 1, who at Year 3, and who is still missing at Year 5. RE-AIM data usually exists only after rollout, so here it has to be anticipated and grounded in comparable cases. It works well with a timeline or a futures cone.</p>
+    <p><strong>Evidence one person can collect in about two weeks.</strong> Uptake figures for comparable services over several years (published or annual reports); population data on who has the devices, access or skills needed; two or three interviews with people from groups likely to adopt late.</p>
+    <p><strong>Example of a full method sentence.</strong> <em>“I adapted RE-AIM by using only reach and maintenance, estimating who would and would not be using a council food-sharing app at Year 1 and Year 3 from the uptake history of two comparable apps and ABS data on internet access, because my question is whether the app widens the gap for households without reliable internet.”</em></p>
+    <p><strong>Start reading.</strong> Glasgow, R. E., et al. (1999). <em>American Journal of Public Health</em>, 89(9), 1322–1327. Rogers, E. M. (2003). <em>Diffusion of Innovations</em> (5th ed.).</p>
+    </div>
+  </details>
+
+  <details class="d6500-lens" id="lens-6">
+    <summary><span>Lens 6 · Everyday routines: Social practice theory</span><span class="d6500-lens-fam">Family 3</span></summary>
+    <div class="d6500-lens-body">
+    <p><strong>Use it when</strong> your intervention changes how people do an everyday activity (shopping, cooking, travelling, caring, studying, socialising), and your question is how that routine reorganises, including for people around the user.</p>
+    <p><strong>In plain words.</strong> Social practice theory (Shove, Pantzar and Watson, 2012) studies routines (“practices”) rather than individuals. A routine is held together by three elements: <em>materials</em> (things, tools, technology, spaces), <em>competences</em> (skills and know-how) and <em>meanings</em> (what the activity means, what is seen as normal). A technology changes the materials; the routine keeps working only if competences and meanings change too. Routines also connect to other routines: the school run connects to work hours. The lecture example was supermarket self-checkout.</p>
+    <p><strong>What it looks at.</strong> Which everyday routine does your intervention enter? Which materials, competences and meanings hold it together now? Which element does your intervention change, and what else must change for the routine to keep working? Whose part of the routine changes?</p>
+    <p><strong>Making it look forward.</strong> Routines change over time as elements are added and dropped. At each time point ask: which materials, competences and meanings are present? What has been dropped? Which connected routines have changed? It works well with Three Horizons (the old routine fading, the new one emerging) or a timeline.</p>
+    <p><strong>Evidence one person can collect in about two weeks.</strong> Simple observation of the current routine where ethical (for example, in public places); two to four interviews with people who carry out the routine, using a scenario at two time points; comparable cases of similar shifts (for example, research on how online grocery changed shopping).</p>
+    <p><strong>Example of a full method sentence.</strong> <em>“I adapted social practice theory by mapping the materials, competences and meanings of family meal planning now, then using a Year 1 and Year 3 scenario in interviews with three parents and comparing with published research on meal-kit services, because my question is how the app changes who in the household does the planning work.”</em></p>
+    <p><strong>Start reading.</strong> Shove, E., Pantzar, M., &amp; Watson, M. (2012). <em>The Dynamics of Social Practice</em>. SAGE.</p>
+    </div>
+  </details>
+
+  <details class="d6500-lens" id="lens-7">
+    <summary><span>Lens 7 · Relationships and power: Value Sensitive Design; power–interest mapping</span><span class="d6500-lens-fam">Family 3</span></summary>
+    <div class="d6500-lens-body">
+    <p><strong>Use it when</strong> your intervention changes who is involved, who decides, who benefits, or whose values conflict. For example: family members monitoring an older adult, a platform rating workers, data shared between agencies.</p>
+    <p><strong>In plain words.</strong> Value Sensitive Design (Friedman and Hendry, 2019) identifies <em>direct stakeholders</em> (people who use it) and <em>indirect stakeholders</em> (people affected without using it), the values at stake for each (privacy, autonomy, trust, fairness, dignity), and <em>value tensions</em>, where one group’s gain is another’s cost. Power–interest mapping (Mendelow, 1991) places stakeholders on a grid by how much power they have over the system and how much interest they have in it, showing whose voice will shape the system and whose will not.</p>
+    <p><strong>What it looks at.</strong> Who is affected but never uses it? Which values are at stake for each group? Where do values conflict, and between whom? Who has power over the system?</p>
+    <p><strong>Making it look forward.</strong> Power and relationships shift as a technology settles in. Map stakeholders and value tensions at Year 1 and Year 3: who has gained power, who has become dependent, which tension has grown? It works well with a scenario at two time points, or a Futures Wheel with a stakeholder on each arrow.</p>
+    <p><strong>Evidence one person can collect in about two weeks.</strong> Two to four interviews with stakeholders, including at least one indirect stakeholder, using a scenario; documents that show who holds decision rights (contracts, terms of service, governance policies); comparable cases.</p>
+    <p><strong>Example of a full method sentence.</strong> <em>“I adapted Value Sensitive Design by interviewing two older adults and two adult children about a Year 1 and Year 3 scenario of a fall-detection app, focusing on the tension between safety and autonomy, because my question is how the app changes who makes decisions in the household.”</em></p>
+    <p><strong>Start reading.</strong> Friedman, B., &amp; Hendry, D. G. (2019). <em>Value Sensitive Design</em>. MIT Press.</p>
+    </div>
+  </details>
+
+  <details class="d6500-lens" id="lens-8">
+    <summary><span>Lens 8 · Harm and exclusion: Harms modelling; Consequence Scanning; pre-mortem</span><span class="d6500-lens-fam">Family 4</span></summary>
+    <div class="d6500-lens-body">
+    <p><strong>Use it when</strong> your question is how the intervention could fail, exclude people, be misused or cause harm, and who would carry the cost.</p>
+    <p><strong>In plain words.</strong> Consequence Scanning (Doteveryone, 2019) is a structured session asking what the intended and unintended consequences are, positive and negative, and which to act on. Harms modelling (Microsoft) works through categories of harm (for example injury, denial of services, loss of privacy, loss of rights, environmental harm) for each stakeholder, and rates how severe and how widespread each would be. A pre-mortem (Klein, 2007) imagines the project has already failed at a future date, then lists the reasons.</p>
+    <p><strong>What it looks at.</strong> What could go wrong, for whom, and how badly? Who would carry the cost, and could they challenge it? What benefits sit alongside the harms?</p>
+    <p><strong>Making it look forward.</strong> A pre-mortem is already set in the future: set it at Year 3 and ask what went wrong between Year 1 and Year 3. Harms often appear at the second or third order, so a Futures Wheel works well alongside it.</p>
+    <p><strong>Evidence one person can collect in about two weeks.</strong> Check every harm against evidence that it has happened with comparable technologies: incident reports, inquiries, news, research. Add two or three interviews, or a short workshop, with people who would be affected or who handle complaints.</p>
+    <p><strong>Example of a full method sentence.</strong> <em>“I adapted harms modelling by running a Year 3 pre-mortem on a school attendance face-recognition system, then keeping only the harms I could match to a documented case with a comparable system, because my question is which students would carry the cost of misidentification.”</em></p>
+    <p><strong>Start reading.</strong> Klein, G. (2007). <em>Harvard Business Review</em>, 85(9), 18–19. Doteveryone (2019). <em>Consequence Scanning</em>.</p>
+    </div>
+  </details>
+
+  <h2 id="futuring">Futuring techniques: moving your lens through time</h2>
+
+  <p>On its own, a futuring technique gives a prediction. Combined with your lens and your evidence, it organises what you collect.</p>
+
+  <ol class="d6500-steps">
+    <li>
+      <span class="d6500-step-kind">Works with every lens · the simplest place to start</span>
+      <strong id="tech-timeline">Timeline at time points.</strong> A column for each time point, with what is different at each. Write a short scenario for each time point and use it as an interview prompt, or fill each column from documents and comparable cases.
+    </li>
+    <li>
+      <span class="d6500-step-kind">Works well with lenses <a href="#lens-5">5</a>, <a href="#lens-7">7</a> and <a href="#lens-8">8</a></span>
+      <strong id="tech-futures-wheel">Futures Wheel.</strong> Your intervention in the middle, with first-, second- and third-order consequences around it. Attach one piece of evidence to every arrow; mark or remove arrows that have none.
+    </li>
+    <li>
+      <span class="d6500-step-kind">Works well with lenses <a href="#lens-1">1</a> and <a href="#lens-4">4</a></span>
+      <strong id="tech-backcasting">Backcasting.</strong> Start from a future state and work back to what had to happen. Choose a plausible Year 5 state based on a comparable case, then test each step back (Year 3, Year 1) against documents or interviews.
+    </li>
+    <li>
+      <span class="d6500-step-kind">Works well with lenses <a href="#lens-2">2</a> and <a href="#lens-6">6</a></span>
+      <strong id="tech-three-horizons">Three Horizons.</strong> The current way of doing things fading, a new way emerging, and the change between them. Find evidence of what is already fading and what is already emerging today.
+    </li>
+    <li>
+      <span class="d6500-step-kind">Works well with lenses <a href="#lens-1">1</a>, <a href="#lens-3">3</a> and <a href="#lens-8">8</a></span>
+      <strong id="tech-pre-mortem">Pre-mortem in the future.</strong> It has failed by Year 3: why? Run it with stakeholders or alone, then check each reason against comparable cases.
+    </li>
+    <li>
+      <span class="d6500-step-kind">Works well with lenses <a href="#lens-4">4</a> and <a href="#lens-5">5</a></span>
+      <strong id="tech-futures-cone">Futures cone.</strong> Sorts futures into possible, plausible, probable and preferable. Sort them by how much evidence supports them: claims about probable futures need the strongest evidence.
+    </li>
+    <li>
+      <span class="d6500-step-kind">Works well with lenses <a href="#lens-6">6</a> and <a href="#lens-7">7</a></span>
+      <strong id="tech-role-play">Tomorrow Party-style role-play.</strong> People play human and non-human roles across time points. Use it only if each role is informed by evidence (documents, interviews) and every AI summary is checked, and say what you changed from Week 9.
+    </li>
+  </ol>
+
+  <div class="d6500-panel d6500-panel--note">
+    <h3 id="time-points">Time points</h3>
+    <p>Friday’s sketch asks you to choose three time points after your intervention arrives. Year 1, Year 3 and Year 5 is only an example, not the expected answer: choose the points that matter for your system. Your method can use fewer, or different ones; two well-chosen points are often enough. Say why you chose them: for example, the end of the first rollout, or when a contract or rule is due for review.</p>
+    <p><strong>A quick test.</strong> For each time point, ask yourself: what did I collect or read that this rests on? If the answer is “my own thinking” or “an AI tool”, it is still a prediction, not yet an A3 method.</p>
+  </div>
+
+  <h2 id="grounding-evidence">Grounding evidence: what each time point rests on</h2>
+
+  <p>Every forward-looking claim needs something you collected or read. Six kinds of evidence one person can manage in about two weeks:</p>
+
+  <ol class="d6500-steps">
+    <li>
+      <span class="d6500-step-kind">Can ground what tends to happen after Year 1, and under what conditions</span>
+      <strong>Comparable cases over time.</strong> A similar technology or rule elsewhere, with an account of what happened over several years. Two or three cases chosen against stated criteria, each summarised with the same template.
+      <span class="d6500-step-out">Check: what transfers to your system, and what does not?</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">Can ground what is required, allowed, scheduled or funded</span>
+      <strong>Documents.</strong> Laws, policies, standards, plans, consultation papers, annual reports. Three to six named documents.
+      <span class="d6500-step-out">Check: is it the original source, and the current version?</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">Can ground how people expect to act, and why</span>
+      <strong>Scenario-prompt interviews.</strong> People who hold the role respond to a short scenario set at each time point. Two to four interviews of about 30 minutes, following the A2 consent guidance.
+      <span class="d6500-step-out">Check: this is what people expect, not what they did. Say so.</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">Can ground different views, and where they conflict</span>
+      <strong>A small workshop.</strong> Three to five people react to a scenario and to each other. One session.
+      <span class="d6500-step-out">Check: who was missing from the room?</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">Can ground the size and direction of change</span>
+      <strong>Existing data and trends.</strong> Published statistics and uptake figures (for example ABS, AIHW, sector reports). Public data only.
+      <span class="d6500-step-out">Check: is it the same kind of population?</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">Can ground mechanisms and effects seen before</span>
+      <strong>Published research.</strong> Studies of the same behaviour, routine or technology. A few key studies.
+      <span class="d6500-step-out">Check: does the context match?</span>
+    </li>
+  </ol>
+
+  <div class="d6500-panel d6500-panel--note">
+    <h3 id="ai-output">AI output</h3>
+    <p>A contribution to check, not evidence. Use an AI-suggested case, figure or scenario only after confirming it with a primary source, and disclose how you used AI.</p>
+  </div>
+
+  <h2 id="look-forward">Before you finish: make it look forward</h2>
+
+  <div class="d6500-panel d6500-panel--action">
+    <h3 id="three-checks">Three checks</h3>
+    <ul class="d6500-outcomes">
+      <li><strong>Time points.</strong> Does your protocol look at more than one point in time? Which, and why those?</li>
+      <li><strong>Drivers.</strong> Does it follow the drivers from your sketch of how your system changes, including your intervention?</li>
+      <li><strong>Grounding.</strong> What does each forward-looking step rest on?</li>
+    </ul>
+    <p>Any “no”: rewrite that part of Section 4. A NASSS, TDF or CFIR audit of today is not an A3 method until it looks forward. If you keep researching other methods in your own time, apply the same three checks.</p>
+  </div>
+
+  <h2 id="rules-of-thumb">Rules of thumb for picking a method (Decision Guide steps 4 and 5)</h2>
+
+  <ul>
+    <li>Can’t reach people in two weeks? Choose a desk-based method, or plan a desk-based fallback.</li>
+    <li>No candidate answers part of your question? Narrow the question or change the method, and record the decision in your log.</li>
+    <li>One main lens, and at most one supporting method. You also have to evaluate it.</li>
+    <li>Don’t choose the Tomorrow Party just because you have done it. Choose it if your criteria favour it, and say what you changed.</li>
+  </ul>
+
+  <div class="d6500-panel d6500-panel--info">
+    <h3 id="people">If your method involves people</h3>
+    <p>Interviews, surveys, workshops and observation follow the A2 ethics and consent guidance, and anything you gather is used only for this assessment. Talk to your tutor or a course coordinator before involving under-18s or vulnerable groups, collecting health data, or working in your own workplace. Every method that involves people needs a desk-based plan B that still answers part of your question.</p>
+  </div>
+
+  <div class="d6500-panel d6500-panel--note">
+    <h3>Your reader</h3>
+    <p>The brief asks you to write your report in one of three formats, for a specific, named reader: a pilot evaluation report, a methodological case study, or an evaluation handover brief. This is covered in Week 11.</p>
+  </div>
+
+  <h2>Elsewhere on the course website</h2>
+
+  <ul>
+    <li><a href="https://deco6500-course.uqcloud.net/weekly-learning/week-10/index.html">Week 10: Designing Your Method</a> — the lecture, Friday’s applied class, the worksheet and the example report and log.</li>
+    <li><a href="https://deco6500-course.uqcloud.net/assessments/assessment-3/index.html">Assessment 3</a> — the brief and grading criteria, including Task 4.</li>
+  </ul>
+
+  <p class="d6500-foot">DECO6500 Advanced Human–Computer Interaction · Semester 2, 2026 · Week 10 method guide. Framework sources should be read in the original before you rely on them in your report.</p>
+
+</div>
+
+      <aside class="notice notice--neutral page-note">
+        <h2>Learn.UQ Boundary</h2>
+        <p>This page supports your A3 work. The official task sheet, criteria, submission and grades are in <a href="https://learn.uq.edu.au/ultra/courses/_208358_1/outline" target="_blank" rel="noopener noreferrer">Learn.UQ</a>.</p>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p>DECO6500 course website. Institutional functions remain in Learn.UQ.</p>
+      </div>
+    </footer>
+
+
+</body></html>

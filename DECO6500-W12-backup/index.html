@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DECO6500 Week 12 Workshop: Get Your Method Ready to Run</title>
+<!--
+  DECO6500 | Week 12 applied-class backup page (standalone, for hosting outside
+  the course website). Same .d6500 stylesheet as the Week 4, 9, 10, 11 and 12
+  overviews, copied verbatim.
+  Links: every href="" marked TODO needs a URL. Search for TODO.
+-->
+<style>
+  .d6500 {
+    --ink: #1f2523;
+    --ink-2: #3f4945;
+    --ink-3: #5f6b67;
+    --line: #d8e0dd;
+    --line-2: #aebbb6;
+    --paper: #fffafa;
+    --card: #ffffff;
+    --blue: #2d5b90;
+    --blue-dark: #244873;
+    --blue-tint: #eaf1f8;
+    --teal: #3f6a7a;
+    --teal-tint: #f1f8fa;
+    --amber: #9d6104;
+    --amber-tint: #fff7e8;
+    --slate: #f3f5f4;
+
+    box-sizing: border-box;
+    max-width: 54rem;
+    margin: 0 auto;
+    padding: 1.25rem;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .d6500 *,
+  .d6500 *::before,
+  .d6500 *::after { box-sizing: inherit; }
+
+  .d6500 h1, .d6500 h2, .d6500 h3 {
+    font-family: Quicksand, "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.25;
+    color: var(--ink);
+  }
+
+  .d6500 h1 { font-size: 1.85rem; font-weight: 700; margin: 0 0 .35rem; }
+  .d6500 h2 { font-size: 1.3rem;  font-weight: 700; margin: 2rem 0 .75rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+  .d6500 h3 { font-size: 1.05rem; font-weight: 700; margin: 0 0 .35rem; }
+  .d6500 p  { margin: 0 0 .75rem; }
+  .d6500 a  { color: var(--blue); text-decoration: underline; }
+  .d6500 a:hover, .d6500 a:focus { color: var(--blue-dark); }
+  .d6500 ul, .d6500 ol { margin: 0 0 .75rem; padding-left: 1.4rem; }
+  .d6500 li { margin: 0 0 .4rem; }
+  .d6500 strong { font-weight: 700; }
+
+  /* ---------- masthead ---------- */
+  .d6500-top {
+    padding: 1.1rem 1.25rem;
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--blue);
+    border-radius: .5rem;
+    background: var(--card);
+  }
+  .d6500-eyebrow {
+    margin: 0 0 .2rem;
+    color: var(--blue);
+    font-family: Quicksand, "Noto Sans", sans-serif;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .d6500-lede { margin: 0 0 1rem; color: var(--ink-2); font-size: 1.06rem; }
+
+  /* ---------- call to action ----------
+     CURRENTLY UNUSED ON THIS PAGE. Retained verbatim from the Week 4
+     stylesheet — see the header comment. Do not delete, do not
+     simplify the selectors (see the Week 4 file's own DL-010 note). */
+  .d6500 a.d6500-cta {
+    display: inline-block;
+    padding: .65rem 1.15rem;
+    border-radius: .25rem;
+    background: var(--blue);
+    color: #fff;
+    font-family: Quicksand, "Noto Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .d6500 a.d6500-cta:hover,
+  .d6500 a.d6500-cta:focus {
+    background: var(--blue-dark);
+    color: #fff;
+    text-decoration: underline;
+  }
+  .d6500-cta-note { margin: .5rem 0 0; color: var(--ink-3); font-size: .86rem; }
+
+  /* ---------- bring-this bar in the masthead ---------- */
+  .d6500-due {
+    margin: 1rem 0 0;
+    padding: .6rem .85rem;
+    border-left: 4px solid var(--amber);
+    border-radius: .25rem;
+    background: var(--amber-tint);
+    color: var(--ink);
+    font-size: .95rem;
+  }
+
+  /* ---------- where are we now ---------- */
+  .d6500-block-label {
+    margin: 0 0 .6rem;
+    color: var(--ink-3);
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .d6500-track {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    margin: 0 0 .85rem;
+    padding: 0;
+    list-style: none;
+  }
+  .d6500-wk {
+    flex: 1 1 10rem;
+    margin: 0;
+    padding: .7rem .85rem;
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--line-2);
+    border-radius: .5rem;
+    background: var(--card);
+  }
+  .d6500-wk-num {
+    display: block;
+    margin-bottom: .12rem;
+    color: var(--ink-3);
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .d6500-wk-name {
+    display: block;
+    font-family: Quicksand, "Noto Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .d6500-wk-date { display: block; margin-top: .2rem; color: var(--ink-3); font-size: .8rem; }
+  .d6500-wk--done { background: var(--slate); }
+  .d6500-wk--now { border-top-color: var(--blue); background: var(--blue-tint); }
+  .d6500-wk--now .d6500-wk-num { color: var(--blue-dark); }
+  .d6500-wk--due { border-top-color: var(--amber); background: var(--amber-tint); }
+  .d6500-wk--due .d6500-wk-num { color: var(--amber); }
+
+  /* ---------- panels ---------- */
+  .d6500-panel {
+    margin: 0 0 .85rem;
+    padding: .9rem 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: .5rem;
+    background: var(--card);
+  }
+  .d6500-panel > :last-child { margin-bottom: 0; }
+  .d6500-panel--info   { border-left: 4px solid var(--blue);  background: var(--blue-tint); }
+  .d6500-panel--note   { border-left: 4px solid var(--line-2); background: var(--slate); }
+  .d6500-panel--action { border-left: 4px solid var(--amber); background: var(--amber-tint); }
+
+  /* ---------- how the session is organised ---------- */
+  .d6500-rhythm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin: 0 0 .85rem;
+    padding: 0;
+    list-style: none;
+    counter-reset: ph;
+  }
+  .d6500-ph {
+    flex: 1 1 10rem;
+    margin: 0;
+    padding: .6rem .75rem;
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--line-2);
+    border-radius: .5rem;
+    counter-increment: ph;
+  }
+  .d6500-ph-name {
+    display: block;
+    font-family: Quicksand, "Noto Sans", sans-serif;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+  }
+  .d6500-ph-name::before {
+    content: counter(ph);
+    display: inline-block;
+    min-width: 1.35em;
+    margin-right: .35em;
+    padding: .05em 0;
+    border-radius: .25rem;
+    color: #fff;
+    font-size: .8em;
+    text-align: center;
+  }
+  .d6500-ph-what { display: block; margin-top: .2rem; color: var(--ink-2); font-size: .84rem; line-height: 1.4; }
+  .d6500-ph--1 { border-top-color: var(--blue);  background: var(--blue-tint); }
+  .d6500-ph--1 .d6500-ph-name { color: var(--blue-dark); }
+  .d6500-ph--1 .d6500-ph-name::before { background: var(--blue); }
+  .d6500-ph--2 { border-top-color: var(--teal);  background: var(--teal-tint); }
+  .d6500-ph--2 .d6500-ph-name { color: var(--teal); }
+  .d6500-ph--2 .d6500-ph-name::before { background: var(--teal); }
+  .d6500-ph--3 { border-top-color: var(--amber); background: var(--amber-tint); }
+  .d6500-ph--3 .d6500-ph-name { color: var(--amber); }
+  .d6500-ph--3 .d6500-ph-name::before { background: var(--amber); }
+
+  /* ---------- activity steps ---------- */
+  .d6500-steps { margin: 0 0 .85rem; padding: 0; list-style: none; counter-reset: st; }
+  .d6500-steps[start="6"] { counter-reset: st 5; }
+  .d6500-steps > li {
+    position: relative;
+    margin: 0 0 .55rem;
+    padding: .7rem .9rem .7rem 2.9rem;
+    border: 1px solid var(--line);
+    border-radius: .5rem;
+    background: var(--card);
+    counter-increment: st;
+  }
+  .d6500-steps > li::before {
+    content: counter(st);
+    position: absolute;
+    left: .9rem;
+    top: .78rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: .25rem;
+    background: var(--blue);
+    color: #fff;
+    font-family: Quicksand, "Noto Sans", sans-serif;
+    font-size: .85rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    text-align: center;
+  }
+  .d6500-steps > li.d6500-step--framing { background: var(--slate); }
+  .d6500-steps > li.d6500-step--framing::before { background: var(--ink-3); }
+  .d6500-step-kind {
+    display: block;
+    margin: 0 0 .15rem;
+    color: var(--ink-3);
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+  .d6500-step-out { display: block; margin: .3rem 0 0; color: var(--ink-3); font-size: .84rem; }
+  .d6500-break {
+    display: flex;
+    gap: .6rem;
+    align-items: center;
+    margin: 0 0 .55rem;
+    color: var(--ink-3);
+    font-family: Quicksand, "Noto Sans", sans-serif;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .d6500-break::before, .d6500-break::after {
+    flex: 1; height: 0; border-top: 1px dashed var(--line-2); content: "";
+  }
+
+  .d6500-outcomes { margin: 0; padding-left: 1.2rem; }
+  .d6500-outcomes li { margin-bottom: .3rem; }
+
+  .d6500-foot {
+    margin-top: 1.75rem;
+    padding-top: .85rem;
+    border-top: 1px solid var(--line);
+    color: var(--ink-3);
+    font-size: .86rem;
+  }
+
+  @media (max-width: 34rem) {
+    .d6500 { padding: .75rem; }
+    .d6500 h1 { font-size: 1.5rem; }
+    .d6500-wk, .d6500-ph { flex-basis: 100%; }
+    .d6500 a.d6500-cta { display: block; text-align: center; }
+  }
+
+  @media (forced-colors: active) {
+    .d6500-top, .d6500-panel, .d6500-wk, .d6500-ph, .d6500-steps > li { border: 1px solid CanvasText; }
+    .d6500 a.d6500-cta { border: 1px solid CanvasText; }
+    .d6500-due { border: 1px solid CanvasText; }
+  }
+</style>
+</head>
+<body>
+
+<div class="d6500">
+
+  <header class="d6500-top">
+    <p class="d6500-eyebrow">Week 12 &middot; Applied class, Friday 23 October &middot; Assessment 3</p>
+    <h1>Get Your Method Ready to Run</h1>
+    <p class="d6500-lede">Everything you need for today&rsquo;s workshop, in one place, in case the course website isn&rsquo;t working. Start from wherever you are on the A3 Roadmap: you don&rsquo;t need to start at the beginning.</p>
+    <p class="d6500-due"><strong>Today: get your method checked by your tutor (roadmap step 7).</strong> Then run it before the Week 13 applied class on Friday 30 October.</p>
+  </header>
+
+  <h2>Start here</h2>
+
+  <div class="d6500-panel d6500-panel--action">
+    <h3>Three things in the first ten minutes</h3>
+    <ol class="d6500-outcomes">
+      <li><strong>Find your step</strong> on the A3 Roadmap (printed on your table): which step are you working on now, 1 to 12?</li>
+      <li><strong>Write your step number on a post-it</strong> and stick it on your laptop, where your tutor can see it.</li>
+      <li><strong>Fill in the triage form:</strong> your step, whether a tutor has checked your method, and what&rsquo;s stopping you.</li>
+    </ol>
+    <p><a class="d6500-cta" href="https://ttanprasert.github.io/DECO6500-W12-backup/DECO6500_A3_Roadmap.pdf">Open the A3 Roadmap</a> &nbsp; <a class="d6500-cta" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=z3fjtrOdy0aRovrZYFuxXHgcihygalZLgf076RUUxO5UMTkxQ1M2WUVZQlBCQllVWjk2OEY5TUxVRy4u">Fill in the triage form</a></p>
+  </div>
+
+  <p>Then stay in your tutor&rsquo;s zone and sit with students at the same phase: a Phase 1 table, a Phase 2 table, and a table for Phases 3 and 4. When you move to the next phase, move tables. Your tutor stays with you.</p>
+
+  <h2>What to do at your step</h2>
+
+  <p class="d6500-block-label">Phase 1 &middot; Design your method &middot; aim: by today</p>
+
+  <ol class="d6500-steps">
+    <li>
+      <span class="d6500-step-kind">Step 1</span>
+      <strong>Choose your question.</strong> A Band 3 or 4 question about your A2 system, and the point in the system it&rsquo;s about. Use your Week 10 notes and <a href="https://ttanprasert.github.io/DECO6500-W12-backup/From_Your_Question_to_Your_Method.html#chain">From Questions to Method</a>.
+      <span class="d6500-step-out">Done when: you can say your question and where in the system it&rsquo;s about</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">Step 2</span>
+      <strong>Find the mechanism.</strong> What makes the change happen at that point: people&rsquo;s behaviour, social practices, or how a system or organisation performs. See <a href="https://ttanprasert.github.io/DECO6500-W12-backup/From_Your_Question_to_Your_Method.html#mechanism-to-lens">From Questions to Method</a>.
+      <span class="d6500-step-out">Done when: you can finish &ldquo;At [that point], [this] happens because [who or what] does [what]&rdquo;</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">Step 3</span>
+      <strong>Choose a lens.</strong> A theory that explains your mechanism. Its parts are the topics your evidence must cover. Find a starting lens with Decision Guide step 3 in the <a href="https://ttanprasert.github.io/DECO6500-W12-backup/A3_Methods_Guide.html#decision-step-3">A3 Method Guide</a>.
+      <span class="d6500-step-out">Done when: you can name your lens and list its parts</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">Step 4</span>
+      <strong>Adapt a futuring technique.</strong> So your method collects evidence one step into the future, grounded in more than speculation. See the four ways in <a href="https://ttanprasert.github.io/DECO6500-W12-backup/From_Your_Question_to_Your_Method.html#four-ways">From Questions to Method</a> and the techniques in the <a href="https://ttanprasert.github.io/DECO6500-W12-backup/A3_Methods_Guide.html#futuring">A3 Method Guide</a>.
+      <span class="d6500-step-out">Done when: your method reaches Year 1 or Year 3, and each future rests on a document, a case or a person</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">Step 5</span>
+      <strong>Design your method.</strong> Two checks. Breadth: does it collect evidence on every part of your lens? Future: take the future out. Does your evidence change? It should. The two-deletion test is in <a href="https://ttanprasert.github.io/DECO6500-W12-backup/From_Your_Question_to_Your_Method.html#two-deletion">From Questions to Method</a>, between steps 5 and 6.
+      <span class="d6500-step-out">Done when: you can say your method in one sentence, and it passes both checks</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">Step 6 &middot; evaluation path</span>
+      <strong>Set your yardstick.</strong> Three or four method evaluation criteria, each finishing &ldquo;&hellip;which I will know because&hellip;&rdquo;, and your strongest claim: what your method could show if everything went to plan, and what it couldn&rsquo;t. Examples are in the <a href="https://learn.uq.edu.au/ultra/courses/_208358_1/document/_13598781_1?view=content&amp;state=view">Week 12 lecture slides</a> and <a href="https://learn.uq.edu.au/ultra/courses/_208358_1/document/_13598781_1?view=content&amp;state=view">lecture worksheet</a>.
+      <span class="d6500-step-out">Done when: they&rsquo;re in a dated entry in your working log, before you run anything</span>
+    </li>
+  </ol>
+
+  <p class="d6500-block-label">Phase 2 &middot; Run it &middot; before Friday 30 October</p>
+
+  <ol class="d6500-steps" start="7" style="counter-reset: st 6;">
+    <li>
+      <span class="d6500-step-kind">Step 7</span>
+      <strong>Get it checked.</strong> Self-check first (below), then let your tutor know you&rsquo;re ready. They&rsquo;ll talk it through with you for five to eight minutes and give you two or three points of feedback. Then get your materials ready, sort out consent, and recruit.
+      <span class="d6500-step-out">Done when: your tutor has checked it and you&rsquo;ve written their feedback, and what you&rsquo;ll change, in your log</span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">Step 8 &middot; with run notes</span>
+      <strong>Run it, and keep run notes.</strong> Do your method&rsquo;s steps once, from start to end. Keep short, dated notes: who took part, what changed, and every AI output you used and how you checked it. Try your scenario or artefact on a classmate first, and note what changed.
+      <span class="d6500-step-out">Done when: your method has run once, and your run notes are up to date</span>
+    </li>
+  </ol>
+
+  <p class="d6500-block-label">Phases 3 and 4 &middot; After the run &middot; Week 13 and after</p>
+
+  <ol class="d6500-steps" start="9" style="counter-reset: st 8;">
+    <li>
+      <span class="d6500-step-kind">Steps 9 to 12</span>
+      <strong>Analyse, evaluate, judge, write.</strong> Label each claim in your evidence; evaluate your method with the three moves; then make a recommendation as strong as your method allows. Use the <a href="https://learn.uq.edu.au/ultra/courses/_208358_1/document/_13598781_1?view=content&amp;state=view">lecture worksheet</a> and Sections 5 to 7 of the <a href="https://ttanprasert.github.io/DECO6500-W12-backup/DECO6500_A3_ExampleReport_Week12Draft_v0_1.docx">example report</a>. New step pages go online: steps 9 and 10 by Monday 26 October, steps 11 and 12 by Tuesday 27 October.
+      <span class="d6500-step-out">Next Friday&rsquo;s class is about these steps</span>
+    </li>
+  </ol>
+
+  <div class="d6500-panel d6500-panel--note">
+    <h3>A small run is enough</h3>
+    <p>A3 asks you to evaluate your method. A small run, evaluated honestly against the criteria you set, can still lead to a strong report. Do your method&rsquo;s steps once, from start to end, at a small scale: two or three participants; one short workshop; two or three people over three to five days for an SMS scenario study; or about five to eight sources for a desk-based method.</p>
+  </div>
+
+  <div class="d6500-panel d6500-panel--info">
+    <h3>Before you ask for a check, can you say&hellip;</h3>
+    <ul class="d6500-outcomes">
+      <li>Your A2 intervention and your question, in one sentence?</li>
+      <li>Your mechanism, and which part of it your lens explains?</li>
+      <li>Which evidence covers each part of your lens?</li>
+      <li>What changes if you take the future out?</li>
+      <li>Your criteria and strongest claim, and when you logged them?</li>
+      <li>Who takes part, and what you&rsquo;ll tell them?</li>
+    </ul>
+    <p>A check is feedback, not a pass or fail. Write the feedback in your log, with what you&rsquo;ll change or why you won&rsquo;t; then you can start running. If your participants are under 18 or in a vulnerable group, your tutor passes your method to Pete first.</p>
+  </div>
+
+  <h2>Still no clear method? Pick a quick route</h2>
+
+  <p>If you&rsquo;re in Phase 1 without a clear method by the break, choose one of these. Each can be run in about a week. Choose by your mechanism (step 2), not by what seems easiest.</p>
+
+  <ol class="d6500-rhythm">
+    <li class="d6500-ph d6500-ph--1">
+      <span class="d6500-ph-name">Short workshop</span>
+      <span class="d6500-ph-what">Three to five people, about 60 minutes, with one futuring technique run in the room (a Futures Wheel, or Year 1, 3 and 5). Fits social mechanisms: how groups work together. Classmates can take part, but can&rsquo;t stand in for perspectives they don&rsquo;t have.</span>
+    </li>
+    <li class="d6500-ph d6500-ph--2">
+      <span class="d6500-ph-name">Scenario study by SMS</span>
+      <span class="d6500-ph-what">Over three to five days, two or three people get short scenario messages (&ldquo;It&rsquo;s 2028 and &hellip; is in place. What do you do this morning?&rdquo;) and reply from their daily lives. Fits behaviour mechanisms. Start by Monday 26 October; phone numbers only with consent; de-identify replies and delete messages afterwards.</span>
+    </li>
+    <li class="d6500-ph d6500-ph--3">
+      <span class="d6500-ph-name">Desk-based</span>
+      <span class="d6500-ph-what">Five to eight sources (policy, reports, comparable cases, studies) read through your lens, then a futuring technique where every future claim names its source. Fits questions about policy, organisations or comparable cases. No first-hand perspectives: say so in Section 6.</span>
+    </li>
+  </ol>
+
+  <h2>Before you leave: log entry 3</h2>
+
+  <div class="d6500-panel d6500-panel--action">
+    <h3>A dated entry in your working log, whatever step you&rsquo;re on</h3>
+    <ul class="d6500-outcomes">
+      <li><strong>What have I decided?</strong> Your method, or the quick route you chose.</li>
+      <li><strong>What did I consider instead?</strong> The alternative you set aside, and why.</li>
+      <li><strong>What am I unsure about?</strong> What could stop your run, and your fallback.</li>
+      <li><strong>What has changed, and why?</strong> Your tutor&rsquo;s feedback, and what you&rsquo;ll change (or why not).</li>
+    </ul>
+    <p>Add your run dates. Keep it in your UQ OneDrive, and never edit an earlier entry.</p>
+  </div>
+
+  <h2>Resources</h2>
+
+  <ul>
+    <li><a href="https://ttanprasert.github.io/DECO6500-W12-backup/DECO6500_A3_Roadmap.pdf">A3 Roadmap</a> &mdash; the whole journey on one page.</li>
+    <li><a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=z3fjtrOdy0aRovrZYFuxXHgcihygalZLgf076RUUxO5UMTkxQ1M2WUVZQlBCQllVWjk2OEY5TUxVRy4u">Triage form</a> &mdash; for everyone, including if you&rsquo;re not in class today.</li>
+    <li><a href="https://ttanprasert.github.io/DECO6500-W12-backup/A3_Methods_Guide.html">A3 Method Guide</a> &mdash; lenses, futuring techniques, types of evidence, and the Decision Guide.</li>
+    <li><a href="https://ttanprasert.github.io/DECO6500-W12-backup/From_Your_Question_to_Your_Method.html">From Questions to Method</a> &mdash; the six-step chain, the four ways to reach the future, the two-deletion test, and the worked example.</li>
+    <li><a href="https://learn.uq.edu.au/ultra/courses/_208358_1/document/_13598781_1?view=content&amp;state=view">Week 12 lecture slides and worksheet</a> &mdash; examples of criteria, verdicts and strongest claims.</li>
+    <li><a href="https://ttanprasert.github.io/DECO6500-W12-backup/DECO6500_A3_ExampleReport_Week12Draft_v0_1.docx">Example report, Week 12 draft</a> and <a href=""><!-- TODO: link -->example working log</a> &mdash; how to organise the content, not your final format.</li>
+  </ul>
+
+  <div class="d6500-panel d6500-panel--note">
+    <h3>After today</h3>
+    <p><strong>Not checked yet?</strong> Send your method and criteria to your tutor; you&rsquo;ll get a written check by Tuesday 27 October.</p>
+    <p><strong>Run it</strong> before Friday 30 October, and bring your evidence, run notes and working log to the Week 13 applied class. It&rsquo;s the last applied class, and it&rsquo;s about Phases 3 and 4.</p>
+    <p><strong>Help after that:</strong> the new step pages online, and two drop-in help sessions in study week with Pete and Mint. The schedule and rooms will be announced next week.</p>
+  </div>
+
+  <p class="d6500-foot">DECO6500 Advanced Human&ndash;Computer Interaction &middot; Semester 2, 2026 &middot; Week 12 workshop backup page. Where this page and the A3 brief differ, the brief governs.</p>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)https://deco6500-course.uqcloud.net/resources/question-to-method/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From Your Question to Your Method | DECO6500</title>
+<link rel="stylesheet" href="./From Your Question to Your Method_files/site.css">
+<script src="./From Your Question to Your Method_files/main.js" defer=""></script>
+<!--
+  ============================================================
+  DECO6500 | Week 11 handout, web version (v0.2)
+  ============================================================
+  Web version of the Week 11 applied-class handout "From Your
+  Question to Your Method" (Pete, v0.1; terms aligned in v0.2), for
+  the course website's Resources, alongside the Week 10 method guide.
+
+  Same shared .d6500 stylesheet and .d6500-lens rules as the method
+  guide, copied verbatim, plus a small block of .d6500-table rules at
+  the end for tables and fill-in cells. Parts A to D use the same
+  <details> cards as the lens cards; Part A opens by default.
+  Without JavaScript, the parts still open and close.
+
+  Content matches the clean handout v0.2. If the handout changes,
+  change this page too.
+-->
+<style>
+  .d6500 {
+    --ink: #1f2523;
+    --ink-2: #3f4945;
+    --ink-3: #5f6b67;
+    --line: #d8e0dd;
+    --line-2: #aebbb6;
+    --paper: #fffafa;
+    --card: #ffffff;
+    --blue: #2d5b90;
+    --blue-dark: #244873;
+    --blue-tint: #eaf1f8;
+    --teal: #3f6a7a;
+    --teal-tint: #f1f8fa;
+    --amber: #9d6104;
+    --amber-tint: #fff7e8;
+    --slate: #f3f5f4;
+
+    box-sizing: border-box;
+    max-width: 54rem;
+    margin: 0 auto;
+    padding: 1.25rem;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .d6500 *,
+  .d6500 *::before,
+  .d6500 *::after { box-sizing: inherit; }
+
+  .d6500 h1, .d6500 h2, .d6500 h3 {
+    font-family: Quicksand, "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.25;
+    color: var(--ink);
+  }
+
+  .d6500 h1 { font-size: 1.85rem; font-weight: 700; margin: 0 0 .35rem; }
+  .d6500 h2 { font-size: 1.3rem;  font-weight: 700; margin: 2rem 0 .75rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+  .d6500 h3 { font-size: 1.05rem; font-weight: 700; margin: 0 0 .35rem; }
+  .d6500 p  { margin: 0 0 .75rem; }
+  .d6500 a  { color: var(--blue); text-decoration: underline; }
+  .d6500 a:hover, .d6500 a:focus { color: var(--blue-dark); }
+  .d6500 ul, .d6500 ol { margin: 0 0 .75rem; padding-left: 1.4rem; }
+  .d6500 li { margin: 0 0 .4rem; }
+  .d6500 strong { font-weight: 700; }
+
+  /* ---------- masthead ---------- */
+  .d6500-top {
+    padding: 1.1rem 1.25rem;
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--blue);
+    border-radius: .5rem;
+    background: var(--card);
+  }
+  .d6500-eyebrow {
+    margin: 0 0 .2rem;
+    color: var(--blue);
+    font-family: Quicksand, "Noto Sans", sans-serif;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .d6500-lede { margin: 0 0 1rem; color: var(--ink-2); font-size: 1.06rem; }
+
+  /* ---------- call to action ----------
+     CURRENTLY UNUSED ON THIS PAGE. Retained verbatim from the Week 4
+     stylesheet — see the header comment. Do not delete, do not
+     simplify the selectors (see the Week 4 file's own DL-010 note). */
+  .d6500 a.d6500-cta {
+    display: inline-block;
+    padding: .65rem 1.15rem;
+    border-radius: .25rem;
+    background: var(--blue);
+    color: #fff;
+    font-family: Quicksand, "Noto Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .d6500 a.d6500-cta:hover,
+  .d6500 a.d6500-cta:focus {
+    background: var(--blue-dark);
+    color: #fff;
+    text-decoration: underline;
+  }
+  .d6500-cta-note { margin: .5rem 0 0; color: var(--ink-3); font-size: .86rem; }
+
+  /* ---------- bring-this bar in the masthead ---------- */
+  .d6500-due {
+    margin: 1rem 0 0;
+    padding: .6rem .85rem;
+    border-left: 4px solid var(--amber);
+    border-radius: .25rem;
+    background: var(--amber-tint);
+    color: var(--ink);
+    font-size: .95rem;
+  }
+
+  /* ---------- where are we now ---------- */
+  .d6500-block-label {
+    margin: 0 0 .6rem;
+    color: var(--ink-3);
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .d6500-track {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    margin: 0 0 .85rem;
+    padding: 0;
+    list-style: none;
+  }
+  .d6500-wk {
+    flex: 1 1 10rem;
+    margin: 0;
+    padding: .7rem .85rem;
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--line-2);
+    border-radius: .5rem;
+    background: var(--card);
+  }
+  .d6500-wk-num {
+    display: block;
+    margin-bottom: .12rem;
+    color: var(--ink-3);
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .d6500-wk-name {
+    display: block;
+    font-family: Quicksand, "Noto Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .d6500-wk-date { display: block; margin-top: .2rem; color: var(--ink-3); font-size: .8rem; }
+  .d6500-wk--done { background: var(--slate); }
+  .d6500-wk--now { border-top-color: var(--blue); background: var(--blue-tint); }
+  .d6500-wk--now .d6500-wk-num { color: var(--blue-dark); }
+  .d6500-wk--due { border-top-color: var(--amber); background: var(--amber-tint); }
+  .d6500-wk--due .d6500-wk-num { color: var(--amber); }
+
+  /* ---------- panels ---------- */
+  .d6500-panel {
+    margin: 0 0 .85rem;
+    padding: .9rem 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: .5rem;
+    background: var(--card);
+  }
+  .d6500-panel > :last-child { margin-bottom: 0; }
+  .d6500-panel--info   { border-left: 4px solid var(--blue);  background: var(--blue-tint); }
+  .d6500-panel--note   { border-left: 4px solid var(--line-2); background: var(--slate); }
+  .d6500-panel--action { border-left: 4px solid var(--amber); background: var(--amber-tint); }
+
+  /* ---------- how the session is organised ---------- */
+  .d6500-rhythm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin: 0 0 .85rem;
+    padding: 0;
+    list-style: none;
+    counter-reset: ph;
+  }
+  .d6500-ph {
+    flex: 1 1 10rem;
+    margin: 0;
+    padding: .6rem .75rem;
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--line-2);
+    border-radius: .5rem;
+    counter-increment: ph;
+  }
+  .d6500-ph-name {
+    display: block;
+    font-family: Quicksand, "Noto Sans", sans-serif;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+  }
+  .d6500-ph-name::before {
+    content: counter(ph);
+    display: inline-block;
+    min-width: 1.35em;
+    margin-right: .35em;
+    padding: .05em 0;
+    border-radius: .25rem;
+    color: #fff;
+    font-size: .8em;
+    text-align: center;
+  }
+  .d6500-ph-what { display: block; margin-top: .2rem; color: var(--ink-2); font-size: .84rem; line-height: 1.4; }
+  .d6500-ph--1 { border-top-color: var(--blue);  background: var(--blue-tint); }
+  .d6500-ph--1 .d6500-ph-name { color: var(--blue-dark); }
+  .d6500-ph--1 .d6500-ph-name::before { background: var(--blue); }
+  .d6500-ph--2 { border-top-color: var(--teal);  background: var(--teal-tint); }
+  .d6500-ph--2 .d6500-ph-name { color: var(--teal); }
+  .d6500-ph--2 .d6500-ph-name::before { background: var(--teal); }
+  .d6500-ph--3 { border-top-color: var(--amber); background: var(--amber-tint); }
+  .d6500-ph--3 .d6500-ph-name { color: var(--amber); }
+  .d6500-ph--3 .d6500-ph-name::before { background: var(--amber); }
+
+  /* ---------- activity steps ---------- */
+  .d6500-steps { margin: 0 0 .85rem; padding: 0; list-style: none; counter-reset: st; }
+  .d6500-steps[start="6"] { counter-reset: st 5; }
+  .d6500-steps > li {
+    position: relative;
+    margin: 0 0 .55rem;
+    padding: .7rem .9rem .7rem 2.9rem;
+    border: 1px solid var(--line);
+    border-radius: .5rem;
+    background: var(--card);
+    counter-increment: st;
+  }
+  .d6500-steps > li::before {
+    content: counter(st);
+    position: absolute;
+    left: .9rem;
+    top: .78rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: .25rem;
+    background: var(--blue);
+    color: #fff;
+    font-family: Quicksand, "Noto Sans", sans-serif;
+    font-size: .85rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    text-align: center;
+  }
+  .d6500-steps > li.d6500-step--framing { background: var(--slate); }
+  .d6500-steps > li.d6500-step--framing::before { background: var(--ink-3); }
+  .d6500-step-kind {
+    display: block;
+    margin: 0 0 .15rem;
+    color: var(--ink-3);
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+  .d6500-step-out { display: block; margin: .3rem 0 0; color: var(--ink-3); font-size: .84rem; }
+  .d6500-break {
+    display: flex;
+    gap: .6rem;
+    align-items: center;
+    margin: 0 0 .55rem;
+    color: var(--ink-3);
+    font-family: Quicksand, "Noto Sans", sans-serif;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .d6500-break::before, .d6500-break::after {
+    flex: 1; height: 0; border-top: 1px dashed var(--line-2); content: "";
+  }
+
+  .d6500-outcomes { margin: 0; padding-left: 1.2rem; }
+  .d6500-outcomes li { margin-bottom: .3rem; }
+
+  .d6500-foot {
+    margin-top: 1.75rem;
+    padding-top: .85rem;
+    border-top: 1px solid var(--line);
+    color: var(--ink-3);
+    font-size: .86rem;
+  }
+
+  @media (max-width: 34rem) {
+    .d6500 { padding: .75rem; }
+    .d6500 h1 { font-size: 1.5rem; }
+    .d6500-wk, .d6500-ph { flex-basis: 100%; }
+    .d6500 a.d6500-cta { display: block; text-align: center; }
+  }
+
+  @media (forced-colors: active) {
+    .d6500-top, .d6500-panel, .d6500-wk, .d6500-ph, .d6500-steps > li { border: 1px solid CanvasText; }
+    .d6500 a.d6500-cta { border: 1px solid CanvasText; }
+    .d6500-due { border: 1px solid CanvasText; }
+  }
+
+  /* Collapsible lens cards (method guide only; this page is hosted on the
+     course website, not Learn.UQ, so native <details> is safe to use). */
+  .d6500-lens { margin: 0 0 12px; border: 1px solid var(--line); border-left: 4px solid var(--teal); border-radius: 6px; background: #fff; }
+  .d6500-lens > summary { cursor: pointer; padding: 12px 16px; font-weight: 700; list-style: none; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .d6500-lens > summary::-webkit-details-marker { display: none; }
+  .d6500-lens > summary::after { content: "Show"; font-size: 0.8em; font-weight: 600; opacity: 0.75; white-space: nowrap; }
+  .d6500-lens[open] > summary::after { content: "Hide"; }
+  .d6500-lens > summary:focus-visible { outline: 3px solid currentColor; outline-offset: 2px; }
+  .d6500-lens-fam { font-weight: 600; font-size: 0.85em; opacity: 0.8; margin-left: auto; white-space: nowrap; }
+  .d6500-lens-body { padding: 0 16px 8px; }
+  .d6500-lens-body p { margin: 0 0 10px; }
+  .d6500-lens-controls { margin: 0 0 12px; font-size: 0.9em; }
+  .d6500-lens-controls button { font: inherit; padding: 4px 10px; margin-right: 6px; border-radius: 4px; border: 1px solid currentColor; background: transparent; cursor: pointer; }
+
+  /* Tables and fill-in cells (Week 11 handout page only). Same palette
+     variables as the rest of the stylesheet. */
+  .d6500-table-wrap { overflow-x: auto; margin: 0 0 18px; }
+  .d6500-table { width: 100%; border-collapse: collapse; font-size: 0.95em; background: #fff; }
+  .d6500-table th, .d6500-table td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  .d6500-table th { background: var(--teal); color: #fff; font-weight: 700; }
+  .d6500-table td:first-child { font-weight: 700; }
+  .d6500-table .d6500-fill { height: 3.2em; background: repeating-linear-gradient(transparent, transparent 1.55em, var(--line) 1.55em, var(--line) calc(1.55em + 1px)); font-weight: 400; }
+  .d6500-table .d6500-fill--tall { height: 6.5em; }
+  .d6500-table td.d6500-plain { font-weight: 400; }
+  .d6500-frame { font-size: 1.02em; line-height: 1.7; }
+  .d6500-frame strong { color: var(--teal); }
+  .d6500-tag { display: block; font-size: 0.85em; font-weight: 600; opacity: 0.85; margin-top: 4px; }
+  .d6500-scenario { margin: 0 0 12px; padding: 10px 14px; border-left: 4px solid var(--line); background: #fafafa; }
+  @media print {
+    .d6500-lens { break-inside: avoid-page; }
+    .d6500-lens > summary::after { content: none; }
+    .d6500-lens-controls { display: none; }
+  }
+</style>
+
+<style>
+  /* Added for the Week 12 backup: in-page navigation */
+  .d6500 [id] { scroll-margin-top: 1rem; }
+  .d6500 :target { outline: 3px solid #d9965b; outline-offset: 4px; border-radius: .4rem; }
+  .d6500-onpage ul { margin: 0; padding-left: 1.2rem; columns: 2; column-gap: 2rem; }
+  .d6500-onpage li { margin-bottom: .25rem; break-inside: avoid; }
+  @media (max-width: 40rem) { .d6500-onpage ul { columns: 1; } }
+</style>
+<script>
+  /* Open a closed lens or practice card when a link points into it */
+  (function () {
+    function openTarget() {
+      var id = decodeURIComponent(location.hash.slice(1));
+      if (!id) return;
+      var el = document.getElementById(id);
+      if (!el) return;
+      var d = el.closest('details');
+      while (d) { d.open = true; d = d.parentElement ? d.parentElement.closest('details') : null; }
+      if (el.tagName === 'DETAILS') el.open = true;
+      setTimeout(function () { el.scrollIntoView({ block: 'start' }); }, 0);
+    }
+    window.addEventListener('hashchange', openTarget);
+    document.addEventListener('DOMContentLoaded', openTarget);
+  })();
+</script>
+</head>
+<body class="nav-enhanced">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-brand" href="https://deco6500-course.uqcloud.net/index.html">DECO6500</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" hidden="">
+          <span class="nav-toggle__icon" aria-hidden="true"><span class="nav-toggle__bar"></span></span>
+          Menu
+        </button>
+        <nav id="primary-navigation" class="primary-nav" aria-label="Primary navigation" data-collapsible="" data-open="true">
+          <a href="https://deco6500-course.uqcloud.net/index.html">Dashboard</a>
+          <a href="https://deco6500-course.uqcloud.net/course-overview/index.html">Course Overview</a>
+          <a href="https://deco6500-course.uqcloud.net/assessments/index.html">Assessments</a>
+          <a href="https://deco6500-course.uqcloud.net/weekly-learning/index.html">Weekly Learning</a>
+          <a href="https://deco6500-course.uqcloud.net/teamwork/index.html">Teamwork</a>
+          <a href="https://deco6500-course.uqcloud.net/resources/index.html" aria-current="page">Resources</a>
+          <a class="link-inactive" href="https://deco6500-course.uqcloud.net/support/index.html" title="This content will be released later in the course">Support</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="page-shell">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="https://deco6500-course.uqcloud.net/index.html">Dashboard</a></li>
+          <li><a href="https://deco6500-course.uqcloud.net/resources/index.html">Resources</a></li>
+          <li aria-current="page">From Your Question to Your Method</li>
+        </ol>
+      </nav>
+
+<div class="d6500">
+
+  <header class="d6500-top">
+    <p class="d6500-eyebrow">Week 11 · Assessment 3 · from question to method</p>
+    <h1>From Your Question to Your Method</h1>
+    <p class="d6500-lede">A worked example and practice for getting from your A3 question to a method that collects evidence about the future. Work through it in Friday’s applied class, and come back to it whenever you revise Section 4.</p>
+    <p class="d6500-due"><strong>Tuesday’s loop, with one arrow opened up.</strong> On Tuesday the loop went: your question → what evidence would answer it → what method helps you collect it. Here we open up the first arrow. You cannot say what evidence your question needs until you know what makes the change happen at the point your question is about. That is the mechanism. The mechanism points to a lens. The lens tells you what evidence to collect. The futuring technique decides how you collect it from one step into the future, not only about today.</p>
+  </header>
+
+
+  <nav class="d6500-panel d6500-panel--info d6500-onpage" aria-label="On this page">
+    <h3>On this page</h3>
+    <ul><li><a href="#chain">The chain: six steps</a></li><li><a href="#mechanism-to-lens">From mechanism to lens</a></li><li><a href="#four-ways">Four ways to reach the future</a></li><li><a href="#two-deletion">The two-deletion test</a></li><li><a href="#grounded-claim">The grounded future claim</a></li><li><a href="#claim-labels">Claim labels</a></li><li><a href="#part-a">Part A: worked example</a></li><li><a href="#into-section-4">Into Section 4: strongest claim and criteria</a></li><li><a href="#part-b">Part B</a></li><li><a href="#part-c">Part C</a></li><li><a href="#part-d">Part D: your own project</a></li><li><a href="A3_Methods_Guide.html">A3 Method Guide (lenses, techniques)</a></li></ul>
+  </nav>
+  <h2 id="chain">The chain: six steps from your question to a claim you can defend</h2>
+
+  <ol class="d6500-steps">
+    <li>
+      <span class="d6500-step-kind">Step 1</span>
+      <strong><a href="#part-a-1">Leverage point.</a></strong> Where in the system does your intervention push, or where does its effect land? Your question is about this point.
+      <span class="d6500-step-out">Why it matters: it narrows the whole system to the place your question is about.<br>Go to: <a href="#part-a-1">Worked example</a></span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">Step 2</span>
+      <strong><a href="#mechanism-to-lens">Mechanism.</a></strong> At that point, what actually makes the change happen or fail? Mainly people’s behaviour, how well a process or organisation works, or social factors (routines, relationships, norms).
+      <span class="d6500-step-out">Why it matters: different mechanisms need different evidence. If several apply, choose the one your question depends on most, and say why.<br>Go to: <a href="#mechanism-to-lens">Mechanism to lens</a> · <a href="#part-a-2">Worked example</a></span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">Step 3</span>
+      <strong><a href="#mechanism-to-lens">Lens.</a></strong> Which theory explains that mechanism? Start from the lenses on the <a href="A3_Methods_Guide.html#lenses">Week 10 method guide page</a> (see <a href="#mechanism-to-lens">the table below</a>).
+      <span class="d6500-step-out">Why it matters: the lens gives you the parts to look at, for example capability, opportunity and motivation.<br>Go to: <a href="#mechanism-to-lens">Mechanism to lens</a> · <a href="A3_Methods_Guide.html#lenses">The eight lenses</a> · <a href="#part-a-3">Worked example</a></span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">Step 4</span>
+      <strong><a href="#part-a-4">Evidence.</a></strong> What would show you each part of the lens? Which kinds of evidence can capture it, and what is the gap?
+      <span class="d6500-step-out">Why it matters: the lens decides what you collect. Without it, you collect what is easy to find.<br>Go to: <a href="A3_Methods_Guide.html#grounding-evidence">Kinds of evidence</a> · <a href="#part-a-4">Worked example</a></span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">Step 5</span>
+      <strong><a href="#four-ways">Futuring adaptation.</a></strong> How will you collect that evidence from one step into the future, and not only about today?
+      <span class="d6500-step-out">Why it matters: this is what makes it an A3 method and not an audit of today.<br>Go to: <a href="#four-ways">Four ways</a> · <a href="#two-deletion">Two-deletion test</a> · <a href="A3_Methods_Guide.html#futuring">Futuring techniques</a> · <a href="#part-a-5">Worked example</a></span>
+    </li>
+    <li>
+      <span class="d6500-step-kind">Step 6</span>
+      <strong><a href="#grounded-claim">Grounded future claim.</a></strong> What could you say at the end, and what would it rest on?
+      <span class="d6500-step-out">Why it matters: this leads to your strongest-claim statement and your criteria (Section 4).<br>Go to: <a href="#grounded-claim">Claim frame</a> · <a href="#claim-labels">Labels</a> · <a href="#into-section-4">Strongest claim and criteria</a></span>
+    </li>
+  </ol>
+
+  <h2 id="mechanism-to-lens">Step 2 to Step 3: from mechanism to lens</h2>
+
+  <div class="d6500-table-wrap"><table class="d6500-table"><colgroup></colgroup><thead><tr><th scope="col">If the key mechanism is…</th><th scope="col">Start from this lens</th><th scope="col">Method guide lens</th></tr></thead><tbody><tr><td>People’s behaviour</td><td class="d6500-plain">COM-B or the Theoretical Domains Framework; Diffusion of Innovations or RE-AIM if the behaviour is taking it up and keeping it</td><td class="d6500-plain"><a href="A3_Methods_Guide.html#lens-3">Lens 3</a>; <a href="A3_Methods_Guide.html#lens-5">Lens 5</a></td></tr><tr><td>How well a process or organisation works</td><td class="d6500-plain">Normalisation Process Theory; NASSS if the process depends on technology or infrastructure working</td><td class="d6500-plain"><a href="A3_Methods_Guide.html#lens-2">Lens 2</a>; <a href="A3_Methods_Guide.html#lens-1">Lens 1</a></td></tr><tr><td>Social factors: routines, relationships, norms, power</td><td class="d6500-plain">Social practice theory; Value Sensitive Design or power–interest mapping</td><td class="d6500-plain"><a href="A3_Methods_Guide.html#lens-6">Lens 6</a>; <a href="A3_Methods_Guide.html#lens-7">Lens 7</a></td></tr></tbody></table></div>
+
+  <p>Rules and funding (<a href="A3_Methods_Guide.html#lens-4">Lens 4</a>) and harm and exclusion (<a href="A3_Methods_Guide.html#lens-8">Lens 8</a>) usually work as a second lens: they show what limits the mechanism, or what could go wrong when it works. This is the same idea as the method guide’s <a href="A3_Methods_Guide.html#decision-step-3">“If your intervention mainly…” list</a>, now starting from the mechanism.</p>
+
+  <h2 id="four-ways">Step 5: four ways to collect evidence from one step into the future</h2>
+
+  <p>No evidence comes from the future. So your method has to collect evidence now, in a way that reaches forward. There are four ways to do this. Most good methods combine two.</p>
+
+  <div class="d6500-table-wrap"><table class="d6500-table"><colgroup><col style="width:28%"><col style="width:32%"><col style="width:20%"><col style="width:20%"></colgroup><thead><tr><th scope="col">Way</th><th scope="col">What you do</th><th scope="col">What grounds it</th><th scope="col">The gap to name</th></tr></thead><tbody><tr><td>1 Stand people in the future<span class="d6500-tag">Method guide: <a href="A3_Methods_Guide.html#tech-timeline">timeline at time points</a>; <a href="A3_Methods_Guide.html#tech-pre-mortem">pre-mortem in the future</a></span></td><td class="d6500-plain">Give people who hold the role a short scenario set at Year 1 or Year 3. Ask what they would do, and why. Build the scenario from your evidence.</td><td class="d6500-plain">The people hold the role. The scenario rests on documents and cases.</td><td class="d6500-plain">What people expect, not what they did.</td></tr><tr><td>2 Find where the future already exists<span class="d6500-tag">Method guide: <a href="A3_Methods_Guide.html#tech-timeline">timeline at time points</a>; <a href="A3_Methods_Guide.html#tech-backcasting">backcasting</a></span></td><td class="d6500-plain">Study a place, a group or an earlier time where something like your intervention has already happened.</td><td class="d6500-plain">Real outcomes that already happened.</td><td class="d6500-plain">It is never quite your system. Argue what transfers.</td></tr><tr><td>3 Measure now, then move it forward<span class="d6500-tag">Method guide: <a href="A3_Methods_Guide.html#tech-futures-wheel">Futures Wheel</a> (evidence on every arrow); <a href="A3_Methods_Guide.html#tech-three-horizons">Three Horizons</a>; <a href="A3_Methods_Guide.html#tech-futures-cone">futures cone</a></span></td><td class="d6500-plain">Measure the parts of your lens as they are today. Then use the futuring technique to reason, step by step, how the intervention shifts them.</td><td class="d6500-plain">Every step starts from something you measured.</td><td class="d6500-plain">The forward steps are your reasoning. Label them as inferred.</td></tr><tr><td>4 Probe with something from the future<span class="d6500-tag">Design fiction (Week 10 lecture, scenario family; not on the method guide)</span></td><td class="d6500-plain">Make an artefact from Year 3 (a mock screen, a letter, a news story, a policy) and record how people react to it.</td><td class="d6500-plain">The reactions are real, and collected now.</td><td class="d6500-plain">You made the artefact, so your design shapes the reactions.</td></tr></tbody></table></div>
+
+  <div class="d6500-panel d6500-panel--action">
+    <h3>The lens decides what you look at. The futuring technique decides from when, or where, you look.</h3>
+    <p>If your scenario does not ask about the parts of your lens, the two are not connected yet. If the parts of your lens are only asked about today, you have not reached the future yet.</p>
+  </div>
+
+  <h2 id="two-deletion">Check your method: the two-deletion test</h2>
+
+  <div class="d6500-table-wrap"><table class="d6500-table"><colgroup><col style="width:38%"><col style="width:62%"></colgroup><thead><tr><th scope="col">Delete…</th><th scope="col">Then ask</th></tr></thead><tbody><tr><td>The futuring technique</td><td class="d6500-plain">Would the evidence you collect be any different? If not, the futuring is decoration and you have an audit of today. If it would, the futuring is doing real work.</td></tr><tr><td>The evidence</td><td class="d6500-plain">Does your future still stand? If it does, it is speculation. Every time point needs something you collected or read underneath it.</td></tr></tbody></table></div>
+
+  <h2 id="grounded-claim">Step 6: the grounded future claim</h2>
+
+  <div class="d6500-panel d6500-panel--note">
+    <p class="d6500-frame"><strong>Because</strong> [what your evidence shows now, or elsewhere] <strong>and</strong> [what your intervention changes, through the mechanism], <strong>I anticipate</strong> [what happens, at which time point, for whom], <strong>provided</strong> [the conditions it depends on]. <strong>I would be wrong if</strong> [what you would expect to see if the claim were false].</p>
+  </div>
+
+  <p id="claim-labels">A claim with conditions can be defended. A prediction with no conditions is speculation. Label each part of a claim so a reader can see what it rests on:</p>
+
+  <div class="d6500-table-wrap"><table class="d6500-table"><colgroup><col style="width:38%"><col style="width:62%"></colgroup><thead><tr><th scope="col">Label</th><th scope="col">What it means</th></tr></thead><tbody><tr><td>Documented</td><td class="d6500-plain">You can point to it: a source you read, or something you collected, including what people told you they expect.</td></tr><tr><td>Inferred</td><td class="d6500-plain">Your reading of documented evidence, and your reasoning from it, using your lens. The brief calls these interpretation and inference.</td></tr><tr><td>Anticipated</td><td class="d6500-plain">A plausible anticipation: what could reasonably happen at a future time point, with what it rests on shown.</td></tr><tr><td>Speculation</td><td class="d6500-plain">Nothing underneath it yet. Find evidence, say it is speculation, or drop it.</td></tr></tbody></table></div>
+
+  <div class="d6500-panel d6500-panel--info">
+    <h3 id="claim-labels-plausible">What “plausible anticipation” means</h3>
+    <p>The brief asks you to tell evidence apart from interpretation, inference and plausible anticipation. In plain words, a plausible anticipation is a future that could reasonably happen, given your evidence. It does not have to be certain, or even the most likely; it has to be believable, and you have to be able to show what makes it believable. On the method guide’s futures cone, it sits in the plausible band. A future with nothing underneath it is speculation.</p>
+  </div>
+
+  <div class="d6500-panel d6500-panel--note">
+    <h3>Using AI?</h3>
+    <p>You can use it, for example to draft a scenario or an artefact. Every line still needs evidence underneath it, and be ready to say why you used AI, how, and what you checked.</p>
+  </div>
+
+  <h2 id="practice">Practice: Parts A to D</h2>
+
+  <p>Part A is a worked example. Parts B and C are for pairs, with less support each time. Part D is your own project. Print this page to write on, or use the printed handout in class.</p>
+
+  <p class="d6500-lens-controls"><button type="button" onclick="document.querySelectorAll('.d6500-lens').forEach(d=&gt;d.open=true)">Open all</button><button type="button" onclick="document.querySelectorAll('.d6500-lens').forEach(d=&gt;d.open=false)">Close all</button></p>
+
+  <details class="d6500-lens" id="part-a" open="">
+    <summary>Part A · Worked example: who puts it right? <span class="d6500-lens-fam">Whole room</span></summary>
+    <div class="d6500-lens-body">
+      <div class="d6500-panel d6500-panel--info">
+        <h3>The case (Week 9)</h3>
+        <p>It is 2027. A new Australian law means engagement features (endless scroll, autoplay, recommendation feeds) must not operate for anyone under 16. To comply, a major platform now checks the age of every Australian user. For anyone assessed as under 16, the feed stops. The case is fictional and is modelled on a proposal that is not law.</p>
+        <p><em>This example is illustrative. The sources named are the kinds you would look for; check any detail before you rely on it. It shows the thinking, not a finished Section 4.</em></p>
+      </div>
+      <p><strong>Question (from Tuesday): When the age check gets it wrong, who puts it right, and what does that do to schools?</strong></p>
+
+      <h3 id="part-a-1">1 Leverage point</h3>
+      <p>The point where a wrong age decision gets corrected. The platform offers an appeal, but a student who is wrongly assessed as under 16 often needs an adult’s help to make one: a parent, or the school staff they already go to with online problems. So the leverage point is the correction pathway, and specifically its school end.</p>
+      <p><strong>Where did this come from?</strong> In the Week 9 Tomorrow Party, several zones saw this work drift to school wellbeing staff. That record is not evidence. It is a lead: it told us where to look.</p>
+
+      <h3 id="part-a-2">2 Mechanism</h3>
+      <div class="d6500-table-wrap"><table class="d6500-table"><colgroup></colgroup><thead><tr><th scope="col">Candidate</th><th scope="col">What it would mean here</th><th scope="col">Decision</th></tr></thead><tbody><tr><td>Behaviour</td><td class="d6500-plain">Whether students ask for help, or give up and find a way around the check.</td><td class="d6500-plain">Matters, but the question asks who fixes it, not what students do.</td></tr><tr><td>Social factors</td><td class="d6500-plain">Whether students come to trust some adults more, or less.</td><td class="d6500-plain">Relevant, but it follows from the main change.</td></tr><tr><td>How well a process works</td><td class="d6500-plain">Whether helping students correct wrong age decisions becomes workable, routine work in schools, or is absorbed by whoever is nearest, with no time or resources.</td><td class="d6500-plain"><strong>Chosen.</strong> “What does that do to schools?” depends on whether a new task gets done, and kept up.</td></tr></tbody></table></div>
+      <p><strong>What this choice leaves out:</strong> students’ own behaviour and their voice. That becomes a named gap (Perspectives).</p>
+
+      <h3 id="part-a-3">3 Lens</h3>
+      <p><strong>Normalisation Process Theory (<a href="A3_Methods_Guide.html#lens-2">Lens 2 on the method guide</a>).</strong> It explains how a new way of working becomes a normal part of everyday work, or does not. Its four parts become the things to look at: <strong>coherence</strong> (do staff see this as their work?), <strong>cognitive participation</strong> (who commits to it?), <strong>collective action</strong> (can the work actually be done?) and <strong>reflexive monitoring</strong> (does anyone record or review it?).</p>
+      <p><strong>Why not NASSS?</strong> NASSS would suit a question about whether the age-check technology works. Here the technology is given. The question is about new work inside an organisation.</p>
+      <p><strong>Why not harms modelling, as on Tuesday?</strong> Tuesday’s lecture used harms modelling (<a href="A3_Methods_Guide.html#lens-8">Lens 8</a>) on this question to show the loop. Starting from the mechanism shows that the question depends most on whether new work becomes routine, so NPT is the main lens here; harm still works well as a second lens.</p>
+
+      <h3 id="part-a-4">4 Evidence: what each part of the lens needs</h3>
+      <div class="d6500-table-wrap"><table class="d6500-table"><colgroup></colgroup><thead><tr><th scope="col">NPT part</th><th scope="col">What would show it</th><th scope="col">Evidence I could collect</th><th scope="col">Kind</th><th scope="col">Gap</th></tr></thead><tbody><tr><td>Coherence</td><td class="d6500-plain">How staff describe the task; whether any policy names it.</td><td class="d6500-plain">Scenario-prompt interviews with 2–3 school wellbeing staff; the school’s online-safety and wellbeing policy.</td><td class="d6500-plain">Scenario-prompt interviews; documents</td><td class="d6500-plain">Expectations, not behaviour. Policy is intent.</td></tr><tr><td>Cognitive participation</td><td class="d6500-plain">Who is made responsible, and who expects to be.</td><td class="d6500-plain">Education department and eSafety guidance to schools about the December 2025 minimum-age rule.</td><td class="d6500-plain">Documents</td><td class="d6500-plain">May say nothing about appeals.</td></tr><tr><td>Collective action</td><td class="d6500-plain">What an appeal asks for, and which students are most likely to need help.</td><td class="d6500-plain">Platforms’ help pages on challenging an age decision; the Age Assurance Technology Trial report (2025) on which ages are hardest to estimate.</td><td class="d6500-plain">Documents; published research</td><td class="d6500-plain">Help pages change. The trial tested technology, not schools.</td></tr><tr><td>Reflexive monitoring</td><td class="d6500-plain">Whether schools must record or review this kind of case.</td><td class="d6500-plain">The same policy documents; a Year 3 interview question.</td><td class="d6500-plain">Documents; scenario-prompt interviews</td><td class="d6500-plain">Silence in a policy does not prove nobody will record it.</td></tr><tr><td>Across all four</td><td class="d6500-plain">What schools actually did when a similar rule began.</td><td class="d6500-plain">How schools responded in the first months of the December 2025 minimum-age rule: reporting, department statements.</td><td class="d6500-plain">Comparable cases over time</td><td class="d6500-plain">A different rule, and only its early months.</td></tr></tbody></table></div>
+
+      <h3 id="part-a-5">5 Futuring adaptation</h3>
+      <p><strong>Two of the four ways, combined.</strong> Way 2 (find where the future already exists): the first months of the December 2025 rule are the closest thing to Year 1 that has already happened. Way 1 (stand people in the future): a Year 1 and a Year 3 scenario for wellbeing staff. Following the method guide’s advice for Lens 2, the Year 1 scenario asks about coherence and commitment; the Year 3 scenario asks about collective action and monitoring.</p>
+      <p><strong>Every line of the scenario comes from Step 4.</strong> What the appeal asks for comes from the help pages. Which students are misjudged comes from the trial report. That is what stops the scenario being a story.</p>
+      <div class="d6500-scenario">
+        <p><strong>Year 1 scenario (extract).</strong> It is March 2028. A Year 11 student comes to you. The platform has assessed her as under 16 and her feed has stopped. To appeal she must upload ID, or have a parent confirm her age. Her parent works away. What do you do? Who else would you involve? Is this part of your job?</p>
+        <p><strong>Year 3 scenario (extract).</strong> It is 2030. Cases like this now come to you regularly. What has changed in how your service runs? What has stopped to make room? Does anyone record these cases, or ask about them?</p>
+        <p><em>One detail has no anchor yet: how often cases come in. Rather than invent a number, run the Year 3 scenario in two versions (occasional and every week) and compare the answers. If you cannot ground a detail, make it a variable.</em></p>
+      </div>
+      <p><strong>The method in one sentence:</strong> <em>“I adapted Normalisation Process Theory by turning its four parts into a Year 1 and a Year 3 scenario, built from the platform’s appeal steps and the age-assurance trial findings, which I put to three school wellbeing staff and compared with how schools responded to the December 2025 rule, because my question is whether helping students correct wrong age decisions becomes routine school work or is quietly absorbed by whoever is nearest.”</em></p>
+      <div class="d6500-table-wrap"><table class="d6500-table"><colgroup><col style="width:38%"><col style="width:62%"></colgroup><thead><tr><th scope="col">Two-deletion test</th><th scope="col">Result</th></tr></thead><tbody><tr><td>Delete the scenarios</td><td class="d6500-plain">The evidence changes: I would collect only today’s policy and what happened in 2025, an audit plus history with nothing about Year 3. The futuring is doing real work.</td></tr><tr><td>Delete the evidence</td><td class="d6500-plain">The scenarios become my story about schools, and staff would be reacting to something I invented. The evidence is doing real work.</td></tr></tbody></table></div>
+
+      <h3 id="part-a-6">6 A grounded future claim this method could produce</h3>
+      <p><em>This is the shape of a claim, not a finding. The real claim depends on what the evidence shows.</em></p>
+      <div class="d6500-panel d6500-panel--note">
+        <p class="d6500-frame"><strong>Because</strong> school policy makes wellbeing staff the first contact for students’ online-safety problems <span class="d6500-tag">[documented]</span>, and because an appeal asks for ID or a parent’s confirmation that some students cannot easily get <span class="d6500-tag">[documented]</span>, <strong>I anticipate</strong> that by Year 1 wellbeing staff will be helping students through appeals without it being anyone’s assigned task <span class="d6500-tag">[anticipated: rests on what staff say in the Year 1 scenario]</span>, <strong>provided</strong> the platform does not resolve most appeals on its own within days. By Year 3, this unassigned work is likely to go unrecorded <span class="d6500-tag">[inferred, from the monitoring part of NPT and the policy’s silence]</span>. <strong>I would be wrong if</strong> staff say they would refer these cases elsewhere, or if schools did not take on this work after the 2025 rule.</p>
+      </div>
+
+      <h3 id="into-section-4">Into Section 4: strongest claim and criteria</h3>
+      <p><strong>Strongest claim.</strong> If everything goes to plan, this method can show whether the staff who would carry this work see it as theirs and expect to keep it up at Year 3, and which part of NPT is most likely to fail first, grounded in current policy and one comparable case. <strong>It cannot show</strong> how many students will need help, what students themselves experience, or what actually happens in schools in 2030.</p>
+      <div class="d6500-table-wrap"><table class="d6500-table"><colgroup><col style="width:38%"><col style="width:62%"></colgroup><thead><tr><th scope="col">Criterion</th><th scope="col">My method works well on this if…, which I will know because…</th></tr></thead><tbody><tr><td>Grounding</td><td class="d6500-plain">every line of the Year 1 and Year 3 scenarios traces to a named document or to the 2025 case, which I will know because my scenario table gives a source for each line.</td></tr><tr><td>Perspectives</td><td class="d6500-plain">it includes at least two roles who would do the work, not only a principal, which I will know from who I interviewed. Students are named as missing.</td></tr><tr><td>Answerability</td><td class="d6500-plain">the interviews give answers on all four parts of NPT at both time points, which I will know by coding the notes against the four parts and marking any gaps.</td></tr></tbody></table></div>
+    </div>
+  </details>
+
+  <details class="d6500-lens" id="part-b">
+    <summary>Part B · Your turn, partly done: who is shut out? <span class="d6500-lens-fam">Pairs</span></summary>
+    <div class="d6500-lens-body">
+      <p>In pairs. Steps 1 to 3 are done for you. Read them, then complete Steps 4 to 6. Use your Tuesday brainstorm (worksheet page 1): it was on this question.</p>
+      <p><strong>Question (from Tuesday’s brainstorm): Which students does the age check shut out, and what happens to them by Year 3?</strong></p>
+      <h3>1 Leverage point (done)</h3>
+      <p>The moment a young person is assessed as under 16, rightly or wrongly, and their feed stops. The question is about what they do next. Note that “shut out” covers two groups: under-16s who are correctly assessed, and older students who are wrongly assessed. Choose one, or compare them.</p>
+      <h3>2 Mechanism (done)</h3>
+      <p><strong>Behaviour.</strong> What happens to them by Year 3 depends mainly on what they do: appeal, accept the plain feed, borrow an account, or move to smaller apps and group chats. Considered and set aside: how well a process works (the appeals pathway; that was Part A) and social factors (who they turn to; that is Part C).</p>
+      <h3>3 Lens (done)</h3>
+      <p><strong>COM-B (<a href="A3_Methods_Guide.html#lens-3">Lens 3 on the method guide</a>).</strong> A behaviour happens only when a person has the <strong>capability</strong> (knowledge, skills), the <strong>opportunity</strong> (time, resources, what people around them do) and the <strong>motivation</strong> (plans, habits, emotions). For example, a student can only borrow an account if they know how, have someone to borrow from, and want the feed back enough to bother.</p>
+      <h3>4 Evidence (first row done; complete the rest)</h3>
+      <div class="d6500-table-wrap"><table class="d6500-table"><colgroup></colgroup><thead><tr><th scope="col">COM-B part</th><th scope="col">What would show it</th><th scope="col">Evidence you could collect</th><th scope="col">Kind</th><th scope="col">Gap</th></tr></thead><tbody><tr><td>Capability</td><td class="d6500-plain">What young people know about getting around age checks, or about appealing.</td><td class="d6500-plain">Published research or reporting on workarounds since the December 2025 rule.</td><td class="d6500-plain">Comparable cases over time; published research</td><td class="d6500-plain">The workarounds reported may be the most visible ones, not the most common.</td></tr><tr><td>Opportunity</td><td class="d6500-fill"></td><td class="d6500-fill"></td><td class="d6500-fill"></td><td class="d6500-fill"></td></tr><tr><td>Motivation</td><td class="d6500-fill"></td><td class="d6500-fill"></td><td class="d6500-fill"></td><td class="d6500-fill"></td></tr></tbody></table></div>
+      <p><strong>Who could you ask?</strong> <em>Under-18s need a course coordinator’s advice first. Who could stand in for them, and what gap does that leave?</em></p>
+      <h3>5 Futuring adaptation</h3>
+      <div class="d6500-table-wrap"><table class="d6500-table"><colgroup><col style="width:38%"><col style="width:62%"></colgroup><thead><tr><th scope="col">Prompt</th><th scope="col">Your answer</th></tr></thead><tbody><tr><td>Which one or two of the four ways, and why? <span class="d6500-tag">Hint: is there anywhere this behaviour’s future has already happened?</span></td><td class="d6500-fill d6500-fill--tall"></td></tr><tr><td>The first line of your Year 1 or Year 3 scenario, or your artefact <span class="d6500-tag">Which part of COM-B does it ask about? What in it comes from Step 4?</span></td><td class="d6500-fill d6500-fill--tall"></td></tr><tr><td>Your method in one sentence <span class="d6500-tag">“I adapted COM-B by … because …”</span></td><td class="d6500-fill d6500-fill--tall"></td></tr><tr><td>Delete the futuring technique</td><td class="d6500-fill"></td></tr><tr><td>Delete the evidence</td><td class="d6500-fill"></td></tr></tbody></table></div>
+      <h3>6 Grounded future claim and strongest claim</h3>
+      <div class="d6500-table-wrap"><table class="d6500-table"><colgroup><col style="width:38%"><col style="width:62%"></colgroup><thead><tr><th scope="col">Part of the claim</th><th scope="col">Your answer</th></tr></thead><tbody><tr><td>Because</td><td class="d6500-fill"></td></tr><tr><td>and</td><td class="d6500-fill"></td></tr><tr><td>I anticipate</td><td class="d6500-fill"></td></tr><tr><td>provided</td><td class="d6500-fill"></td></tr><tr><td>I would be wrong if</td><td class="d6500-fill"></td></tr><tr><td>Strongest claim: what could this method show, and what could it not?</td><td class="d6500-fill d6500-fill--tall"></td></tr></tbody></table></div>
+      <p><em>Label each part: documented, inferred, anticipated or speculation.</em></p>
+    </div>
+  </details>
+
+  <details class="d6500-lens" id="part-c">
+    <summary>Part C · Stretch: from the question alone <span class="d6500-lens-fam">Pairs who finish Part B</span></summary>
+    <div class="d6500-lens-body">
+      <p>Same system, a third question. Only Step 1 is given.</p>
+      <p><strong>Question: When something goes wrong online, who will young people turn to by Year 3?</strong></p>
+      <p><em>This question comes from the Week 9 record. One zone’s parent role, speaking from 2032, said the ban taught her daughter that “when something goes wrong online, you don’t tell your parents”. That is a lead, not evidence.</em></p>
+      <p><strong>1 Leverage point (done):</strong> the moment a young person who is not meant to be on the platform runs into trouble there, and decides whether to tell an adult.</p>
+      <div class="d6500-table-wrap"><table class="d6500-table"><colgroup><col style="width:38%"><col style="width:62%"></colgroup><thead><tr><th scope="col">Step</th><th scope="col">Your answer</th></tr></thead><tbody><tr><td>2 Mechanism</td><td class="d6500-fill"></td></tr><tr><td>3 Lens</td><td class="d6500-fill"></td></tr><tr><td>4 Evidence</td><td class="d6500-fill d6500-fill--tall"></td></tr><tr><td>5 Futuring adaptation</td><td class="d6500-fill d6500-fill--tall"></td></tr><tr><td>6 Grounded future claim</td><td class="d6500-fill d6500-fill--tall"></td></tr></tbody></table></div>
+      <div class="d6500-panel d6500-panel--action">
+        <h3>Compare Parts A, B and C</h3>
+        <p>Same system, three mechanisms. What changed in Steps 3 to 6 because the mechanism changed? Write one sentence.</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="d6500-lens" id="part-d">
+    <summary>Part D · Your own project <span class="d6500-lens-fam">Individual</span></summary>
+    <div class="d6500-lens-body">
+      <p>Run your own A3 question through the chain. Most of you will keep your Week 10 candidate method, and now be able to say why it suits your question. Some will find the lens does not match the mechanism. Finding that now is a good result: record it in your log.</p>
+      <div class="d6500-table-wrap"><table class="d6500-table"><colgroup><col style="width:38%"><col style="width:62%"></colgroup><thead><tr><th scope="col">Step</th><th scope="col">Your project</th></tr></thead><tbody><tr><td>Your question</td><td class="d6500-fill"></td></tr><tr><td>1 Leverage point</td><td class="d6500-fill"></td></tr><tr><td>2 Mechanism <span class="d6500-tag">Which candidates did you consider? Why this one? What does it leave out?</span></td><td class="d6500-fill d6500-fill--tall"></td></tr><tr><td>3 Lens <span class="d6500-tag">Why this lens, and not the nearest alternative?</span></td><td class="d6500-fill d6500-fill--tall"></td></tr><tr><td>4 Evidence <span class="d6500-tag">One line per part of the lens: what, kind, gap. Start from page 2 of Tuesday’s worksheet.</span></td><td class="d6500-fill d6500-fill--tall"></td></tr><tr><td>5 Futuring adaptation <span class="d6500-tag">Which ways? <a href="#two-deletion">Two-deletion test</a> passed?</span></td><td class="d6500-fill d6500-fill--tall"></td></tr><tr><td>6 Grounded future claim <span class="d6500-tag">Because … and … I anticipate … provided … I would be wrong if …</span></td><td class="d6500-fill d6500-fill--tall"></td></tr><tr><td>Strongest claim</td><td class="d6500-fill d6500-fill--tall"></td></tr></tbody></table></div>
+    </div>
+  </details>
+
+  <p class="d6500-foot">DECO6500 Advanced Human–Computer Interaction · Semester 2, 2026 · Week 11 · From Your Question to Your Method (v0.2). Use it with the <a href="A3_Methods_Guide.html">Week 10 method guide</a>.</p>
+
+</div>
+
+      <aside class="notice notice--neutral page-note">
+        <h2>Learn.UQ Boundary</h2>
+        <p>This page supports your A3 work. The official task sheet, criteria, submission and grades are in <a href="https://learn.uq.edu.au/ultra/courses/_208358_1/outline" target="_blank" rel="noopener noreferrer">Learn.UQ</a>.</p>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p>DECO6500 course website. Institutional functions remain in Learn.UQ.</p>
+      </div>
+    </footer>
+
+
+</body></html>

@@ -1,0 +1,79 @@
+/*
+  site.css — shared page shell
+  ----------------------------
+  Every page links this file. It provides the base layer and the components
+  that appear on effectively every page, plus the composition classes shared
+  across more than one page type.
+
+  Components used by only a few pages are NOT imported here. They live in the
+  per-page-type stylesheets alongside this one:
+
+    dashboard.css   hero                          → / (Dashboard)
+    prose.css       table, media placeholder      → long-form content pages
+
+  Pages link this file first, then any per-page-type stylesheet they need.
+
+  Import order matters:
+  - base/ before components/, so components can override base.
+  - inactive-link.css AFTER nav.css and card.css, because it overrides
+    .primary-nav a, .local-nav a and .card[href]:hover.
+  - forced-colors.css LAST, so its accessibility overrides win. Each per-page
+    stylesheet imports it again after its own components, for the same reason.
+
+  See docs/architecture/DECISION_LOG.md DL-005.
+*/
+
+@import "../base/variables.css";
+@import "../base/reset.css";
+@import "../base/typography.css";
+@import "../base/layout.css";
+
+@import "../components/skip-link.css";
+@import "../components/header.css";
+@import "../components/nav.css";
+@import "../components/breadcrumb.css";
+@import "../components/card.css";
+@import "../components/notice.css";
+@import "../components/inactive-link.css";
+@import "../components/footer.css";
+
+@import "../base/forced-colors.css";
+
+/* ---------------------------------------------------------------
+   Shared page composition
+   Used across more than one page type. Page-type-specific
+   composition belongs in the relevant per-page stylesheet.
+   --------------------------------------------------------------- */
+
+/* Marks content as provisional. Dashboard, Week 1, Support, Teamwork. */
+.placeholder-note {
+  color: var(--color-text-secondary);
+  font-size: var(--step-small);
+  font-weight: var(--weight-bold);
+}
+
+/* Auto-fitting card row. Dashboard, Weekly Learning, Resources, Teamwork. */
+.panel-grid {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+}
+
+/* Knowledge-space index cards. Dashboard, Course Overview, Assessments. */
+.knowledge-space-list {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.knowledge-space-list li {
+  margin: 0;
+}
+
+/* Trailing note separated from the content above it. Most subpages. */
+.page-note {
+  margin-block-start: var(--space-xl);
+}
